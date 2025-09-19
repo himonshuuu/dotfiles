@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+escape_json() {
+  sed 's/\\/\\\\/g; s/\"/\\\"/g; s/\t/  /g; s/\r//g; s/\n/ /g'
+}
+
+declare -A WEATHER_CODES=(
+    ["113"]="☀️" ["116"]="⛅" ["119"]="☁️" ["122"]="☁️" ["143"]="☁️"
+    ["176"]="🌧️" ["179"]="🌧️" ["182"]="🌧️" ["185"]="🌧️" ["200"]="⛈️"
+    ["227"]="🌨️" ["230"]="🌨️" ["248"]="☁️" ["260"]="☁️" ["263"]="🌧️"
+    ["266"]="🌧️" ["281"]="🌧️" ["284"]="🌧️" ["293"]="🌧️" ["296"]="🌧️"
+    ["299"]="🌧️" ["302"]="🌧️" ["305"]="🌧️" ["308"]="🌧️" ["311"]="🌧️"
+    ["314"]="🌧️" ["317"]="🌧️" ["320"]="🌨️" ["323"]="🌨️" ["326"]="🌨️"
+    ["329"]="❄️" ["332"]="❄️" ["335"]="❄️" ["338"]="❄️" ["350"]="🌧️"
+    ["353"]="🌧️" ["356"]="🌧️" ["359"]="🌧️" ["362"]="🌧️" ["365"]="🌧️"
+    ["368"]="🌧️" ["371"]="❄️" ["374"]="🌨️" ["377"]="🌨️" ["386"]="🌨️"
+    ["389"]="🌨️" ["392"]="🌧️" ["395"]="❄️"
+)
+
+CITY="${1:-Jorhat}"
+
+DEFAULT_OUTPUT='{"text":"☁️","tooltip":""}'
+
+WEATHER_DATA=$(curl -fsS "wttr.in/$CITY?format=j1" 2>/dev/null || true)
+
+if [[ -z "$WEATHER_DATA" ]] || ! echo "$WEATHER_DATA" | jq -e . >/dev/null 2>&1; then
+  echo "$DEFAULT_OUTPUT"
+  exit 0
+fi
+
+TEMP=$(echo "$WEATHER_DATA" | jq -r '.current_condition[0].temp_C')
+FEELS_LIKE=$(echo "$WEATHER_DATA" | jq -r '.current_condition[0].FeelsLikeC')
+WEATHER_CODE=$(echo "$WEATHER_DATA" | jq -r '.current_condition[0].weatherCode')
+WEATHER_DESC=$(echo "$WEATHER_DATA" | jq -r '.current_condition[0].weatherDesc[0].value // empty' | escape_json)
+WIND_SPEED=$(echo "$WEATHER_DATA" | jq -r '.current_condition[0].windspeedKmph')
+HUMIDITY=$(echo "$WEATHER_DATA" | jq -r '.current_condition[0].humidity')
+
+ICON="${WEATHER_CODES[$WEATHER_CODE]:-"☁️"}"
+
+if [[ -n "$FEELS_LIKE" ]] && [[ "$FEELS_LIKE" =~ ^-?[0-9]+$ ]] && [ "$FEELS_LIKE" -gt 0 ] && [ "$FEELS_LIKE" -lt 10 ]; then
+  FEELS_LIKE="+$FEELS_LIKE"
+fi
+
+TEXT="$ICON ${FEELS_LIKE}°C"
+TOOLTIP="<b>${WEATHER_DESC} ${TEMP}°C</b>\nFeels like: ${FEELS_LIKE}°C\nWind: ${WIND_SPEED}Km/h\nHumidity: ${HUMIDITY}%"
+
+jq -cn --arg text "$TEXT" --arg tooltip "$TOOLTIP" '{text:$text, tooltip:$tooltip}'

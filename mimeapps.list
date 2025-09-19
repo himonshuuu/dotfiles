@@ -1,11 +1,37 @@
 [Added Associations]
 application/gzip=nbtexplorer.desktop;
 application/x-zerosize=vivaldi-stable.desktop;
-application/yaml=code.desktop;
-image/png=swappy.desktop;
-text/plain=nvim.desktop;
+application/yaml=code.desktop;nvim.desktop;
+image/png=feh.desktop;firefox.desktop;swappy.desktop;gimp.desktop;
+text/plain=nvim.desktop;code.desktop;gedit.desktop;
+application/pdf=vivaldi-stable.desktop;okular.desktop;evince.desktop;
+application/x-partial-download=kitty.desktop;vlc.desktop;
+video/mp4=vlc.desktop;mpv.desktop;
+audio/mpeg=vlc.desktop;rhythmbox.desktop;
+application/msword=libreoffice-writer.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
+application/vnd.ms-excel=libreoffice-calc.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;
+application/zip=file-roller.desktop;ark.desktop;
+image/jpeg=feh.desktop;gimp.desktop;
 
 [Default Applications]
 x-scheme-handler/postman=Postman.desktop
 application/x-zerosize=vivaldi-stable.desktop
 text/plain=nvim.desktop
+text/html=vivaldi-stable.desktop
+x-scheme-handler/http=vivaldi-stable.desktop
+x-scheme-handler/https=vivaldi-stable.desktop
+x-scheme-handler/about=vivaldi-stable.desktop
+x-scheme-handler/unknown=vivaldi-stable.desktop
+application/x-partial-download=vlc.desktop
+video/mp4=vlc.desktop
+audio/mpeg=vlc.desktop
+application/pdf=okular.desktop
+image/jpeg=feh.desktop
+image/png=feh.desktop
+application/msword=libreoffice-writer.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
+application/vnd.ms-excel=libreoffice-calc.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop
+application/zip=file-roller.desktop

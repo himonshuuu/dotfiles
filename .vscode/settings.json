@@ -1,3 +1,5 @@
 {
   "explorer.excludeGitIgnore": true,
-  "css.validate": false
+  "css.validate": false,
+  "Lua.diagnostics.disable": ["undefined-global"]
+}

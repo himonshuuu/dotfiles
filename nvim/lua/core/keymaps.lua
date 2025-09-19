@@ -2,10 +2,9 @@ local map = vim.keymap.set
 
 vim.g.mapleader = ' '
 
--- toggle for NvimTree focus
 map('n', '<leader>e', function()
   if vim.bo.filetype == "NvimTree" then
-    vim.cmd('wincmd p') -- go to previous window
+    vim.cmd('wincmd p')
   else
     vim.cmd('NvimTreeFocus')
   end

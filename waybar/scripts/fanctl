@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 FAN_PATH="/sys/class/hwmon/hwmon4/pwm1_enable"
 FAN_RPM_PATH="/sys/class/hwmon/hwmon4/fan1_input"
 
