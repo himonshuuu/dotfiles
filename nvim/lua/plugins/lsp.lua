@@ -26,6 +26,7 @@ local servers = {
   cssls = {},
   html = {},
   jsonls = {},
+  gopls = {},
   lua_ls = {
     settings = {
       Lua = {
