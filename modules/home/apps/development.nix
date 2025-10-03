@@ -10,7 +10,7 @@
   programs.git = {
     enable = true;
     userName = "himonshuuu";
-    userEmail = "saikiahimangshu125@gmail.com";
+    userEmail = "mail@himonshuuu.co";
     extraConfig = {
       init.defaultBranch = "main";
       pull.rebase = false;
