@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+escape_json() {
+  sed 's/\\/\\\\/g; s/\"/\\\"/g; s/\t/  /g; s/\r//g; s/\n/ /g'
+}
+
+choose_player() {
+  local players
+  mapfile -t players < <(playerctl -l 2>/dev/null || true)
+  [[ ${#players[@]} -eq 0 ]] && return 1
+
+  local p
+  for p in "${players[@]}"; do
+    [[ "$p" == *spotify* ]] && echo "$p" && return 0
+  done
+
+  for p in "${players[@]}"; do
+    if playerctl -p "$p" status 2>/dev/null | grep -qE 'Playing|Paused'; then
+      echo "$p" && return 0
+    fi
+  done
+
+  return 1
+}
+
+PLAYER=$(choose_player || true)
+[[ -z "${PLAYER:-}" ]] && exit 1
+
+status=$(playerctl -p "$PLAYER" status 2>/dev/null || true)
+[[ "$status" != "Playing" && "$status" != "Paused" ]] && exit 1
+
+artist=$(playerctl -p "$PLAYER" metadata artist 2>/dev/null | escape_json || true)
+title=$(playerctl -p "$PLAYER" metadata title 2>/dev/null | escape_json || true)
+
+[[ -z "$title" ]] && exit 1
+
+if [[ "$status" == "Playing" ]]; then
+  icon="󰎆"
+else
+  icon="▶"
+fi
+
+text="$icon $title"
+if [[ -n "$artist" ]]; then
+  text+=" - $artist"
+fi
+
+tooltip="Status: $status"
+if [[ -n "$title" || -n "$artist" ]]; then
+  tooltip+="\n$title"
+  [[ -n "$artist" ]] && tooltip+=" by $artist"
+fi
+
+printf '{"text":"%s","tooltip":"%s","class":"mpris-%s"}\n' \
+  "$text" "$tooltip" "$status"

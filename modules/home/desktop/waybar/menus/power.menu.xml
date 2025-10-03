@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <requires lib="gtk" version="4.0" />
+    <object class="GtkMenu" id="menu">
+     
+        <child>
+            <object class="GtkMenuItem" id="shutdown">
+                <property name="label">  Shutdown</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkMenuItem" id="reboot">
+                <property name="label">  Reboot</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkMenuItem" id="sleep">
+                <property name="label">󰒲  Sleep</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkMenuItem" id="hibernate">
+                <property name="label">⏾  Hibernate</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkSeparatorMenuItem" id="separator1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkMenuItem" id="logout">
+                <property name="label">󰗼  Logout</property>
+            </object>
+        </child>
+    </object>
+</interface>

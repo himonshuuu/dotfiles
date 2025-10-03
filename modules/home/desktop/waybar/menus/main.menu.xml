@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <requires lib="gtk" version="4.0" />
+    <object class="GtkMenu" id="menu">
+        <child>
+            <object class="GtkMenuItem" id="record_menu">
+                <property name="label">  Record</property>
+                <child type="submenu">
+                    <object class="GtkMenu" id="record_submenu">
+                        <child>
+                            <object class="GtkMenuItem" id="record_region">
+                                <property name="label">  Record Region</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkMenuItem" id="record_monitor">
+                                <property name="label">  Record Monitor</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkMenuItem" id="record_window">
+                                <property name="label">  Record Window</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkMenuItem" id="record_status">
+                                <property name="label">  Show Status</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkMenuItem" id="record_stop">
+                                <property name="label">  Stop Recording</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkSeparatorMenuItem" id="separator1">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+            </object>
+        </child>
+        <child>
+            <object class="GtkMenuItem" id="update_system">
+                <property name="label">  Update System</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkMenuItem" id="open_terminal">
+                <property name="label">  Open Terminal</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkMenuItem" id="open_code">
+                <property name="label">  Open Code</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkMenuItem" id="open_file_manager">
+                <property name="label">  Open File Manager</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkSeparatorMenuItem" id="separator2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+            </object>
+        </child>
+        <child>
+            <object class="GtkMenuItem" id="exit">
+                <property name="label">󰩈  Exit</property>
+            </object>
+        </child>
+    </object>
+</interface>

@@ -1,0 +1,12 @@
+{
+    "nix.enableLanguageServer": true,
+    "nix.serverPath": "nil",
+    "nix.serverSettings": {
+        "nix": {
+            "flake": {
+                "enable": true
+            }
+        }
+    },
+    "css.validate": false,
+}

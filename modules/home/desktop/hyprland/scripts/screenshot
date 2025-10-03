@@ -1,0 +1,36 @@
+#! /usr/bin/env bash
+
+output_folder="$HOME/Pictures/Screenshots"
+filename="$(date +'%Y-%m-%d_%H-%M-%S')_screenshot.png"
+notif_timeout=5000
+
+case "$1" in
+    "window")
+        hyprshot -m window -o "$output_folder" -f "$filename" --notif-timeout "$notif_timeout"
+        ;;
+    "window-freeze") 
+        hyprshot -m window -o "$output_folder" -f "$filename" --notif-timeout "$notif_timeout" -z
+        ;;
+    "region")
+        hyprshot -m region -o "$output_folder" -f "$filename" --notif-timeout "$notif_timeout"
+        ;;
+    "region-freeze")
+        hyprshot -m region -o "$output_folder" -f "$filename" --notif-timeout "$notif_timeout" -z
+        ;;
+    "monitor")
+        hyprshot -m output -o "$output_folder" -f "$filename" --notif-timeout "$notif_timeout"
+        ;;
+    "monitor-freeze")
+        hyprshot -m output -o "$output_folder" -f "$filename" --notif-timeout "$notif_timeout" -z
+        ;;
+    "active")
+        hyprshot -m window -m active -o "$output_folder" -f "$filename" --notif-timeout "$notif_timeout"
+        ;;
+    "clipboard")
+        hyprshot -m window --clipboard-only --notif-timeout "$notif_timeout"
+        ;;
+    *)
+        echo "Usage: $0 [window|window-freeze|region|region-freeze|monitor|monitor-freeze|active|clipboard]"
+        exit 1
+        ;;
+esac

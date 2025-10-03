@@ -1,0 +1,260 @@
+#!/usr/bin/env bash
+
+# Author: github.com/himonshuuu
+# Description: Screen recording script for wf-recorder
+
+
+RECORDINGS_DIR="$HOME/Videos/Recordings"
+PID_FILE="/tmp/wf-recorder.pid"
+STATUS_FILE="/tmp/wf-recorder.status" 
+LOG_FILE="/tmp/wf-recorder.log"
+
+mkdir -p "$RECORDINGS_DIR"
+
+# Define colors once
+readonly RED='\033[0;31m'
+readonly GREEN='\033[0;32m'
+readonly YELLOW='\033[1;33m'
+readonly BLUE='\033[0;34m'
+readonly NC='\033[0m'
+
+show_help() {
+    cat << EOF
+Screen Recording Script for wf-recorder
+
+Usage: screenrec [OPTION]
+
+OPTIONS:
+    region      Record a selected region of the screen
+    monitor     Record entire monitor/output
+    window      Record a specific window
+    status      Show recording status (for waybar integration)
+    stop        Stop current recording
+    help        Show this help message
+
+EXAMPLES:
+    screenrec region        # Select area to record
+    screenrec monitor       # Record full screen
+    screenrec window       # Select window to record
+    screenrec status       # Get status for waybar
+    screenrec stop         # Stop recording
+
+Files are saved to: $RECORDINGS_DIR
+EOF
+}
+
+generate_filename() {
+    printf "%s/%s_%s.mp4" "$RECORDINGS_DIR" "$1" "$(date +"%Y%m%d_%H%M%S")"
+}
+
+get_active_audio_monitor() {
+    local default_sink
+    default_sink=$(pactl get-default-sink 2>/dev/null || pactl info | grep 'Default Sink:' | awk '{print $3}')
+    [[ -n "$default_sink" ]] && echo "${default_sink}.monitor" || return 1
+}
+
+is_recording() {
+    [[ -f "$PID_FILE" ]] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null
+}
+
+start_recording() {
+    local geometry="$1" filename="$2" description="$3"
+
+    if is_recording; then
+        echo -e "${RED}Recording already in progress!${NC}"
+        exit 1
+    fi
+
+    local audio_monitor
+    audio_monitor=$(get_active_audio_monitor) || {
+        echo -e "${RED}Could not determine active audio output monitor!${NC}"
+        exit 1
+    }
+
+    echo -e "${GREEN}Starting $description...${NC}"
+    echo -e "${BLUE}Output file: $filename${NC}"
+    echo -e "${BLUE}Audio source: $audio_monitor${NC}"
+
+    {
+        echo "recording"
+        date +%s
+        echo "$description"
+        echo "$filename"
+    } > "$STATUS_FILE"
+
+    local recorder_cmd="wf-recorder --audio=$audio_monitor -f $filename --codec=libx264 --pixel-format=yuv420p"
+    [[ -n "$geometry" ]] && recorder_cmd+=" -g $geometry"
+    
+    $recorder_cmd > "$LOG_FILE" 2>&1 &
+    local recorder_pid=$!
+    echo "$recorder_pid" > "$PID_FILE"
+
+    sleep 1
+    if ! kill -0 "$recorder_pid" 2>/dev/null; then
+        echo -e "${RED}Failed to start recording. Check $LOG_FILE for details.${NC}"
+        cleanup_files
+        exit 1
+    fi
+
+    echo -e "${GREEN}Recording started successfully!${NC}"
+    echo -e "${YELLOW}Use 'screenrec stop' to stop recording${NC}"
+}
+
+cleanup_files() {
+    rm -f "$PID_FILE" "$STATUS_FILE"
+}
+
+record_region() {
+    if ! command -v slurp &> /dev/null; then
+        echo -e "${RED}Error: slurp is required for region selection${NC}"
+        echo -e "${YELLOW}Install with: sudo pacman -S slurp${NC}"
+        exit 1
+    fi
+
+    echo -e "${BLUE}Select the region to record...${NC}"
+
+    local geometry
+    geometry=$(slurp 2>/dev/null) || {
+        echo -e "${RED}Region selection cancelled${NC}"
+        exit 1
+    }
+
+    start_recording "$geometry" "$(generate_filename region)" "region recording"
+}
+
+record_monitor() {
+    if ! command -v wlr-randr &> /dev/null; then
+        echo -e "${YELLOW}wlr-randr not found, recording all outputs${NC}"
+        start_recording "" "$(generate_filename fullscreen)" "full screen recording"
+        return
+    fi
+
+    echo -e "${BLUE}Available outputs:${NC}"
+    wlr-randr | grep -E "^[A-Z]" | nl -v0
+    echo
+
+    read -r -p "Select output number (0 for all): " output_num
+
+    if [[ "$output_num" == "0" ]]; then
+        start_recording "" "$(generate_filename fullscreen)" "full screen recording"
+        return
+    fi
+
+    local output_name
+    output_name=$(wlr-randr | grep -E "^[A-Z]" | sed -n "$((output_num + 1))p" | awk '{print $1}')
+
+    if [[ -n "$output_name" ]]; then
+        start_recording "" "$(generate_filename "monitor_${output_name}")" "monitor ($output_name) recording"
+    else
+        echo -e "${RED}Invalid selection${NC}"
+        exit 1
+    fi
+}
+
+record_window() {
+    if ! command -v slurp &> /dev/null; then
+        echo -e "${RED}Error: slurp is required for window selection${NC}"
+        echo -e "${YELLOW}Install with: sudo pacman -S slurp${NC}"
+        exit 1
+    fi
+
+    echo -e "${BLUE}Click on the window to record...${NC}"
+
+    local geometry
+    if command -v swaymsg &> /dev/null; then
+        geometry=$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp -f "%x,%y %wx%h")
+    else
+        geometry=$(slurp 2>/dev/null)
+    fi
+
+    [[ -z "$geometry" ]] && {
+        echo -e "${RED}Window selection cancelled${NC}"
+        exit 1
+    }
+
+    start_recording "$geometry" "$(generate_filename window)" "window recording"
+}
+
+stop_recording() {
+    if ! is_recording; then
+        echo -e "${YELLOW}No recording in progress${NC}"
+        exit 0
+    fi
+
+    local pid
+    pid=$(cat "$PID_FILE")
+
+    echo -e "${BLUE}Stopping recording...${NC}"
+    kill -INT "$pid" 2>/dev/null
+
+    local count=0
+    while kill -0 "$pid" 2>/dev/null && ((count < 10)); do
+        sleep 1
+        ((count++))
+    done
+
+    kill -0 "$pid" 2>/dev/null && kill -KILL "$pid" 2>/dev/null
+
+    if [[ -f "$STATUS_FILE" ]]; then
+        local start_time filename duration
+        {
+            read -r _
+            read -r start_time
+            read -r _
+            read -r filename
+        } < "$STATUS_FILE"
+        
+        duration=$(($(date +%s) - start_time))
+
+        echo -e "${GREEN}Recording stopped!${NC}"
+        echo -e "${BLUE}Duration: ${duration}s${NC}"
+        echo -e "${BLUE}File: $filename${NC}"
+
+        [[ -f "$filename" ]] && echo -e "${BLUE}Size: $(du -h "$filename" | cut -f1)${NC}"
+    else
+        echo -e "${GREEN}Recording stopped!${NC}"
+    fi
+
+    cleanup_files
+}
+
+show_status() {
+    if ! is_recording; then
+        echo '{"text": "", "class": "idle", "tooltip": "Not recording"}'
+        return
+    fi
+
+    if [[ ! -f "$STATUS_FILE" ]]; then
+        echo '{"text": "🔴 REC", "class": "recording", "tooltip": "Recording in progress"}'
+        return
+    fi
+
+    local start_time description duration mins secs
+    {
+        read -r _
+        read -r start_time
+        read -r description
+    } < "$STATUS_FILE"
+
+    duration=$(($(date +%s) - start_time))
+    mins=$((duration / 60))
+    secs=$((duration % 60))
+
+    local time_str
+    if ((mins > 0)); then
+        printf -v time_str "%dm%02ds" "$mins" "$secs"
+    else
+        printf -v time_str "%ds" "$secs"
+    fi
+
+    printf '{"text": "🔴 %s", "class": "recording", "tooltip": "Recording %s"}\n' "$time_str" "$description"
+}
+
+case "${1:-help}" in
+    region) record_region ;;
+    monitor) record_monitor ;;
+    window) record_window ;;
+    stop) stop_recording ;;
+    status) show_status ;;
+    help|*) show_help ;;
+esac

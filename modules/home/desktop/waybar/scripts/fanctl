@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+FAN_PATH="/sys/class/hwmon/hwmon6/pwm1_enable"
+FAN_RPM_PATH="/sys/class/hwmon/hwmon6/fan1_input"
+
+get_mode() {
+  case "$(cat "$FAN_PATH" 2>/dev/null)" in
+    0) echo "manual" ;;
+    2) echo "auto" ;;
+    *) echo "unknown" ;;
+  esac
+}
+
+get_rpm() {
+  cat "$FAN_RPM_PATH" 2>/dev/null || echo "0"
+}
+
+if [[ "$1" == "status" ]]; then
+  MODE=$(get_mode)
+  RPM=$(get_rpm)
+
+  case "$MODE" in
+    manual)
+      CLASS="fan-manual"
+      ICON="󰈐" 
+      ;;
+    auto)
+      CLASS="fan-auto"
+      ICON="󱜝" 
+      ;;
+    *)
+      CLASS="fan-unknown"
+      ICON="󱑬"  
+      ;;
+  esac
+
+  if ! [[ "$RPM" =~ ^[0-9]+$ ]]; then
+    RPM="0"
+  fi
+
+  TOOLTIP="Fan Mode: ${MODE}\\nRPM: ${RPM}"
+
+  printf '{"text": "%s %d RPM", "tooltip": "%s", "class": "%s"}\n' \
+    "$ICON" "$RPM" "$TOOLTIP" "$CLASS"
+else
+  MODE=$(get_mode)
+  if [[ "$MODE" == "auto" ]]; then
+    pkexec sh -c "echo 0 > $FAN_PATH"
+  else
+    pkexec sh -c "echo 2 > $FAN_PATH"
+  fi
+fi
