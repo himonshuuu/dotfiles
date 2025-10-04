@@ -1,7 +1,25 @@
 #!/usr/bin/env bash
-FAN_PATH="/sys/class/hwmon/hwmon6/pwm1_enable"
-FAN_RPM_PATH="/sys/class/hwmon/hwmon6/fan1_input"
 
+find_fan_hwmon() {
+  for dir in /sys/class/hwmon/hwmon*; do
+    if [[ -r "$dir/fan1_input" && -w "$dir/pwm1_enable" ]]; then
+      echo "$dir"
+      return
+    fi
+  done
+}
+
+HWMON_DIR="$(find_fan_hwmon)"
+
+if [[ -z "$HWMON_DIR" ]]; then
+  echo '{"text": "󱑬 N/A", "tooltip": "No fan detected", "class": "fan-unknown"}'
+  exit 1
+fi
+
+FAN_PATH="$HWMON_DIR/pwm1_enable"
+FAN_RPM_PATH="$HWMON_DIR/fan1_input"
+
+# --- Helper functions ---
 get_mode() {
   case "$(cat "$FAN_PATH" 2>/dev/null)" in
     0) echo "manual" ;;
@@ -14,6 +32,7 @@ get_rpm() {
   cat "$FAN_RPM_PATH" 2>/dev/null || echo "0"
 }
 
+# --- Main logic ---
 if [[ "$1" == "status" ]]; then
   MODE=$(get_mode)
   RPM=$(get_rpm)
@@ -21,31 +40,29 @@ if [[ "$1" == "status" ]]; then
   case "$MODE" in
     manual)
       CLASS="fan-manual"
-      ICON="󰈐" 
+      ICON="󰈐"
       ;;
     auto)
       CLASS="fan-auto"
-      ICON="󱜝" 
+      ICON="󱜝"
       ;;
     *)
       CLASS="fan-unknown"
-      ICON="󱑬"  
+      ICON="󱑬"
       ;;
   esac
 
-  if ! [[ "$RPM" =~ ^[0-9]+$ ]]; then
-    RPM="0"
-  fi
+  [[ "$RPM" =~ ^[0-9]+$ ]] || RPM="0"
 
   TOOLTIP="Fan Mode: ${MODE}\\nRPM: ${RPM}"
-
   printf '{"text": "%s %d RPM", "tooltip": "%s", "class": "%s"}\n' \
     "$ICON" "$RPM" "$TOOLTIP" "$CLASS"
+
 else
   MODE=$(get_mode)
   if [[ "$MODE" == "auto" ]]; then
-    pkexec sh -c "echo 0 > $FAN_PATH"
+    pkexec sh -c "echo 0 > '$FAN_PATH'"
   else
-    pkexec sh -c "echo 2 > $FAN_PATH"
+    pkexec sh -c "echo 2 > '$FAN_PATH'"
   fi
 fi

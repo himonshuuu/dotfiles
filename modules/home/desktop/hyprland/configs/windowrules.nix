@@ -30,8 +30,8 @@
     "float, class:^(org.gnome.font-viewer)$"
     "noblur,class:^()$,title:^()$"
     "float,class:^(xdg-desktop-portal-gtk)$"
-    "opacity 0.85 0.85, class:^(cursor)$"
-    "opacity 0.85 0.85, class:^(Code)$"
+    "opacity 0.9 0.9, class:^(cursor)$"
+    "opacity 0.9 0.9, class:^(Code)$"
     "opacity 0.7 0.7, class:^(kitty)$"
     "opacity 0.85 0.85, class:^(Spotify)$"
   ];
