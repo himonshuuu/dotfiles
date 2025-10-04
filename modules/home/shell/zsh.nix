@@ -24,9 +24,6 @@
 
       autoload -Uz compinit
       compinit
-
-      eval "$(ssh-agent -s)"
-      ssh-add -q ~/ssh-keys/github
     '';
 
     envExtra = ''

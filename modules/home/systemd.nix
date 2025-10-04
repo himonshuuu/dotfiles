@@ -30,4 +30,20 @@
       splash_offset = 1.0;
     };
   };
+
+  programs.ssh.enable = true;
+  programs.ssh.startAgent = true;
+
+  home.activation.startupScripts = [
+    {
+      name = "ssh-add-github-key";
+      text = ''
+        #!/usr/bin/env bash
+        # silently add custom GitHub key
+        pgrep ssh-agent >/dev/null || eval "$(ssh-agent -s)"
+        ssh-add -q ~/ssh-keys/github
+      '';
+    }
+  ];
+
 }
