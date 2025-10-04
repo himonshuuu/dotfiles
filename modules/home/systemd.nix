@@ -6,6 +6,7 @@
     gnome-keyring
     hyprpaper
     gvfs
+    openssh
   ];
 
   systemd.user.targets.hyprland-session.Unit.Wants = [
@@ -28,21 +29,6 @@
       ipc= "on";
       splash = true;
       splash_offset = 1.0;
-    };
-  };
-
-  services.ssh-agent = {
-    enable = true;
-    package = pkgs.openssh;
-  };
-
-  home.activation = {
-    ssh-add-github-key = lib.mkIf config.programs.ssh.enable {
-      after = [ "ssh-agent.service" ];
-      wantedBy = [ "ssh-agent.service" ];
-      script = ''
-        ssh-add -q ~/ssh-keys/github
-      '';
     };
   };
 
