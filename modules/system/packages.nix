@@ -9,5 +9,6 @@
     brightnessctl
     playerctl
     jq
+    gvfs
   ];
 }

@@ -16,16 +16,10 @@
     btop
     tree
     bat
-    gvfs
 
     wl-clipboard
 
     networkmanager
     blueman
   ];
-
-  services.gvfs = {
-    enable = true;
-    package = pkgs.gvfs;
-  };
 }

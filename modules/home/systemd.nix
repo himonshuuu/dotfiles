@@ -5,6 +5,7 @@
     polkit_gnome
     gnome-keyring
     hyprpaper
+    gvfs
   ];
 
   systemd.user.targets.hyprland-session.Unit.Wants = [
