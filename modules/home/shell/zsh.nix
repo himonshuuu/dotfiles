@@ -21,6 +21,12 @@
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
       source ${pkgs.zsh-completions}/share/zsh/site-functions
       source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+      autoload -Uz compinit
+      compinit
+
+      eval "$(ssh-agent -s)"
+      ssh-add ~/ssh-keys/github
     '';
 
     envExtra = ''
