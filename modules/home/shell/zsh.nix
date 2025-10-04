@@ -26,7 +26,7 @@
       compinit
 
       eval "$(ssh-agent -s)"
-      ssh-add ~/ssh-keys/github
+      ssh-add -q ~/ssh-keys/github
     '';
 
     envExtra = ''
