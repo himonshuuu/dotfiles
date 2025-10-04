@@ -77,7 +77,7 @@
   };
 
   "custom/mpris" = {
-    format = "{}";
+    format = "{} ";
     exec = "~/.config/waybar/scripts/playerinfo";
     return-type = "json";
     interval = 1;

@@ -69,7 +69,7 @@
     interval = 1;
   };
 
-  "power-profiles-daemon" = {
+  power-profiles-daemon = {
     format = "{icon}";
     tooltip-format = "{profile} : {driver}";
     tooltip = true;

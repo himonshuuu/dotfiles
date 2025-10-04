@@ -11,4 +11,8 @@
     ./users.nix
     ./packages.nix
   ];
+
+  services.power-profiles-daemon = {
+    enable = true;
+  };
 }

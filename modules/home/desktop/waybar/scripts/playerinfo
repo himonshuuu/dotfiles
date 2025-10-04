@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+return_not_playing() {
+  printf '{"text":"▶","tooltip":"Not playing","class":"mpris-not-playing"}\n'
+  exit 0
+}
+
 escape_json() {
   sed 's/\\/\\\\/g; s/\"/\\\"/g; s/\t/  /g; s/\r//g; s/\n/ /g'
 }
@@ -26,15 +31,13 @@ choose_player() {
 }
 
 PLAYER=$(choose_player || true)
-[[ -z "${PLAYER:-}" ]] && exit 1
+[[ -z "${PLAYER:-}" ]] && return_not_playing
 
 status=$(playerctl -p "$PLAYER" status 2>/dev/null || true)
-[[ "$status" != "Playing" && "$status" != "Paused" ]] && exit 1
+[[ "$status" != "Playing" && "$status" != "Paused" ]] && return_not_playing
 
 artist=$(playerctl -p "$PLAYER" metadata artist 2>/dev/null | escape_json || true)
 title=$(playerctl -p "$PLAYER" metadata title 2>/dev/null | escape_json || true)
-
-[[ -z "$title" ]] && exit 1
 
 if [[ "$status" == "Playing" ]]; then
   icon="󰎆"

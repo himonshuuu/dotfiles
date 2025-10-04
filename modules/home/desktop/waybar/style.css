@@ -84,10 +84,9 @@ tooltip {
 }
 
 #custom-keypress,
-#custom-cava,
+#custom-mpris,
 #taskbar,
 #power-profiles-daemon,
-#custom-mpris,
 #window,
 #battery,
 #pulseaudio,
@@ -99,7 +98,6 @@ tooltip {
 #backlight,
 #cpu,
 #memory,
-#custom-tlp,
 #custom-fanctl {
   background: @base;
   padding: 0 10px;
@@ -192,7 +190,7 @@ menuitem {
 #custom-mpris {
   color: @text;
   border-radius: 0 20px 20px 0;
-  /* padding: 3px; */
+  padding: 3px;
   margin: 3px 0;
 }
 
@@ -206,6 +204,7 @@ menuitem {
 }
 #bluetooth {
   color: @text;
+  border-radius: 0;
 }
 #pulseaudio {
   color: @text;
