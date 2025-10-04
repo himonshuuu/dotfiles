@@ -11,7 +11,7 @@
     extraGroups = ["networkmanager" "wheel" "audio" "video" "input"];
 
     packages = with pkgs; [
-      discord-ptb
+      vesktop
       spotify
       vivaldi
     ];
