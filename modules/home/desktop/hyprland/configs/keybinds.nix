@@ -16,7 +16,6 @@ in {
     "${mainMod}+SHIFT ALT, P, exec, ${scripts}/screenshot window-freeze"
     "${mainMod}+SHIFT, P, exec, ${scripts}/screenshot window"
     "${mainMod}, P, exec, ${scripts}/screenshot region"
-    "${mainMod}+ALT, P, exec, ${scripts}/screenshot region-freeze"
 
     "${mainMod}+SHIFT ALT, O, exec, ${scripts}/screenshot monitor-freeze"
     "${mainMod}+SHIFT, O, exec, ${scripts}/screenshot monitor"
