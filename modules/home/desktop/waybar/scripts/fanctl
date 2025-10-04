@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 
-find_fan_hwmon() {
-  for dir in /sys/class/hwmon/hwmon*; do
-    if [[ -r "$dir/fan1_input" && -w "$dir/pwm1_enable" ]]; then
-      echo "$dir"
-      return
+HWMON_DIR=$(find /sys/class/hwmon/hwmon* -maxdepth 1 -type d -exec sh -c '
+  for d do
+    [ -r "$d/name" ] || continue
+    if grep -qi "^asus$" "$d/name"; then
+      echo "$d"
+      exit
     fi
   done
-}
-
-HWMON_DIR="$(find_fan_hwmon)"
+' sh {} +)
 
 if [[ -z "$HWMON_DIR" ]]; then
   echo '{"text": "󱑬 N/A", "tooltip": "No fan detected", "class": "fan-unknown"}'
