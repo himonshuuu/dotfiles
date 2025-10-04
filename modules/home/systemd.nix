@@ -31,19 +31,19 @@
     };
   };
 
-  programs.ssh.enable = true;
-  programs.ssh.startAgent = true;
+  services.ssh-agent = {
+    enable = true;
+    package = pkgs.openssh;
+  };
 
-  home.activation.startupScripts = [
-    {
-      name = "ssh-add-github-key";
-      text = ''
-        #!/usr/bin/env bash
-        # silently add custom GitHub key
-        pgrep ssh-agent >/dev/null || eval "$(ssh-agent -s)"
+  home.activation = {
+    ssh-add-github-key = lib.mkIf config.programs.ssh.enable {
+      after = [ "ssh-agent.service" ];
+      wantedBy = [ "ssh-agent.service" ];
+      script = ''
         ssh-add -q ~/ssh-keys/github
       '';
-    }
-  ];
+    };
+  };
 
 }
