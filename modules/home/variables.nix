@@ -4,7 +4,7 @@
     XCURSOR_SIZE = "10";
     HYPRCURSOR_SIZE = "10";
     XCURSOR_THEME = "Bibata-Modern-Ice";
-    GTK_THEME = "Orchis-Dark-Compact:dark";
+    GTK_THEME = "Orchis-Dark-Compact";
     XCURSOR_THEME_CORE = "Bibata-Modern-Ice";
     GTK_CURSOR_THEME = "Bibata-Modern-Ice";
     GTK_CURSOR_SIZE = "10";

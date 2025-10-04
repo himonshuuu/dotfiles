@@ -7,5 +7,7 @@
     vlc
     ffmpeg
     pavucontrol
+
+    wf-recorder
   ];
 }

@@ -4,8 +4,8 @@
 
     blur = {
       enabled = true;
-      size = 1;
-      passes = 1;
+      size = 4;
+      passes = 6;
     };
   };
 }

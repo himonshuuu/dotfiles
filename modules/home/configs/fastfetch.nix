@@ -115,11 +115,6 @@
                     keyColor = "green";
                 }
                 "break"
-                {
-                    type = "colors";
-                    paddingLeft = 2;
-                    symbol = "circle";
-                }
             ];
         };
     };

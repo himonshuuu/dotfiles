@@ -3,6 +3,16 @@
 }: {
   programs.kitty = {
     enable = true;
+    extraConfig = ''
+      map rctrl+left send_text all \x1b[1;5D
+      map rctrl+right send_text all \x1b[1;5C
+      map rctrl+up send_text all \x1b[1;5A
+      map rctrl+down send_text all \x1b[1;5B
+      map rctrl+shift+left send_text all \x1b[1;6D
+      map rctrl+shift+right send_text all \x1b[1;6C
+      map rctrl+shift+up send_text all \x1b[1;6A
+      map rctrl+shift+down send_text all \x1b[1;6B
+    '';
     settings = {
       linux_display_server = "x11";
       font_family = "JetBrainsMono Nerd Font Mono";

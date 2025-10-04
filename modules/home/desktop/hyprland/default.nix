@@ -32,9 +32,9 @@ in {
       exec = startupsConfig.exec;
     };
   };
-  home.file.".config/hypr/scripts" = {
+  home.file."${config.xdg.configHome}/hypr/scripts" = {
     source = ./scripts;
     recursive = true;
     executable = true;
-  };
+  };  
 }

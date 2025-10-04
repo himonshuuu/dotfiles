@@ -6,7 +6,7 @@
       package = pkgs.gtk3;
     };
     style = {
-      name = "Orchis-dark";
+      name = "Orchis-Dark-Compact";
       package = pkgs.orchis-theme;
     };
   };

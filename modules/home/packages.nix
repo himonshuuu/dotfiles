@@ -6,6 +6,5 @@
     glib
     dconf
     gsettings-desktop-schemas
-    hyprpolkitagent
   ];
 }

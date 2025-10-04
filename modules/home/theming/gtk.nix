@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  themeName = "Orchis-dark";
+  themeName = "Orchis-Dark-Compact";
   themePkg = pkgs.orchis-theme;
   iconName = "Tela-circle";
   iconPkg = pkgs.tela-circle-icon-theme;
@@ -7,7 +7,7 @@
   fontPkg = pkgs.jetbrains-mono;
   cursorName = "Bibata-Modern-Ice";
   cursorPkg = pkgs.bibata-cursors;
-
+  cursorSize = 10;
   gtkCommonFont = {
     name = fontName;
     package = fontPkg;
@@ -24,11 +24,11 @@
   };
 
   gtk2ExtraConfig = ''
-    gtk-theme-name="Orchis-Dark"
-    gtk-icon-theme-name="Tela-circle-dark"
-    gtk-font-name="JetBrainsMonoNL Nerd Font Mono 10"
-    gtk-cursor-theme-name="Bibata-Modern-Ice"
-    gtk-cursor-theme-size=10
+    gtk-theme-name=${themeName}
+    gtk-icon-theme-name=${iconName}
+    gtk-font-name=${fontName}
+    gtk-cursor-theme-name=${cursorName}
+    gtk-cursor-theme-size=${toString cursorSize}
     gtk-toolbar-style=GTK_TOOLBAR_ICONS
     gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
     gtk-button-images=0
@@ -43,11 +43,11 @@
 
   gtk3And4ExtraConfig = {
     gtk-application-prefer-dark-theme = true;
-    gtk-theme-name = "Orchis-Dark";
-    gtk-icon-theme-name = "Tela-circle-dark";
-    gtk-font-name = "JetBrainsMonoNL Nerd Font Mono 10";
-    gtk-cursor-theme-name = "Bibata-Modern-Ice";
-    gtk-cursor-theme-size = 12;
+    gtk-theme-name = themeName;
+    gtk-icon-theme-name = iconName;
+    gtk-font-name = fontName;
+    gtk-cursor-theme-name = cursorName;
+    gtk-cursor-theme-size = cursorSize;
     gtk-toolbar-style = "GTK_TOOLBAR_ICONS";
     gtk-toolbar-icon-size = "GTK_ICON_SIZE_LARGE_TOOLBAR";
     gtk-button-images = 0;
