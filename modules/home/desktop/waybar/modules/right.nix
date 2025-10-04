@@ -74,8 +74,8 @@
     tooltip-format = "{profile} : {driver}";
     tooltip = true;
     format-icons = {
-      default = "󰓅";
-      performance = "󰓅";
+      default = "󰜥";
+      performance = "⚡";
       balanced = "";
       power-saver = "";
     };
