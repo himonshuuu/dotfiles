@@ -25,8 +25,11 @@
       autoload -Uz compinit
       compinit
 
-      eval "$(ssh-agent -s)"
-      ssh-add -q ~/ssh-keys/github
+      if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+        eval "$(ssh-agent -s 2>/dev/null)" >/dev/null
+      fi
+
+      ssh-add -q ~/ssh-keys/github 2>/dev/null || true
     '';
 
     envExtra = ''
