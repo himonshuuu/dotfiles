@@ -2,7 +2,7 @@
   description = "My NixOS configuration with Hyprland";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -13,11 +13,6 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ {
@@ -25,11 +20,10 @@
     nixpkgs,
     home-manager,
     hyprland,
-    hyprland-contrib,
     ...
   }: let
     system = "x86_64-linux";
-    pkgs = import nixpkgs {inherit system;};
+    pkgs = import nixpkgs {inherit system; config.allowUnfree = true;};
     user = "human";
   in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
