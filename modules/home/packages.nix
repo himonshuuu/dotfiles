@@ -6,5 +6,7 @@
     glib
     dconf
     gsettings-desktop-schemas
+    # polkit_gnome
+    mate.mate-polkit
   ];
 }

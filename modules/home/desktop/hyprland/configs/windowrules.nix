@@ -5,6 +5,7 @@
     "float, class:^(nm-connection-editor)$"
     "float, class:^(thunar)$"
     "float, class:^(polkit-gnome-authentication-agent-1)$"
+    "size 600 400, class:^(polkit-gnome-authentication-agent-1)$"
     "float, title:^(Open)$"
     "float, class:^(xdg-desktop-portal-gtk)$"
     "float, class:^(xdg-desktop-portal-kde)$"

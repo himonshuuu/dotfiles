@@ -11,7 +11,7 @@
   in
   {
   exec-once = [
-    "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 && notify-send 'Polkit agent started'"
+    "${pkgs.mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1 && notify-send 'Polkit agent started'"
     "waybar && notify-send 'Waybar started'"
     "hyprpaper && notify-send 'Hyprpaper started'"
     "nm-applet --indicator && notify-send 'NM applet started'"
@@ -21,6 +21,7 @@
   ];
 
   exec = [
+
     "hyprctl setcursor ${cursorName} ${toString cursorSize} && notify-send 'Hyprland cursor set to ${cursorName} ${toString cursorSize}'"
     "gsettings set org.gnome.desktop.interface cursor-theme ${cursorName} && notify-send 'Gsettings cursor set to ${cursorName}'"
     "gsettings set org.gnome.desktop.interface cursor-size ${toString cursorSize} && notify-send 'Gsettings cursor size set to ${toString cursorSize}'"

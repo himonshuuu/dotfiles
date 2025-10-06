@@ -1,5 +1,5 @@
 {
-  description = "Modular NixOS configuration with Hyprland";
+  description = "My NixOS configuration with Hyprland";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -48,7 +48,6 @@
           };
         }
         hyprland.nixosModules.default
-        {programs.hyprland.enable = true;}
       ];
     };
 
