@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ./audio.nix
     ./bluetooth.nix
     ./boot.nix
     ./hardware.nix
@@ -10,6 +9,7 @@
     ./security.nix
     ./users.nix
     ./packages.nix
+    ./services.nix
   ];
 
   services.power-profiles-daemon = {

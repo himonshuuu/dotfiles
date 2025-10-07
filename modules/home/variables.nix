@@ -1,6 +1,7 @@
 {...}: {
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    NIXPKGS_ALLOW_UNFREE="1";
     XCURSOR_SIZE = "10";
     HYPRCURSOR_SIZE = "10";
     XCURSOR_THEME = "Bibata-Modern-Ice";

@@ -17,11 +17,9 @@
 
     ./apps
 
-    ./browsers.nix
     ./fonts.nix
     ./packages.nix
     ./systemd.nix
-    ./xdg.nix
 
     inputs.hyprland.homeManagerModules.default
   ];
