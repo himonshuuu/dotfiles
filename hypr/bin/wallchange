@@ -1,243 +1,104 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-RANDOM=$$$(date +%s) # random seed
-
-WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
-STATE_FILE="$HOME/.cache/wallpaper_state"
-MONITOR=""
-RANDOM_MODE=false
+WALL_DIR="$HOME/Pictures/Wallpapers"
+STATE_FILE="$HOME/.cache/swww-wall-state"
 VERBOSE=false
-MODE="cycle"
+TRANSITION="grow"
+DURATION=1
+
+TRANSITIONS=(
+  "any"
+  "simple"
+  "grow"
+  "outer"
+  "center"
+  "left"
+  "right"
+  "top"
+  "bottom"
+  "wipe"
+  "fade"
+  "wave"
+  "random"
+)
+
+log() { $VERBOSE && echo "[+] $*"; }
+
+usage() {
+  cat <<EOF
+Usage: $(basename "$0") [OPTIONS]
+Options:
+  -d, --dir DIR            Wallpaper directory (default: ~/Pictures/Wallpapers)
+  -r, --random             Select random wallpaper
+  -n, --next               Go to next wallpaper in sequence
+  -p, --previous           Go to previous wallpaper in sequence
+  -t, --transition TYPE    Set transition type (or 'random' for random transition)
+  -T, --time SECONDS       Transition duration in seconds (default: 1)
+  -v, --verbose            Enable verbose logging
+  -h, --help               Show this help message
+
+Available transitions:
+  ${TRANSITIONS[*]}
+EOF
+  exit 0
+}
 
 while [[ $# -gt 0 ]]; do
-    case $1 in
-        -d|--dir)
-            WALLPAPER_DIR="$2"
-            shift 2
-            ;;
-        -m|--monitor)
-            MONITOR="$2"
-            shift 2
-            ;;
-        -r|--random)
-            RANDOM_MODE=true
-            MODE="random"
-            shift
-            ;;
-        -n|--next)
-            MODE="next"
-            shift
-            ;;
-        -p|--previous|--prev)
-            MODE="previous"
-            shift
-            ;;
-        -v|--verbose)
-            VERBOSE=true
-            shift
-            ;;
-        -h|--help)
-            echo "Usage: $0 [OPTIONS]"
-            echo "Options:"
-            echo "  -d, --dir DIR        Wallpaper directory (default: ~/Pictures/Wallpapers)"
-            echo "  -m, --monitor MON    Specific monitor (default: all monitors)"
-            echo "  -r, --random         Random wallpaper selection"
-            echo "  -n, --next           Go to next wallpaper in sequence"
-            echo "  -p, --previous, --prev   Go to previous wallpaper in sequence"
-            echo "  -v, --verbose        Verbose output"
-            echo "  -h, --help           Show this help"
-            echo ""
-            echo "Examples:"
-            echo "  $0                   # Cycle to next wallpaper"
-            echo "  $0 -n                # Go to next wallpaper"
-            echo "  $0 -p                # Go to previous wallpaper"
-            echo "  $0 -r                # Random wallpaper"
-            exit 0
-            ;;
-        *)
-            echo "Unknown option: $1"
-            exit 1
-            ;;
-    esac
+  case "$1" in
+    -d|--dir) WALL_DIR="$2"; shift 2 ;;
+    -r|--random) MODE="random"; shift ;;
+    -n|--next) MODE="next"; shift ;;
+    -p|--previous) MODE="previous"; shift ;;
+    -t|--transition) TRANSITION="$2"; shift 2 ;;
+    -T|--time) DURATION="$2"; shift 2 ;;
+    -v|--verbose) VERBOSE=true; shift ;;
+    -h|--help) usage ;;
+    *) echo "Unknown option: $1"; usage ;;
+  esac
 done
 
-log() {
-    if [ "$VERBOSE" = true ]; then
-        echo "[$(date '+%H:%M:%S')] $1"
-    fi
-}
-
-if [ ! -d "$WALLPAPER_DIR" ]; then
-    echo "Error: Wallpaper directory $WALLPAPER_DIR does not exist"
-    exit 1
+if ! pgrep -x "swww-daemon" > /dev/null; then
+  log "Starting swww-daemon..."
+  swww-daemon &
+  sleep 1
 fi
 
-WALLPAPERS=($(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" -o -iname "*.bmp" \) | sort))
+mapfile -t WALLS < <(find "$WALL_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" -o -iname "*.webp" \) | sort)
 
-if [ ${#WALLPAPERS[@]} -eq 0 ]; then
-    echo "Error: No image files found in $WALLPAPER_DIR"
-    exit 1
+if [[ ${#WALLS[@]} -eq 0 ]]; then
+  echo "No wallpapers found in $WALL_DIR"
+  exit 1
 fi
 
-log "Found ${#WALLPAPERS[@]} wallpapers in $WALLPAPER_DIR"
-
-get_current_index() {
-    if [ -f "$STATE_FILE" ]; then
-        local saved_wallpaper=$(cat "$STATE_FILE" 2>/dev/null)
-        for i in "${!WALLPAPERS[@]}"; do
-            if [[ "${WALLPAPERS[$i]}" == "$saved_wallpaper" ]]; then
-                echo $i
-                return
-            fi
-        done
-    fi
-    echo -1
-}
-
-save_current_wallpaper() {
-    echo "$1" > "$STATE_FILE"
-    log "Saved wallpaper to state file: $1"
-}
-
-CURRENT_INDEX=$(get_current_index)
-log "Current index from state file: $CURRENT_INDEX"
-
-if [ $CURRENT_INDEX -eq -1 ]; then
-    log "No valid state file, trying to detect current wallpaper from hyprctl"
-
-    CURRENT_WALLPAPER=""
-    
-    CURRENT_WALLPAPER=$(hyprctl hyprpaper listactive 2>/dev/null | grep -E '\.jpg|\.jpeg|\.png|\.webp|\.bmp' | head -n1)
-    
-    if [ -z "$CURRENT_WALLPAPER" ]; then
-        CURRENT_WALLPAPER=$(hyprctl hyprpaper listactive 2>/dev/null | sed -n 's/.*"\([^"]*\)".*/\1/p' | head -n1)
-    fi
-
-    if [ -z "$CURRENT_WALLPAPER" ]; then
-        CURRENT_WALLPAPER=$(hyprctl monitors 2>/dev/null | grep -o '/[^[:space:]]*\.\(jpg\|jpeg\|png\|webp\|bmp\)' | head -n1)
-    fi
-    
-    log "Current wallpaper from hyprctl: '$CURRENT_WALLPAPER'"
-    
-    if [ -n "$CURRENT_WALLPAPER" ]; then
-        for i in "${!WALLPAPERS[@]}"; do
-            if [[ "${WALLPAPERS[$i]}" == "$CURRENT_WALLPAPER" ]]; then
-                CURRENT_INDEX=$i
-                break
-            fi
-        done
-    fi
-    
-    log "Detected current index: $CURRENT_INDEX"
+index=0
+if [[ -f "$STATE_FILE" ]]; then
+  index=$(<"$STATE_FILE")
 fi
 
-if [ "$VERBOSE" = true ]; then
-    echo "Debug - listactive output:"
-    hyprctl hyprpaper listactive 2>/dev/null
-    echo "Debug - listloaded output:"
-    hyprctl hyprpaper listloaded 2>/dev/null
-    echo "Debug - state file content:"
-    if [ -f "$STATE_FILE" ]; then
-        cat "$STATE_FILE"
-    else
-        echo "No state file found"
-    fi
+case "$MODE" in
+  random)
+    index=$(( RANDOM % ${#WALLS[@]} ))
+    ;;
+  next)
+    index=$(( (index + 1) % ${#WALLS[@]} ))
+    ;;
+  previous)
+    index=$(( (index - 1 + ${#WALLS[@]}) % ${#WALLS[@]} ))
+    ;;
+  *)
+    index=$(( RANDOM % ${#WALLS[@]} ))
+    ;;
+esac
+
+echo "$index" > "$STATE_FILE"
+WALL="${WALLS[$index]}"
+
+if [[ "$TRANSITION" == "random" ]]; then
+  TRANSITION=${TRANSITIONS[$(( RANDOM % ${#TRANSITIONS[@]} ))]}
 fi
 
-get_monitors() {
-    hyprctl monitors -j 2>/dev/null | jq -r '.[].name' 2>/dev/null || hyprctl monitors 2>/dev/null | grep "Monitor" | awk '{print $2}'
-}
+log "Setting wallpaper: $WALL"
+log "Transition: $TRANSITION"
+log "Duration: ${DURATION}s"
 
-if [ -z "$MONITOR" ]; then
-    MONITORS=($(get_monitors))
-    log "Detected monitors: ${MONITORS[*]}"
-else
-    MONITORS=("$MONITOR")
-    log "Using specified monitor: $MONITOR"
-fi
-
-if [ "$MODE" = "random" ]; then
-    AVAILABLE_WALLPAPERS=()
-    for i in "${!WALLPAPERS[@]}"; do
-        if [[ "${WALLPAPERS[$i]}" != "$CURRENT_WALLPAPER" ]]; then
-            AVAILABLE_WALLPAPERS+=($i)
-        fi
-    done
-    
-    if [ ${#AVAILABLE_WALLPAPERS[@]} -eq 0 ]; then
-        NEXT_INDEX=0
-    else
-        RANDOM_PICK=$((RANDOM % ${#AVAILABLE_WALLPAPERS[@]}))
-        NEXT_INDEX=${AVAILABLE_WALLPAPERS[$RANDOM_PICK]}
-    fi
-    log "Random mode: selected index $NEXT_INDEX (avoiding current: $CURRENT_WALLPAPER)"
-elif [ "$MODE" = "next" ] || [ "$MODE" = "cycle" ]; then
-    log "Found current wallpaper at index: $CURRENT_INDEX"
-    
-    if [ $CURRENT_INDEX -eq -1 ]; then
-        NEXT_INDEX=0
-        log "Current wallpaper not found in directory, starting from index 0"
-    elif [ $CURRENT_INDEX -eq $((${#WALLPAPERS[@]} - 1)) ]; then
-        NEXT_INDEX=0
-        log "At last wallpaper, wrapping to index 0"
-    else
-        NEXT_INDEX=$((CURRENT_INDEX + 1))
-        log "Moving to next wallpaper at index $NEXT_INDEX"
-    fi
-    
-    log "Next mode: current index $CURRENT_INDEX, next index $NEXT_INDEX"
-elif [ "$MODE" = "previous" ]; then
-    log "Found current wallpaper at index: $CURRENT_INDEX"
-    
-    if [ $CURRENT_INDEX -eq -1 ]; then
-        NEXT_INDEX=$((${#WALLPAPERS[@]} - 1))
-        log "Current wallpaper not found in directory, starting from last index"
-    elif [ $CURRENT_INDEX -eq 0 ]; then
-        NEXT_INDEX=$((${#WALLPAPERS[@]} - 1))
-        log "At first wallpaper, wrapping to last index"
-    else
-        NEXT_INDEX=$((CURRENT_INDEX - 1))
-        log "Moving to previous wallpaper at index $NEXT_INDEX"
-    fi
-    
-    log "Previous mode: current index $CURRENT_INDEX, previous index $NEXT_INDEX"
-fi
-
-NEW_WALLPAPER="${WALLPAPERS[$NEXT_INDEX]}"
-echo "Changing wallpaper to: $(basename "$NEW_WALLPAPER")"
-
-LOADED_WALLPAPERS=$(hyprctl hyprpaper listloaded 2>/dev/null)
-if ! echo "$LOADED_WALLPAPERS" | grep -q "$NEW_WALLPAPER"; then
-    echo "Preloading wallpaper..."
-    if ! hyprctl hyprpaper preload "$NEW_WALLPAPER" 2>/dev/null; then
-        echo "Error: Failed to preload wallpaper"
-        exit 1
-    fi
-    log "Wallpaper preloaded successfully"
-else
-    log "Wallpaper already loaded"
-fi
-
-SUCCESS=false
-for monitor in "${MONITORS[@]}"; do
-    log "Applying wallpaper to monitor: $monitor"
-    if hyprctl hyprpaper wallpaper "$monitor,$NEW_WALLPAPER" 2>/dev/null; then
-        SUCCESS=true
-        log "Successfully applied to $monitor"
-    else
-        echo "Warning: Failed to apply wallpaper to monitor $monitor"
-    fi
-done
-
-if [ "$SUCCESS" = true ]; then
-    echo "Wallpaper changed successfully!"
-    
-    save_current_wallpaper "$NEW_WALLPAPER"
-    
-    log "Cleaning up old wallpapers..."
-    hyprctl hyprpaper unload all 2>/dev/null
-    hyprctl hyprpaper preload "$NEW_WALLPAPER" 2>/dev/null
-else
-    echo "Error: Failed to change wallpaper on any monitor"
-    exit 1
-fi
+swww img "$WALL" --transition-type "$TRANSITION" --transition-duration "$DURATION"

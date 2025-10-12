@@ -10,4 +10,8 @@
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
   <property name="last-details-view-column-widths" type="string" value="50,50,109,102,50,80,50,50,401,50,50,62,50,122"/>
   <property name="last-show-hidden" type="bool" value="true"/>
+  <property name="last-renamer-dialog-maximized" type="bool" value="true"/>
+  <property name="misc-single-click" type="bool" value="false"/>
+  <property name="misc-show-delete-action" type="bool" value="true"/>
+  <property name="misc-exec-terminal" type="string" value="kitty"/>
 </channel>
