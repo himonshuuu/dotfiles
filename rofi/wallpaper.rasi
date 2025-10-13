@@ -1,23 +1,24 @@
 * {
-    font: "JetBrainsMono Nerd Font 10";
+    font: "JetBrainsMono Nerd Font 9";
     icon-theme: "Tela-circle-blue-dark";
-    background: rgba(28, 28, 28, 0.95);
-    foreground: #ffffff;
-    selected-background: rgba(255, 255, 255, 0.15);
-    selected-foreground: #ffffff;
-    border-radius: 12px;
+    background: rgb(13, 13, 13);
+    foreground: #abb2bf;
+    selected-background: rgba(255, 255, 255, 0.5);
+    selected-foreground: rgb(255, 255, 255);
+    border-radius: 8px;
 }
 
 configuration {
-    modi: "drun";
     show-icons: true;
-    drun-display-format: "{name}";
-    alternate-row-colors: false;
+    display-drun: "";
+    display-run: "";
+    display-filebrowser: "";
+    display-window: "";
 }
 
 window {
-    width: 350px;
-    height: 378px;
+    width: 1100px;
+    height: 700px;
     transparency: "real";
     fullscreen: false;
     enabled: true;
@@ -25,26 +26,25 @@ window {
     spacing: 0px;
     border-radius: @border-radius;
     background-color: @background;
-    // border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 mainbox {
     enabled: true;
     spacing: 0px;
-    padding: 15px;
+    padding: 8px;
     orientation: vertical;
-    children: ["inputbar", "listbox"];
+    children: ["listbox", "inputbar"];
     background-color: transparent;
 }
 
 inputbar {
     enabled: true;
-    padding: 8px 12px;
-    spacing: 10px;
-    margin: 0px 0px 15px 0px;
-    background-color: rgba(255, 255, 255, 0.1);
+    padding: 6px;
+    spacing: 8px;
+    margin: 6px;
+    background-color: rgba(33, 37, 43, 0.29);
     text-color: @foreground;
-    border-radius: 8px;
+    border-radius: @border-radius;
     children: ["entry"];
 }
 
@@ -53,10 +53,9 @@ entry {
     padding: 4px;
     text-color: inherit;
     cursor: text;
-    placeholder: "Search";
-    placeholder-color: rgba(255, 255, 255, 0.5);
+    placeholder: "Search wallpapers...";
+    placeholder-color: #5c6370;
     background-color: transparent;
-    font: "SF Pro Text 13";
 }
 
 listbox {
@@ -68,11 +67,11 @@ listbox {
 }
 
 listview {
-    padding: 0px;
-    spacing: 4px;
+    padding: 8px;
+    spacing: 12px;
     enabled: true;
-    columns: 1;
-    rows: 6;
+    columns: 6;
+    rows: 3;
     cycle: true;
     dynamic: true;
     scrollbar: false;
@@ -86,23 +85,24 @@ listview {
 }
 
 element {
-    orientation: horizontal;
+    orientation: vertical;
     enabled: true;
-    spacing: 12px;
-    padding: 8px 12px;
+    spacing: 6px;
+    padding: 8px;
     cursor: pointer;
-    background-color: transparent;
-    color: @foreground;
-    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.10);
+    color: #abb2bf;
+    border-radius: 8px;
 }
 
 element selected.normal {
     background-color: @selected-background;
     text-color: @selected-foreground;
+    border: 3px;
 }
 
 element-icon {
-    size: 28px;
+    size: 120px;
     cursor: inherit;
     background-color: transparent;
     text-color: inherit;
@@ -110,16 +110,16 @@ element-icon {
 
 element-text {
     vertical-align: 0.5;
-    horizontal-align: 0.0;
+    horizontal-align: 0.5;
     cursor: inherit;
     background-color: transparent;
-    text-color: inherit;
-    font: "SF Pro Text 12";
+    text-color: #d7dae0;
+    font: "JetBrainsMono Nerd Font 8";
 }
 
 error-message {
     padding: 15px;
-    text-color: #ff6b6b;
+    text-color: #e06c75;
     background-color: @background;
     border-radius: @border-radius;
     children: ["textbox"];
@@ -131,3 +131,5 @@ textbox {
     vertical-align: 0.5;
     horizontal-align: 0.5;
 }
+
+

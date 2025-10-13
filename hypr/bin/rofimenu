@@ -1,53 +1,81 @@
 #!/bin/bash
- 
+
+readarray -t monData < <(
+    hyprctl -j monitors | jq -r '
+        .[] | select(.focused==true) | [
+            .width,
+            .height,
+            (.scale|tostring|gsub("\\."; "")),
+            .x,
+            .y,
+            .reserved[]
+        ] | @tsv
+    '
+)
+read -r mon_w mon_h mon_s mon_x mon_y mon_r0 mon_r1 mon_r2 mon_r3 <<< "${monData[0]}"
 readarray -t curPos < <(hyprctl cursorpos -j | jq -r '.x,.y')
-readarray -t monRes < <(hyprctl -j monitors | jq '.[] | select(.focused==true) | .width,.height,.scale,.x,.y')
-readarray -t offRes < <(hyprctl -j monitors | jq -r '.[] | select(.focused==true).reserved | map(tostring) | join("\n")')
 
-monRes[2]="$(echo "${monRes[2]}" | sed "s/\.//")"
-monRes[0]="$(( ${monRes[0]} * 100 / ${monRes[2]} ))"
-monRes[1]="$(( ${monRes[1]} * 100 / ${monRes[2]} ))"
-curPos[0]="$(( ${curPos[0]} - ${monRes[3]} ))"
-curPos[1]="$(( ${curPos[1]} - ${monRes[4]} ))"
 
-if [ "${curPos[0]}" -ge "$((${monRes[0]} / 2))" ] ; then
+mon_w=$(( mon_w * 100 / mon_s ))
+mon_h=$(( mon_h * 100 / mon_s ))
+cur_x=$(( ${curPos[0]} - mon_x ))
+cur_y=$(( ${curPos[1]} - mon_y ))
+
+if (( cur_x >= mon_w / 2 )); then
     x_pos="east"
-    x_off="-$(( ${monRes[0]} - ${curPos[0]} - ${offRes[2]} ))"
+    x_off="-$(( mon_w - cur_x - mon_r2 ))"
 else
     x_pos="west"
-    x_off="$(( ${curPos[0]} - ${offRes[0]} ))"
+    x_off="$(( cur_x - mon_r0 ))"
 fi
 
-if [ "${curPos[1]}" -ge "$((${monRes[1]} / 2))" ] ; then
+if (( cur_y >= mon_h / 2 )); then
     y_pos="south"
-    y_off="-$(( ${monRes[1]} - ${curPos[1]} - ${offRes[3]} ))"
+    y_off="-$(( mon_h - cur_y - mon_r3 ))"
 else
     y_pos="north"
-    y_off="$(( ${curPos[1]} - ${offRes[1]} ))"
+    y_off="$(( cur_y - mon_r1 ))"
 fi
 
-r_override="window{location:${x_pos} ${y_pos};anchor:${x_pos} ${y_pos};x-offset:${x_off}px;y-offset:${y_off}px;} "
+r_override="window{location:${x_pos} ${y_pos};anchor:${x_pos} ${y_pos};x-offset:${x_off}px;y-offset:${y_off}px;}"
 
- if pgrep -x rofi > /dev/null; then
-     killall rofi
-     exit 0
- fi
- 
- case "$1" in
-     "drun")
-         rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/drun.rasi
-         ;;
-    "clipboard")
-        selection=$(cliphist list | cut -d' ' -f2- | rofi -no-config -no-lazy-grab -dmenu -p "" -theme ~/.config/rofi/clipboard.rasi  -theme-str "${r_override}")
-        if [ -n "$selection" ]; then
-            echo -n "$selection" | wl-copy
-        fi
+
+if pgrep -x rofi > /dev/null; then
+    killall rofi
+    exit 0
+fi
+
+case "$1" in
+    drun)
+        rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/drun.rasi
         ;;
-     *)
-         echo "Usage: rofimenu [drun]"
-         exit 1
-         ;;
- esac
+    clipboard)
+        selection=$(cliphist list | cut -d' ' -f2- | rofi -no-config -no-lazy-grab -dmenu -p "" -theme ~/.config/rofi/clipboard.rasi -theme-str "$r_override")
+        [[ -n "$selection" ]] && echo -n "$selection" | wl-copy
+        ;;
+    wallpaper)
+        WALL_DIR="$HOME/Pictures/Wallpapers"
+        pgrep -x swww-daemon >/dev/null || { swww-daemon & sleep 0.5; }
 
- 
+        mapfile -t files < <(find "$WALL_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) | sort)
+        (( ${#files[@]} == 0 )) && { notify-send "Rofi Wallpaper" "No images found in $WALL_DIR"; exit 1; }
+
+        menu=$(for f in "${files[@]}"; do
+            bn=$(basename "$f")
+            printf "%s\x00icon\x1f%s\n" "$bn" "$f"
+        done | rofi -no-config -no-lazy-grab -dmenu -i -p "Wallpaper" -theme ~/.config/rofi/wallpaper.rasi)
+        [[ -z "$menu" ]] && exit 0
+
+        for f in "${files[@]}"; do
+            [[ $(basename "$f") == "$menu" ]] && { selection="$f"; break; }
+        done
+        [[ -z "$selection" ]] && exit 0
+
+        swww img "$selection" --transition-type wipe --transition-duration 2
+        ;;
+    *)
+        echo "Usage: rofimenu [drun|clipboard|wallpaper]"
+        exit 1
+        ;;
+esac
 

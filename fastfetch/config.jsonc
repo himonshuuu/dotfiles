@@ -2,10 +2,9 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "type": "kitty",
-    "source": "~/.config/fastfetch/images/_n-removebg-preview.png",
-    // "source": "$(find \"${XDG_CONFIG_HOME:-$HOME/.config}/fastfetch/images/\" -name \"*.png\" | shuf -n 1)",
-    "width": 34,
-    "height": 14
+    "source": "~/.config/fastfetch/logo.png",
+    "width": 30,
+    "height": 16
   },
 
   "display": {
@@ -15,9 +14,8 @@
     "break",
     {
       "type": "title",
-      // "key": "  ",
-      "key": " ",
-      "format": "  {6}{7}{8}"
+      "key": "  ",
+      "format": " {6}{7}{8}"
     },
     {
       "type": "chassis",
@@ -78,14 +76,15 @@
     },
     {
       "type": "memory",
-      "key": "    Memory",
+      "key": "   Memory",
       "keyColor": "magenta"
     },
     {
       "type": "uptime",
-      "key": "  󱫐 Uptime ",
+      "key": "  󱫐 Uptime",
       "keyColor": "red"
     },
+    "break",
     {
       "type": "colors",
       "paddingLeft": 2,

@@ -1,0 +1,1 @@
+touch "${ZSH_CACHE_DIR}/.zcompdump" 2>/dev/null || true
