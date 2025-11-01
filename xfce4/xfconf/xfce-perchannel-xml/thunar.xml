@@ -8,10 +8,15 @@
   <property name="last-sort-column" type="string" value="THUNAR_COLUMN_DATE_MODIFIED"/>
   <property name="last-sort-order" type="string" value="GTK_SORT_DESCENDING"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,50,109,102,50,80,50,50,401,50,50,62,50,122"/>
+  <property name="last-details-view-column-widths" type="string" value="50,50,135,126,50,95,50,50,250,50,50,88,50,200"/>
   <property name="last-show-hidden" type="bool" value="true"/>
   <property name="last-renamer-dialog-maximized" type="bool" value="true"/>
   <property name="misc-single-click" type="bool" value="false"/>
   <property name="misc-show-delete-action" type="bool" value="true"/>
   <property name="misc-exec-terminal" type="string" value="kitty"/>
+  <property name="misc-text-beside-icons" type="bool" value="true"/>
+  <property name="misc-thumbnail-draw-frames" type="bool" value="false"/>
+  <property name="misc-thumbnail-mode" type="string" value="THUNAR_THUMBNAIL_MODE_ALWAYS"/>
+  <property name="last-window-width" type="int" value="945"/>
+  <property name="last-window-height" type="int" value="1028"/>
 </channel>

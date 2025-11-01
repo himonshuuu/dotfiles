@@ -9,6 +9,7 @@ for file in "${ZSH_CONFIG_DIR}/conf.d/"*.zsh; do
   [[ -r "$file" ]] && source "$file"
 done
 
+ssh-add -q ~/ssh-keys/github    
 # export ZDOTDIR="${HOME}/.config/zsh"
 # if [[ -r "${ZDOTDIR}/.zshenv" ]]; then
 #   source "${ZDOTDIR}/.zshenv"
@@ -16,3 +17,5 @@ done
 # if [[ -r "${ZDOTDIR}/.zshrc" ]]; then
 #   source "${ZDOTDIR}/.zshrc"
 # fi
+# bun completions
+[ -s "/home/human/.bun/_bun" ] && source "/home/human/.bun/_bun"

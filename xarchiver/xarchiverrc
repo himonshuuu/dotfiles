@@ -15,6 +15,7 @@ preferred_custom_cmd=
 preferred_temp_dir=/tmp
 preferred_extract_dir=/tmp
 allow_sub_dir=0
+extended_dnd=1
 ensure_directory=true
 overwrite=false
 full_path=2

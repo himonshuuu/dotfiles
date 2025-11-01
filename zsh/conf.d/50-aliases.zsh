@@ -8,14 +8,16 @@ alias gb='git branch'
 alias gpl='git pull'
 alias gd='git diff'
 alias gcl='git clone'
-
+alias clear='printf "\033c" && clear'
 alias pup="paru -Syu"
 alias pin="paru -S"
 alias prm="paru -Rns"
 
-alias ls='exa --icons'
-alias ll='exa --icons -l'
-alias la='exa --icons -la'
+alias ls='exa -al --color=always --group-directories-first --icons'
+alias la='exa -a --color=always --group-directories-first --icons'
+alias ll='exa -l --color=always --group-directories-first --icons'
+alias l.='exa -ald --color=always --group-directories-first --icons .*'
+
 alias tree='exa --icons -T'
 alias df='df -h'
 alias du='du -h'
@@ -32,5 +34,4 @@ alias zshconfig="nvim ~/.zshrc"
 alias reloadzsh="source ~/.zshrc"
 alias cls="clear"
 alias grep="grep --color=auto"
-
 

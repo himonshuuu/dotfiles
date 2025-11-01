@@ -1,0 +1,10 @@
+v4
+ip=127.0.0.1
+port=4747
+audio=0
+video=1
+size=640x480
+confirm_close=1
+vertical_flip=0
+horizontal_flip=0
+type=1

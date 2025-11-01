@@ -57,7 +57,7 @@ case "$1" in
         WALL_DIR="$HOME/Pictures/Wallpapers"
         pgrep -x swww-daemon >/dev/null || { swww-daemon & sleep 0.5; }
 
-        mapfile -t files < <(find "$WALL_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) | sort)
+        mapfile -t files < <(find "$WALL_DIR" -type f \( -iname "*.gif" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) | sort)
         (( ${#files[@]} == 0 )) && { notify-send "Rofi Wallpaper" "No images found in $WALL_DIR"; exit 1; }
 
         menu=$(for f in "${files[@]}"; do

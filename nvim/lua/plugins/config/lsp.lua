@@ -1,21 +1,18 @@
--- Mason setup (manages external LSP binaries)
 require("mason").setup()
 
--- Ensure servers are installed via mason-lspconfig
 require("mason-lspconfig").setup({
   ensure_installed = {
-    "gopls",      -- Go
-    "tsserver",   -- TypeScript/JavaScript
-    "pyright",    -- Python
-    "clangd",     -- C/C++
+    "gopls",
+    "ts_ls",
+    "pyright",
+    "clangd",
+    "lua_ls",
   },
   automatic_installation = true,
 })
 
-local lspconfig = require("lspconfig")
-
--- Common on_attach for LSP keymaps
 local function on_attach(_, bufnr)
+   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   local bufmap = function(mode, lhs, rhs, desc)
     vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
   end
@@ -34,11 +31,34 @@ local function on_attach(_, bufnr)
   bufmap("n", "]d", vim.diagnostic.goto_next, "Next Diagnostic")
 end
 
+
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-lspconfig.gopls.setup({ on_attach = on_attach, capabilities = capabilities })
-lspconfig.tsserver.setup({ on_attach = on_attach, capabilities = capabilities })
-lspconfig.pyright.setup({ on_attach = on_attach, capabilities = capabilities })
-lspconfig.clangd.setup({ on_attach = on_attach, capabilities = capabilities })
+capabilities.textDocument.completion.completionItem = {
+  documentationFormat = { "markdown", "plaintext" },
+  snippetSupport = true,
+  preselectSupport = true,
+  insertReplaceSupport = true,
+  labelDetailsSupport = true,
+  deprecatedSupport = true,
+  commitCharactersSupport = true,
+  tagSupport = { valueSet = { 1 } },
+  resolveSupport = {
+    properties = {
+      "documentation",
+      "detail",
+      "additionalTextEdits",
+    },
+  },
+}
 
+local servers = { "gopls", "ts_ls", "pyright", "clangd", "lua_ls" }
 
+for _, name in ipairs(servers) do
+    vim.lsp.config[name] = {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+end
+vim.lsp.enable(servers)

@@ -1,7 +1,13 @@
-setopt PROMPT_SUBST
-setopt NO_BEEP
-setopt CORRECT
-
-setopt AUTO_MENU
-setopt MENU_COMPLETE
-setopt NO_CASE_GLOB
+setopt correct
+setopt extendedglob
+setopt nocaseglob
+setopt rcexpandparam
+setopt nocheckjobs
+setopt numericglobsort
+setopt nobeep
+setopt appendhistory
+setopt histignorealldups
+setopt autocd
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
