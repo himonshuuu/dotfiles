@@ -1,6 +1,6 @@
 {
   "hyprland/workspaces": {
-    "format": "{name} {windows}",
+    "format": "{windows}",
     "format-window-separator": " ",
     "workspace-taskbar": {
       "enable": true,
@@ -58,13 +58,5 @@
     "on-click": "sleep 0.1 && swaync-client -t -sw",
     "on-click-right": "sleep 0.1 && swaync-client -d -sw",
     "escape": true
-  },
-  "wlr/taskbar": {
-    "format": "{icon}",
-    "tooltip": true,
-    "tooltip-format": "{name}",
-    "on-click": "activate",
-    "icon-size": 18,
-    "icon-theme": "Tela-circle-blue-dark"
   }
 }

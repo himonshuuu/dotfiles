@@ -13,8 +13,8 @@ alias pup="paru -Syu"
 alias pin="paru -S"
 alias prm="paru -Rns"
 
-alias ls='exa -al --color=always --group-directories-first --icons'
-alias la='exa -a --color=always --group-directories-first --icons'
+alias la='exa -al --color=always --group-directories-first --icons'
+alias ls='exa -a --color=always --group-directories-first --icons'
 alias ll='exa -l --color=always --group-directories-first --icons'
 alias l.='exa -ald --color=always --group-directories-first --icons .*'
 

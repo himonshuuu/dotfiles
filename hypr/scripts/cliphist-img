@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+tmp_dir="/tmp/cliphist"
+rm -rf "$tmp_dir"
+
+
+
+if [[ -n "$1" ]]; then
+    sel="$1"
+    # Find the matching ID by comparing selection text with cliphist entries (stripping numeric IDs)
+    clip_id=$(cliphist list | gawk -v sel="$sel" '
+        {
+            line=$0
+            if (match(line, /^([0-9]+)\s+/, m)) {
+                id=m[1]
+                sub(/^[0-9]+\s+/, "", line)
+                if (line == sel) { print id; exit }
+            }
+        }
+    ')
+
+    if [[ -n "$clip_id" ]]; then
+        echo -n "$clip_id" | cliphist decode | wl-copy
+    fi
+    exit
+fi
+
+mkdir -p "$tmp_dir"
+
+read -r -d '' prog <<'EOF'
+# Skip HTML meta entries
+/^[0-9]+\s<meta http-equiv=/ { next }
+
+# Handle binary/image entries
+match($0, /^([0-9]+)\s(\[\[\s)?binary.*(jpg|jpeg|png|bmp)/, grp) {
+    # Decode the image into a temp file
+    system("echo " grp[1] " | cliphist decode >" tmp_dir "/" grp[1] "." grp[3])
+    # Remove the numeric ID from display but keep the icon path
+    sub(/^[0-9]+\s*/, "")
+    print $0 "\0icon\x1f" tmp_dir "/" grp[1] "." grp[3]
+    next
+}
+
+# For non-image entries, just remove numeric IDs
+{
+    sub(/^[0-9]+\s*/, "")
+    print
+}
+EOF
+
+# Feed cleaned list to Rofi with icons
+cliphist list | gawk -v tmp_dir="$tmp_dir" "$prog"
+exit 0

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 readarray -t monData < <(
     hyprctl -j monitors | jq -r '
@@ -47,31 +47,15 @@ fi
 
 case "$1" in
     drun)
-        rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/drun.rasi
+        rofi -no-config -no-lazy-grab -show drun -theme $HOME/.config/rofi/drun.rasi
         ;;
     clipboard)
-        selection=$(cliphist list | cut -d' ' -f2- | rofi -no-config -no-lazy-grab -dmenu -p "" -theme ~/.config/rofi/clipboard.rasi -theme-str "$r_override")
-        [[ -n "$selection" ]] && echo -n "$selection" | wl-copy
+        selection=$($HOME/.config/hypr/scripts/cliphist-img | rofi -no-config -no-lazy-grab -dmenu -i -p "" -show-icons -theme $HOME/.config/rofi/clipboard.rasi -theme-str "$r_override")
+        [[ -z "$selection" ]] && exit 0
+        $HOME/.config/hypr/scripts/cliphist-img "$selection"
         ;;
     wallpaper)
-        WALL_DIR="$HOME/Pictures/Wallpapers"
-        pgrep -x swww-daemon >/dev/null || { swww-daemon & sleep 0.5; }
-
-        mapfile -t files < <(find "$WALL_DIR" -type f \( -iname "*.gif" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) | sort)
-        (( ${#files[@]} == 0 )) && { notify-send "Rofi Wallpaper" "No images found in $WALL_DIR"; exit 1; }
-
-        menu=$(for f in "${files[@]}"; do
-            bn=$(basename "$f")
-            printf "%s\x00icon\x1f%s\n" "$bn" "$f"
-        done | rofi -no-config -no-lazy-grab -dmenu -i -p "Wallpaper" -theme ~/.config/rofi/wallpaper.rasi)
-        [[ -z "$menu" ]] && exit 0
-
-        for f in "${files[@]}"; do
-            [[ $(basename "$f") == "$menu" ]] && { selection="$f"; break; }
-        done
-        [[ -z "$selection" ]] && exit 0
-
-        swww img "$selection" --transition-type wipe --transition-duration 2
+        $HOME/.config/hypr/scripts/wallpaper
         ;;
     *)
         echo "Usage: rofimenu [drun|clipboard|wallpaper]"

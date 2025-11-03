@@ -1,13 +1,20 @@
-setopt correct
-setopt extendedglob
-setopt nocaseglob
-setopt rcexpandparam
-setopt nocheckjobs
-setopt numericglobsort
-setopt nobeep
-setopt appendhistory
-setopt histignorealldups
-setopt autocd
-setopt auto_pushd
-setopt pushd_ignore_dups
-setopt pushdminus
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+
+setopt HIST_IGNORE_ALL_DUPS
+setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt APPEND_HISTORY
+setopt HIST_REDUCE_BLANKS
+setopt CORRECT
+setopt EXTENDEDGLOB
+setopt NOCASEGLOB
+setopt NUMERICGLOBSORT
+setopt NOCHECKJOBS
+setopt NOBEEP
+setopt AUTOCD
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHDMINUS

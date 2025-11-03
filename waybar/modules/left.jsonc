@@ -11,11 +11,11 @@
       "open_file_manager": "thunar",
       "exit": "notify-send 'Exiting Hyprland in 5sec' && sleep 5 && hyprctl dispatch exit",
 
-      "record_region": "~/.config/waybar/scripts/screenrecord region",
-      "record_monitor": "~/.config/waybar/scripts/screenrecord monitor",
-      "record_window": "~/.config/waybar/scripts/screenrecord window",
-      "record_status": "~/.config/waybar/scripts/screenrecord status",
-      "record_stop": "~/.config/waybar/scripts/screenrecord stop"
+      "record_region": "bash -c '~/.config/waybar/scripts/screenrecord region'",
+      "record_monitor": "bash -c '~/.config/waybar/scripts/screenrecord monitor'",
+      "record_window": "bash -c '~/.config/waybar/scripts/screenrecord window'",
+      "record_status": "bash -c '~/.config/waybar/scripts/screenrecord status'",
+      "record_stop": "bash -c '~/.config/waybar/scripts/screenrecord stop'"
     }
   },
   "custom/screenrecord": {
@@ -23,17 +23,17 @@
     "tooltip": false,
     "return-type": "json",
     "interval": 1,
-    "exec": "~/.config/waybar/scripts/screenrecord status",
-    "on-click": "~/.config/waybar/scripts/screenrecord stop"
+    "exec": "bash -c '~/.config/waybar/scripts/screenrecord status'",
+    "on-click": "bash -c '~/.config/waybar/scripts/screenrecord stop'"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "<s>{icon}</s> Muted",
     "tooltip-format": "{format_sink} {volume}%",
     "tooltip": true,
-    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
-    "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 1%+",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 1%-",
+    "on-click": "bash -c 'wpctl set-mute @DEFAULT_SINK@ toggle'",
+    "on-scroll-up": "bash -c 'wpctl set-volume @DEFAULT_SINK@ 1%+'",
+    "on-scroll-down": "bash -c 'wpctl set-volume @DEFAULT_SINK@ 1%-'",
     "scroll-step": 1,
     "format-icons": {
       "headphone": "",
@@ -50,17 +50,17 @@
     "format-source-muted": " Muted",
     "tooltip-format": "{format_source} {volume}%",
     "tooltip": true,
-    "on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
-    "on-scroll-up": "wpctl set-volume @DEFAULT_SOURCE@ 1%+",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_SOURCE@ 1%-",
+    "on-click": "bash -c 'wpctl set-mute @DEFAULT_SOURCE@ toggle'",
+    "on-scroll-up": "bash -c 'wpctl set-volume @DEFAULT_SOURCE@ 1%+'",
+    "on-scroll-down": "bash -c 'wpctl set-volume @DEFAULT_SOURCE@ 1%-'",
     "scroll-step": 1
   },
 
   "backlight": {
     "format": "{icon} {percent}%",
     "format-icons": ["󰃞", "󰃟", "󰃠"],
-    "on-scroll-up": "brightnessctl set 1%+",
-    "on-scroll-down": "brightnessctl set 1%-",
+    "on-scroll-up": "bash -c 'brightnessctl set 1%+'",
+    "on-scroll-down": "bash -c 'brightnessctl set 1%-'",
     "min-length": 6
   },
   "bluetooth": {
@@ -75,15 +75,15 @@
   "custom/mpris": {
     "format": "{}",
     // "exec-if": "playerctl -a status 2>/dev/null | grep -qE 'Playing|Paused'",
-    "exec": "~/.config/waybar/scripts/playerinfo",
+    "exec": "bash -c '~/.config/waybar/scripts/playerinfo'",
     "return-type": "json",
     "interval": 1,
     "escape": true,
     "tooltip": true,
-    "on-click": "playerctl play-pause",
-    "on-click-right": "playerctl next",
-    "on-click-middle": "playerctl previous",
-    "on-scroll-up": "playerctl position 5+",
-    "on-scroll-down": "playerctl position 5-"
+    "on-click": "bash -c 'playerctl play-pause'",
+    "on-click-right": "bash -c 'playerctl next'",
+    "on-click-middle": "bash -c 'playerctl previous'",
+    "on-scroll-up": "bash -c 'playerctl position 5+'",
+    "on-scroll-down": "bash -c 'playerctl position 5-'"
   }
 }
