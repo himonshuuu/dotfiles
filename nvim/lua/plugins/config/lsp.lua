@@ -7,6 +7,7 @@ require("mason-lspconfig").setup({
     "pyright",
     "clangd",
     "lua_ls",
+    "rust_analyzer",
   },
   automatic_installation = true,
 })
@@ -53,7 +54,7 @@ capabilities.textDocument.completion.completionItem = {
   },
 }
 
-local servers = { "gopls", "ts_ls", "pyright", "clangd", "lua_ls" }
+local servers = { "gopls", "ts_ls", "pyright", "clangd", "lua_ls", "rust_analyzer" }
 
 for _, name in ipairs(servers) do
     vim.lsp.config[name] = {

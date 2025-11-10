@@ -6,5 +6,5 @@ video=1
 size=640x480
 confirm_close=1
 vertical_flip=0
-horizontal_flip=0
+horizontal_flip=1
 type=1

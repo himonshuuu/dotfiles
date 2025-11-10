@@ -2,7 +2,7 @@
 application/gzip=nbtexplorer.desktop;
 application/x-zerosize=vivaldi-stable.desktop;
 application/yaml=code.desktop;nvim.desktop;
-image/png=feh.desktop;firefox.desktop;swappy.desktop;gimp.desktop;
+image/png=vivaldi-stable.desktop;feh.desktop;firefox.desktop;swappy.desktop;gimp.desktop;
 text/plain=nvim.desktop;code.desktop;gedit.desktop;vim.desktop;
 application/pdf=vivaldi-stable.desktop;okular.desktop;evince.desktop;
 application/x-partial-download=kitty.desktop;vlc.desktop;

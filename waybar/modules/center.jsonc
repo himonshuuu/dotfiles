@@ -1,6 +1,6 @@
 {
   "hyprland/workspaces": {
-    "format": "{windows}",
+    "format": "{icon} {windows}",
     "format-window-separator": " ",
     "workspace-taskbar": {
       "enable": true,
