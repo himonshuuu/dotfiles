@@ -33,5 +33,5 @@ alias sshkeygen="ssh-keygen"
 alias zshconfig="nvim ~/.zshrc"
 alias reloadzsh="source ~/.zshrc"
 alias cls="clear"
-# alias grep="grep --color=auto"
+alias grep="grep --color=auto"
 
