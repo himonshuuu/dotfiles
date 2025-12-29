@@ -1,0 +1,237 @@
+{
+    "$schema": "../../schema/extension.schema.json",
+    "info": {
+        "id": "nomoicontheme",
+        "vendor_id": "cristianadam",
+        "display_name": "Nomo Icon Theme",
+        "display_vendor": "Cristian Adam",
+        "license": "open-source"
+    },
+    "latest": "18.0.0",
+    "versions": {
+        "18.0.0": {
+            "sources": [
+                {
+                    "url": "https://github.com/cristianadam/qt-creator-nomo-icontheme/releases/download/v18.0.0/NomoIconTheme-18.0.0-Windows-x64.7z",
+                    "sha256": "496bf282db7a0b333dd4dee071d61cdc3a8d0d09ccfe53d14dbe1191f2de6f8d",
+                    "platform": {
+                        "name": "Windows",
+                        "architecture": "x86_64"
+                    }
+                },
+                {
+                    "url": "https://github.com/cristianadam/qt-creator-nomo-icontheme/releases/download/v18.0.0/NomoIconTheme-18.0.0-Windows-arm64.7z",
+                    "sha256": "0857953714484b7fcf25b877929645988c4618c6383dc3cb500148712944e5a8",
+                    "platform": {
+                        "name": "Windows",
+                        "architecture": "arm64"
+                    }
+                },
+                {
+                    "url": "https://github.com/cristianadam/qt-creator-nomo-icontheme/releases/download/v18.0.0/NomoIconTheme-18.0.0-Linux-x64.7z",
+                    "sha256": "33a61a23974a48869807b536dd166208a1bf17efa454d886e80130bf80b776cd",
+                    "platform": {
+                        "name": "Linux",
+                        "architecture": "x86_64"
+                    }
+                },
+                {
+                    "url": "https://github.com/cristianadam/qt-creator-nomo-icontheme/releases/download/v18.0.0/NomoIconTheme-18.0.0-Linux-arm64.7z",
+                    "sha256": "a28b8fb62ae751e768eaa7123bd953da73633942d287a894231a7dde63655671",
+                    "platform": {
+                        "name": "Linux",
+                        "architecture": "arm64"
+                    }
+                },
+                {
+                    "url": "https://github.com/cristianadam/qt-creator-nomo-icontheme/releases/download/v18.0.0/NomoIconTheme-18.0.0-macOS-universal.7z",
+                    "sha256": "917fb288991c915bc04b13a63d5065b4677ee5d23e78e7df01d3b2165d784da7",
+                    "platform": {
+                        "name": "macOS",
+                        "architecture": "x86_64"
+                    }
+                },
+                {
+                    "url": "https://github.com/cristianadam/qt-creator-nomo-icontheme/releases/download/v18.0.0/NomoIconTheme-18.0.0-macOS-universal.7z",
+                    "sha256": "917fb288991c915bc04b13a63d5065b4677ee5d23e78e7df01d3b2165d784da7",
+                    "platform": {
+                        "name": "macOS",
+                        "architecture": "arm64"
+                    }
+                }
+            ],
+            "metadata": {
+                "Id": "nomoicontheme",
+                "Name": "Nomo Icon Theme",
+                "Version": "18.0.0",
+                "CompatVersion": "18.0.0",
+                "Vendor": "Cristian Adam",
+                "VendorId": "cristianadam",
+                "Copyright": "(C) 2019 Andreas Schulz, Cristian Adam, Copyright (C) The Qt Company Ltd. and other contributors.",
+                "License": "MIT",
+                "SoftLoadable": true,
+                "Description": "Custon icon theme for Qt Creator",
+                "LongDescription": [
+                    "# Qt Creator Nomo Icon Theme",
+                    "",
+                    "Custom icon theme for [Qt Creator](https://www.qt.io/product/development-tools).",
+                    "Based upon [Nomo Dark icon set for Visual Studio Code](https://github.com/be5invis/vscode-iconset).",
+                    "",
+                    "# Screenshots",
+                    "",
+                    "![Screenshot-macOS](https://raw.githubusercontent.com/cristianadam/qt-creator-nomo-icontheme/refs/heads/master/screenshots/macOS.png)",
+                    "![Screenshot-Linux](https://raw.githubusercontent.com/cristianadam/qt-creator-nomo-icontheme/refs/heads/master/screenshots/Linux.png)",
+                    "![Screenshot-Windows](https://raw.githubusercontent.com/cristianadam/qt-creator-nomo-icontheme/refs/heads/master/screenshots/Windows.png)",
+                    "",
+                    "# License",
+                    "",
+                    "```",
+                    "MIT License",
+                    "",
+                    "Copyright 2025 Cristian Adam",
+                    "Copyright 2017-2021 Renzhi Li (a.k.a Belleve Invis)",
+                    "Copyright (c) 2019 Andreas Schulz",
+                    "",
+                    "Permission is hereby granted, free of charge, to any person obtaining a copy",
+                    "of this software and associated documentation files (the \"Software\"), to deal",
+                    "in the Software without restriction, including without limitation the rights",
+                    "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
+                    "copies of the Software, and to permit persons to whom the Software is",
+                    "furnished to do so, subject to the following conditions:",
+                    "",
+                    "The above copyright notice and this permission notice shall be included in all",
+                    "copies or substantial portions of the Software.",
+                    "",
+                    "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR",
+                    "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,",
+                    "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE",
+                    "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER",
+                    "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
+                    "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE",
+                    "SOFTWARE.",
+                    "```"
+                ],
+                "Url": "https://github.com/cristianadam/qt-creator-icontheme",
+                "DocumentationUrl": "",
+                "Dependencies": [
+                    {
+                        "Id": "core",
+                        "Version": "18.0.0"
+                    }
+                ]
+            }
+        },
+        "17.0.0": {
+            "sources": [
+                {
+                    "url": "https://github.com/cristianadam/qt-creator-nomo-icontheme/releases/download/v17.0.0/NomoIconTheme-17.0.0-Windows-x64.7z",
+                    "sha256": "60750a9bcfe0f221acf1bb31f9210aa9db97f38de79dd45881ad9f6d9bc68caf",
+                    "platform": {
+                        "name": "Windows",
+                        "architecture": "x86_64"
+                    }
+                },
+                {
+                    "url": "https://github.com/cristianadam/qt-creator-nomo-icontheme/releases/download/v17.0.0/NomoIconTheme-17.0.0-Windows-arm64.7z",
+                    "sha256": "d7f870c9d666dfdd3ab37e302ac8e598bbd71af83275336abc3ac2effa1d9ca4",
+                    "platform": {
+                        "name": "Windows",
+                        "architecture": "arm64"
+                    }
+                },
+                {
+                    "url": "https://github.com/cristianadam/qt-creator-nomo-icontheme/releases/download/v17.0.0/NomoIconTheme-17.0.0-Linux-x64.7z",
+                    "sha256": "47a9c495674189762212e62a21087317e3e0b7c234f51a824f1764bd54d7e6cd",
+                    "platform": {
+                        "name": "Linux",
+                        "architecture": "x86_64"
+                    }
+                },
+                {
+                    "url": "https://github.com/cristianadam/qt-creator-nomo-icontheme/releases/download/v17.0.0/NomoIconTheme-17.0.0-Linux-arm64.7z",
+                    "sha256": "0b5ccf3713f81f9fe4d10bb164b5e25f52d0692b0c3815e336133f40bb9eab5c",
+                    "platform": {
+                        "name": "Linux",
+                        "architecture": "arm64"
+                    }
+                },
+                {
+                    "url": "https://github.com/cristianadam/qt-creator-nomo-icontheme/releases/download/v17.0.0/NomoIconTheme-17.0.0-macOS-universal.7z",
+                    "sha256": "4b49b6d28f604646230d22d3c82b3400cb7809eabfb4344b0a031f0a40506abd",
+                    "platform": {
+                        "name": "macOS",
+                        "architecture": "x86_64"
+                    }
+                },
+                {
+                    "url": "https://github.com/cristianadam/qt-creator-nomo-icontheme/releases/download/v17.0.0/NomoIconTheme-17.0.0-macOS-universal.7z",
+                    "sha256": "4b49b6d28f604646230d22d3c82b3400cb7809eabfb4344b0a031f0a40506abd",
+                    "platform": {
+                        "name": "macOS",
+                        "architecture": "arm64"
+                    }
+                }
+            ],
+            "metadata": {
+                "Id": "nomoicontheme",
+                "Name": "Nomo Icon Theme",
+                "Version": "17.0.0",
+                "CompatVersion": "17.0.0",
+                "Vendor": "Cristian Adam",
+                "VendorId": "cristianadam",
+                "Copyright": "(C) 2019 Andreas Schulz, Cristian Adam, Copyright (C) The Qt Company Ltd. and other contributors.",
+                "License": "MIT",
+                "SoftLoadable": true,
+                "Description": "Custon icon theme for Qt Creator",
+                "LongDescription": [
+                    "# Qt Creator Nomo Icon Theme",
+                    "",
+                    "Custom icon theme for [Qt Creator](https://www.qt.io/product/development-tools).",
+                    "Based upon [Nomo Dark icon set for Visual Studio Code](https://github.com/be5invis/vscode-iconset).",
+                    "",
+                    "# Screenshots",
+                    "",
+                    "![Screenshot-macOS](https://raw.githubusercontent.com/cristianadam/qt-creator-nomo-icontheme/refs/heads/master/screenshots/macOS.png)",
+                    "![Screenshot-Linux](https://raw.githubusercontent.com/cristianadam/qt-creator-nomo-icontheme/refs/heads/master/screenshots/Linux.png)",
+                    "![Screenshot-Windows](https://raw.githubusercontent.com/cristianadam/qt-creator-nomo-icontheme/refs/heads/master/screenshots/Windows.png)",
+                    "",
+                    "# License",
+                    "",
+                    "```",
+                    "MIT License",
+                    "",
+                    "Copyright 2025 Cristian Adam",
+                    "Copyright 2017-2021 Renzhi Li (a.k.a Belleve Invis)",
+                    "Copyright (c) 2019 Andreas Schulz",
+                    "",
+                    "Permission is hereby granted, free of charge, to any person obtaining a copy",
+                    "of this software and associated documentation files (the \"Software\"), to deal",
+                    "in the Software without restriction, including without limitation the rights",
+                    "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
+                    "copies of the Software, and to permit persons to whom the Software is",
+                    "furnished to do so, subject to the following conditions:",
+                    "",
+                    "The above copyright notice and this permission notice shall be included in all",
+                    "copies or substantial portions of the Software.",
+                    "",
+                    "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR",
+                    "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,",
+                    "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE",
+                    "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER",
+                    "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
+                    "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE",
+                    "SOFTWARE.",
+                    "```"
+                ],
+                "Url": "https://github.com/cristianadam/qt-creator-icontheme",
+                "DocumentationUrl": "",
+                "Dependencies": [
+                    {
+                        "Id": "core",
+                        "Version": "17.0.0"
+                    }
+                ]
+            }
+        }
+    }
+}

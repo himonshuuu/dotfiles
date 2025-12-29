@@ -1,0 +1,29 @@
+# This file describes who owns and is responsible for maintaining each extension registration
+
+/registry/cristianadam.doxygen @cristianadam
+/registry/cristianadam.dracula @cristianadam
+/registry/cristianadam.minimap @cristianadam
+/registry/cristianadam.nomoicontheme @cristianadam
+/registry/cristianadam.onedarkpro @cristianadam
+/registry/cristianadam.phantomstyle @cristianadam
+/registry/cristianadam.tabbededitor @cristianadam
+/registry/ggml.llamacpp @cristianadam
+/registry/theqtcompany.aiassistant @Maddimax @lupax
+/registry/theqtcompany.vale @Maddimax
+/registry/theqtcompany.cpp @Maddimax
+
+# The basic stuff is owned by the Qt Creator team
+
+/CODEOWNERS @qt-creator/qt-creator-team
+
+/.github @qt-creator/qt-creator-team
+/.vscode @qt-creator/qt-creator-team
+/badges @qt-creator/qt-creator-team
+/node_modules @qt-creator/qt-creator-team
+/schema @qt-creator/qt-creator-team
+/scripts @qt-creator/qt-creator-team
+
+/.gitattributes @qt-creator/qt-creator-team
+/package-lock.json @qt-creator/qt-creator-team
+/package.json @qt-creator/qt-creator-team
+/README.md @qt-creator/qt-creator-team

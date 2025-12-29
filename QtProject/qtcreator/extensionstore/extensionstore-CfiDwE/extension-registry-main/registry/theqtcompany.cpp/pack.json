@@ -1,0 +1,18 @@
+{
+    "$schema": "../../schema/pack.schema.json",
+    "info": {
+        "id": "cpp",
+        "vendor_id": "theqtcompany",
+        "display_name": "C++ Essentials",
+        "display_vendor": "The Qt Company",
+        "license": "open-source",
+        "tags": [
+            "c++",
+            "language",
+            "basics"
+        ]
+    },
+    "extensions": [
+        "theqtcompany.vale"
+    ]
+}

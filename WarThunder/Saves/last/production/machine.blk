@@ -1,0 +1,2856 @@
+version:i=5
+
+content{
+  machineId:t="5f7b9262b310b0ec83a84193fdd6c824ca2d23f8"
+
+  controls{
+    version:i=5
+
+    basePresetPaths{
+      default:t="config/hotkeys/hotkey.keyboard_ver1.blk"
+    }
+
+    hotkeys{
+      ID_CONTINUE{
+        keyboardKey:i=57
+      }
+
+      ID_FLIGHTMENU{
+        keyboardKey:i=1
+      }
+
+      ID_SCREENSHOT{
+        keyboardKey:i=42
+        keyboardKey:i=183
+      }
+    }
+
+    axes{}
+    params{
+      mouseJoystick:b=no
+    }
+
+    deviceMapping{}
+  }
+
+  settings{
+    aileronsMultiplier:r=0.79
+    elevatorMultiplier:r=0.64
+    rudderMultiplier:r=0.43
+    helicopterCyclicRollMultiplier:r=0.79
+    helicopterCyclicPitchMultiplier:r=0.64
+    helicopterPedalsMultiplier:r=0.43
+    freeCameraInertia:r=1
+    replayCameraWiggle:r=1
+    zoomSens:r=0
+    mouseSens:r=0.5
+    mouseAimSens:r=0.5
+    gunnerViewSens:r=0.5
+    gunnerViewZoomSens:r=1
+    atgmAimSensHelicopter:r=1
+    atgmAimZoomSensHelicopter:r=1
+    mouseSmooth:b=no
+    mouseJoystickDeadZone:r=0.1
+    helicopterMouseJoystickDeadZone:r=0.1
+    mouseJoystickScreenSize:r=0.6
+    helicopterMouseJoystickScreenSize:r=0.6
+    mouseJoystickScreenPlace:r=0
+    helicopterMouseJoystickScreenPlace:r=0
+    mouseJoystickSensitivity:r=2
+    helicopterMouseJoystickSensitivity:r=2
+    mouseAileronAileronFactor:r=1
+    helicopterMouseAileronAileronFactor:r=1
+    mouseAileronRudderFactor:r=0.5
+    helicopterMouseAileronRudderFactor:r=0.5
+    mouseJoystickSquare:b=no
+    helicopterMouseJoystickSquare:b=no
+    mouseJoyMode:i=0
+    helicopterMouseJoyMode:i=0
+    aimTimeNonlinearityAir:r=0
+    aimTimeNonlinearityHelicopter:r=0
+    aimTimeNonlinearityTank:r=0
+    aimTimeNonlinearityWalker:r=0
+    aimTimeNonlinearityShip:r=0
+    aimTimeNonlinearitySubmarine:r=0
+    aimTimeNonlinearityHuman:r=0
+    aimAccelerationDelayAir:r=0.5
+    aimAccelerationDelayHelicopter:r=0.5
+    aimAccelerationDelayTank:r=0.5
+    aimAccelerationDelayWalker:r=0.5
+    aimAccelerationDelayShip:r=0.5
+    aimAccelerationDelaySubmarine:r=0.5
+    aimAccelerationDelayHuman:r=0.5
+    mouseZMultAir:r=0.5
+    mouseZMultHelicopter:r=0.5
+    mouseZMultTank:r=0.5
+    mouseZMultShip:r=0.5
+    mouseZMultSubmarine:r=0.5
+    gamepadMinVibration:r=0.05
+    cameraSmooth:r=0
+    cameraSpeed:r=1.325
+    cameraMouseSpeed:r=4
+    cameraFpsPhysMult:r=0.5
+    vrCameraFpsPhysMult:r=0
+    invertY:b=no
+    invertX:b=no
+    invertT:b=no
+    invertYTank:b=no
+    invertYShip:b=no
+    invertYHelicopter:b=no
+    invertYHelicopterGunner:b=no
+    invertYWalker:b=no
+    invertYSpectator:b=no
+    invertYSubmarine:b=no
+    cameraInvertY:b=no
+    isXChgSticks:b=no
+    secondaryInvert:b=no
+    secondaryXChgSticks:b=no
+    zoomForTurret:b=no
+    isVibration:b=no
+    forceGain:r=1
+    cameraShakeMultiplier:r=1
+    vrCameraShakeMultiplier:r=1
+    holdBtnToGrabHotas:b=no
+    numRealDevices:i=0
+    hudScreenSafeArea:r=1
+    gamma:r=0
+    consolePreset:i=0
+    vignette:r=0.5
+    sharpenTPS_2:r=0
+    sharpenGunner_2:r=0
+    sharpenBomber_2:r=0
+    sharpenCockpit_2:r=0
+    lutTextureName_2:t=""
+    tonemappingMode_2:i=0
+    L_inv_white_2:r=0.3
+    U_A_2:r=0.45
+    U_B_2:r=0.25
+    U_C_2:r=2.8
+    U_D_2:r=1.5
+    U_E_2:r=0
+    U_F_2:r=1
+    UWhite_2:r=4
+    lenseFlareMode_2:i=2
+    lenseFlareHaloPower_2:r=0.15
+    lenseFlareGhostsPower_2:r=0.5
+    paper_white_nits:r=200
+    hdr_brightness:r=1
+    hdr_shadows:r=1
+    isUsingDynamicLut:b=yes
+    shouldShowDynamicLutPopUpMessage:b=no
+    enableFilmGrain:b=no
+    hueAlly:p3=226, -1, -1
+    hueEnemy:p3=3, -1, -1
+    hueSquad:p3=472, -1, -1
+    hueSpectatorAlly:p3=112, -1, -1
+    hueSpectatorEnemy:p3=292, -1, -1
+    hueReload:p3=3, -1, -1
+    hueReloadDone:p3=472, -1, -1
+    helicopterCrosshairColor:p3=122, 1, 1
+    hueHelicopterHud:p3=122, 1, 1
+    hueHelicopterParamHud:p3=122, 1, 1
+    hueAircraftHud:p3=122, 1, 1
+    hueAircraftParamHud:p3=10, 0, 0.9
+    hueHelicopterMfd:p3=112, -1, -1
+    hueHelicopterHudAlertLow:p3=60, 1, 1
+    hueHelicopterHudAlertMedium:p3=30, 1, 1
+    hueHelicopterHudAlertHigh:p3=0, 1, 1
+    hueAircraftHudAlertLow:p3=60, 1, 1
+    hueAircraftHudAlertMedium:p3=30, 1, 1
+    hueAircraftHudAlertHigh:p3=0, 1, 1
+    hueArbiterHud:p3=-1, -1, -1
+    tankThermovisionIndex:i=0
+    strobeEnemy:i=0
+    strobeAlly:i=0
+    alertHelicopterHuesIndex:i=0
+    alertAircraftHuesIndex:i=0
+    SND_TYPE_SFX:r=1
+    SND_TYPE_MUSIC:r=0.15
+    SND_TYPE_MENU_MUSIC:r=0.7
+    SND_TYPE_RADIO:r=0.5
+    SND_TYPE_DIALOGS:r=0.5
+    SND_TYPE_VOICE_OUT_NEW:r=0.5
+    SND_TYPE_VOICE_IN_NEW:r=0.5
+    SND_TYPE_ENGINE:r=1
+    SND_TYPE_MY_ENGINE:r=0.58
+    SND_TYPE_MASTER:r=0.54
+    SND_TYPE_GUNS:r=1
+    SND_TYPE_VWS:r=0.7
+    SND_TYPE_RWR:r=0.7
+    SND_TYPE_TINNITUS:r=0.5
+    soundVolVersion:i=2
+    musicMenuVolVersion:i=0
+    lastVoiceDeviceIn:t="Built-in Audio Analog Stereo"
+    lastSoundDeviceOut:t="Rockerz 210 ANC"
+  }
+
+  gui_options{
+    OPTIONS_MODE_GAMEPLAY{
+      USEROPT_GAMEPAD_ENGINE_DEADZONE:b=yes
+      USEROPT_GAMEPAD_VIBRATION_ENGINE:b=no
+      USEROPT_JOYFX:b=yes
+      USEROPT_AUTOMATIC_TRANSMISSION_TANK:b=yes
+      USEROPT_BULLET_FALL_INDICATOR_SHIP:b=yes
+      USEROPT_BULLET_FALL_SOUND_SHIP:b=yes
+      USEROPT_AUTO_TARGET_CHANGE_SHIP:b=yes
+      USEROPT_REALISTIC_AIMING_SHIP:b=no
+      USEROPT_SHIP_PRESET_BASED_DAMAGE_CONTROL:b=yes
+      USEROPT_FOLLOW_BULLET_CAMERA:b=yes
+      USEROPT_QUEUE_JIP:b=yes
+      USEROPT_AUTO_SQUAD:b=yes
+      USEROPT_PLAY_INACTIVE_WINDOW_SOUND:b=no
+      USEROPT_CHAT_REPUTATION_FILTER:b=yes
+      USEROPT_DAMAGE_INDICATOR_SIZE:i=0
+      USEROPT_TACTICAL_MAP_SIZE:i=0
+      USEROPT_HUD_VISIBLE_STREAKS:b=yes
+      USEROPT_HUD_SHOW_TANK_GUNS_AMMO:b=yes
+      USEROPT_MENU_SCREEN_SAFE_AREA:r=1
+      USEROPT_HUD_SCREEN_SAFE_AREA:r=1
+      USEROPT_REPLAY_ALL_INDICATORS:b=yes
+      USEROPT_REPLAY_LOAD_COCKPIT:i=1
+      USEROPT_ONLY_FRIENDLIST_CONTACT:b=no
+      USEROPT_MARK_DIRECT_MESSAGES_AS_PERSONAL:b=yes
+      USEROPT_AUTO_AIMLOCK_ON_SHOOT:b=yes
+      USEROPT_TORPEDO_AUTO_SWITCH:b=yes
+      USEROPT_DEFAULT_TORPEDO_FORESTALL_ACTIVE:b=yes
+      USEROPT_ACTIVATE_AIRBORNE_WEAPON_SELECTION_ON_SPAWN:b=no
+      USEROPT_AUTOMATIC_EMPTY_CONTAINERS_JETTISON:b=no
+      USEROPT_IGNORE_BAD_WEATHER:b=no
+      USEROPT_HELPERS_MODE:i=0
+      USEROPT_MOUSE_USAGE:i=2
+      USEROPT_MOUSE_USAGE_NO_AIM:i=8
+      USEROPT_INSTRUCTOR_ENABLED:b=yes
+      USEROPT_AUTOTRIM:b=yes
+      USEROPT_SHOW_OTHERS_DECALS:b=no
+      USEROPT_CONTENT_ALLOWED_PRESET_ARCADE:t="except_fictional"
+      USEROPT_CONTENT_ALLOWED_PRESET_REALISTIC:t="except_fictional"
+      USEROPT_CONTENT_ALLOWED_PRESET_SIMULATOR:t="except_fictional"
+      USEROPT_AIR_DAMAGE_DISPLAY:b=yes
+      USEROPT_GUNNER_FPS_CAMERA:b=yes
+      USEROPT_HUE_TANK_THERMOVISION:i=0
+      USEROPT_DISPLAY_MY_REAL_NICK:b=yes
+      USEROPT_SHOW_SOCIAL_NOTIFICATIONS:b=yes
+      USEROPT_AIR_RADAR_SIZE:i=0
+      USEROPT_REPLAY_SNAPSHOT_ENABLED:b=no
+      USEROPT_RECORD_SNAPSHOT_PERIOD:i=60
+      USEROPT_BULLET_FALL_SPOT_SHIP:b=yes
+      USEROPT_HOLIDAYS:t="none"
+      USEROPT_ALTERNATIVE_TPS_CAMERA:b=no
+      USEROPT_HUD_VISIBLE_ORDERS:b=yes
+      USEROPT_HUD_VISIBLE_REWARDS_MSG:b=yes
+      USEROPT_HUD_VISIBLE_KILLLOG:b=yes
+      USEROPT_HUD_VISIBLE_CHAT_PLACE:b=yes
+      USEROPT_HIT_INDICATOR_RADIUS:i=100
+      USEROPT_HIT_INDICATOR_SIMPLIFIED:b=no
+      USEROPT_HIT_INDICATOR_ALPHA:i=100
+      USEROPT_HIT_INDICATOR_SCALE:i=100
+      USEROPT_HIT_INDICATOR_FADE_TIME:i=2
+      USEROPT_REPLAY_FOV:i=90
+      USEROPT_DISPLAY_REAL_NICKS_PARTICIPANTS:i=0
+      USEROPT_DISPLAY_MY_REAL_CLAN:b=yes
+      USEROPT_LWS_IND_TIMEOUT:i=2
+      USEROPT_LWS_AZIMUTH_IND_TIMEOUT:i=2
+      USEROPT_LWS_IND_H_TIMEOUT:i=2
+      USEROPT_LWS_IND_AZIMUTH_H_TIMEOUT:i=2
+      USEROPT_LWS_IND_RADIUS:i=100
+      USEROPT_LWS_IND_ALPHA:i=100
+      USEROPT_LWS_IND_SCALE:i=100
+      USEROPT_LWS_IND_H_RADIUS:i=100
+      USEROPT_LWS_IND_H_ALPHA:i=100
+      USEROPT_LWS_IND_H_SCALE:i=100
+      USEROPT_SHOW_ACTION_BAR:b=yes
+      USEROPT_HUD_SHOW_NAMES_IN_KILLLOG:b=yes
+      USEROPT_HUD_SHOW_AMMO_TYPE_IN_KILLLOG:b=yes
+      USEROPT_HUD_SHOW_SQUADRON_NAMES_IN_KILLLOG:b=yes
+      USEROPT_HUD_SHOW_DEATH_REASON_IN_SHIP_KILLLOG:b=yes
+      USEROPT_HELI_COCKPIT_HUD_DISABLED:b=no
+      USEROPT_SHOW_MESSAGE_MISSILE_EVADE:b=yes
+      USEROPT_HELI_MOUSE_AIM_ROLL_OVERRIDE_ENABLED:b=no
+    }
+
+    OPTIONS_MODE_TRAINING{}
+    OPTIONS_MODE_CAMPAIGN{}
+    OPTIONS_MODE_SINGLE_MISSION{}
+    OPTIONS_MODE_DYNAMIC{}
+    OPTIONS_MODE_USER_MISSION{}
+    OPTIONS_MODE_MP_DOMINATION{}
+    OPTIONS_MODE_MP_SKIRMISH{}
+    OPTIONS_MODE_SEARCH{}
+  }
+
+  custom{}
+  config{
+    aiList:t="%gameBase/gamedata/ai/inf/debug_mechanic_ai.blk"
+    aiList:t="%gameBase/gamedata/ai/inf/ai_soldier.blk"
+    aiList:t="%gameBase/gamedata/ai/inf/ai_common_action.blk"
+    aiList:t="%gameBase/gamedata/ai/inf/ai_common_attack.blk"
+    aiList:t="%gameBase/gamedata/ai/inf/ai_common_cover.blk"
+    aiList:t="%gameBase/gamedata/ai/inf/ai_common_move.blk"
+    aiList:t="%gameBase/gamedata/ai/inf/ai_common_prep.blk"
+    aiList:t="%gameBase/gamedata/ai/inf/ai_common_react.blk"
+    aiList:t="%gameBase/gamedata/ai/inf/ai_common_stay.blk"
+    aiList:t="%gameBase/gamedata/ai/inf/ai_commons_antitank.blk"
+    aiList:t="%gameBase/gamedata/ai/inf/ai_commons_coverattack.blk"
+    aiList:t="%gameBase/gamedata/ai/inf/ai_commons_team_heal.blk"
+    aiList:t="%gameBase/gamedata/ai/inf/ai_soldier_capture.blk"
+    aiList:t="%gameBase/gamedata/ai/inf/ai_soldier_droner.blk"
+    attachmentSlotsInitBlk:t="%gameBase/gamedata/animSlots/attachment_slots.blk"
+    hudBlk:t="config/hud.blk"
+    rumbleDir:t="config/rumble"
+    version:t=""
+    version-specific:t=""
+    compatibilityHangarBlk:t="config/hangar_airfield.blk"
+    nvidia_app_id:i=10839111
+    gameId:t="wt"
+    dasMain:t="%appGame/main.das"
+    game_das_script_init:t="%appGame/wt_init.das"
+    game_das_loading_threads:i=2
+    game_das_gen_2_make_syntax:b=yes
+    game_das_enable_serialization:b=yes
+    game_das_serialization_remove_cache:b=no
+    game_darg_project_script:t="dasProject/darg.das_project"
+    localizationVrom:t="lang.vromfs.bin"
+    localizationRegionalVrom:t="regional.vromfs.bin"
+    __settings_blk_path:t="settings.blk"
+    releaseChannel:t=""
+    language:t="English"
+    graphicsQuality:t="ultralow"
+
+    __allowedConfigOverrides{
+      graphicsQuality:t=""
+      renderer:t=""
+      region:t=""
+      releaseChannel:t=""
+      userHangarBlk:t=""
+      hangarBlk:t=""
+      userCompatibilityHangarBlk:t=""
+      compatibilityHangarBlk:t=""
+      language:t=""
+      enableEmbeddedBrowser:b=no
+      hooks:b=no
+
+      directx{
+        maxaa:i=0
+        d3d9ex:b=no
+        nvVbBugWorkaround:b=no
+        displayName:t=""
+        flushOnPresent:b=no
+        useGpuDt:b=no
+        flipPresent:b=no
+        no_more_d3d9ex_reset_error:b=no
+      }
+
+      openGL{
+        immVbSize:i=0
+        immIbSize:i=0
+        gldll:t=""
+        maxThreads:i=0
+        nvGLShaderAVWorkaround:b=no
+      }
+
+      render{
+        selfReflection:b=no
+        motionBlur:b=no
+        shadows:b=no
+        selfShadows:b=no
+        waterReflection:b=no
+        fxReflection:b=no
+        softFx:b=no
+        grassInTankVision:b=no
+        ssao:b=no
+        ssaoQuality:i=0
+        ssrQuality:i=0
+        blurShadowsQuality:i=0
+        rendinstGlobalShadows:b=no
+        secLayer:b=yes
+        sunVolFog:b=no
+        wake:b=no
+        staticShadowsOnEffects:b=no
+      }
+
+      graphics{
+        anisotropy:i=0
+        shadowDistanceScale:r=0
+        shadowQuality:t=""
+        waterEffectsQuality:t=""
+        rendinstDistMul:r=0
+        cloudLayersMul:r=0
+        grassRadiusMul:r=0
+        playersQuality:t=""
+        enemiesQuality:t=""
+        advancedShore:b=no
+        backgroundScale:r=0
+        lastClipSize:i=0
+        skyQuality:i=0
+        cloudsQuality:i=0
+        cloudsTemporal:i=0
+        panoramaBlend:b=no
+        panoramaResolution:i=0
+        lenseFlares:b=no
+        bloomQuality:i=0
+        planarReflectionTexDiv:i=0
+        waterReflectionTexDiv:i=0
+        landquality:i=0
+        fxQuality:t=""
+        hqHangarWeather:b=no
+        tanksTreesLastMipSize:i=0
+        enableSuspensionAnimation:b=no
+        dirtSubDiv:i=0
+        tireTracksQuality:i=0
+        mirrorQuality:i=0
+        skinsCDN_lq:b=no
+        fxLights:b=no
+        foamQuality:t=""
+        renderAllRendinstToReflection:b=no
+        waterRefractionEnabledFor:i=0
+        contactShadowsQuality:i=0
+        displacementQuality:i=0
+        heightmapTexSizeScale:i=0
+        foliageReprojection:b=no
+        waterQuality:t="low"
+        giQuality:t="low"
+        lowResFx:b=yes
+        riGpuObjects:b=yes
+        enableBlastEffect:b=yes
+        shatterFxQuality:i=1
+        proximityDamage:b=yes
+        bvhMode:t=""
+        enableBVH:b=no
+        RTAOQuality:t=""
+        PTGIQuality:t=""
+        RTSMQuality:t=""
+        enableRTSM:t=""
+        RTRQuality:t=""
+        RTRRes:t=""
+        RTRWater:b=no
+        RTRWaterRes:t=""
+        RTRTranslucent:t=""
+        bvhRiGenRange:i=6000
+        motionBlurStrength:i=0
+        motionBlurCancelCamera:b=no
+        fxDistortionStrength:r=1
+      }
+
+      sound{
+        speakerMode:t=""
+        fmod_sound_enable:b=no
+        enable_mod:b=no
+        useLoopsForGunSound:b=no
+        useLoopsForGMGunSound:b=yes
+        fmodEnableSpatialSound:b=yes
+      }
+
+      video{
+        resolution:t=""
+        postfx_antialiasing:t=""
+        force_aspect_ratio:t=""
+        vsync:b=no
+        vrr:b=no
+        adaptive_vsync:b=no
+        instancing:t=""
+        mode:t=""
+        disableFlipEx:b=no
+        forceFullscreen:b=no
+        compatibilityMode:b=no
+        vrMode:b=no
+        dvrStreamingEnabled:b=no
+        driver:t=""
+        guiPreIncludeCss:t=""
+        sli:b=no
+        crossfireSupport:b=no
+        forceSeparateDepthPass:b=no
+        mpGLEngine:b=no
+        alpha_to_coverage:b=no
+        oculusSecondaryWindow:b=no
+        secondaryResolution:t=""
+        dlssQuality:i=-1
+        xessQuality:i=-1
+        dlssSharpness:i=0
+        perfMetrics:i=1
+        latencyFlash:b=no
+        latency:i=0
+        vreye:t="left"
+        vrStreamerMode:b=no
+        temporalResolutionScale:r=1
+        antialiasing_mode:t=""
+        antialiasing_upscaling:t=""
+        antialiasing_sharpening:i=0
+        antialiasing_fgc:i=0
+        monitor:t=""
+        enableHdr:b=no
+      }
+
+      texStreaming{
+        enableStreaming:b=no
+        logLevel:i=0
+        forceGpuMemMB:i=0
+        maxQuotaOverdraftMB:i=0
+
+        win32{
+          enableStreaming:b=no
+        }
+
+        win64{
+          enableStreaming:b=no
+        }
+
+        linux64{
+          enableStreaming:b=no
+        }
+
+        macosx{
+          enableStreaming:b=no
+        }
+
+        ps4{
+          enableStreaming:b=no
+        }
+
+        xboxOne{
+          enableStreaming:b=no
+        }
+
+        android{
+          enableStreaming:b=no
+        }
+      }
+
+      mouse{
+        sensX:r=0
+        sensY:r=0
+        sensZ:r=0
+        invertX:b=no
+        invertY:b=no
+        invertZ:b=no
+        inputSink:b=no
+        touchScreen:b=no
+      }
+
+      debug{
+        screenshotAsJpeg:b=no
+        screenshotHiRes:b=no
+        depthScreenshot:b=no
+        screenshotsDir:t=""
+        512mboughttobeenoughforanybody:b=no
+        remapGamepadAsX360:b=no
+        enableFMEditor:b=no
+        enableModificationsInFMEditor:b=no
+        enableFMCommands:b=no
+        traceInpDev:b=no
+        floatExceptions:i=0
+        numWorkThreads:i=0
+        numTexWorkThreads:i=0
+        enableDamageLog:b=no
+        emuTouchScreen:b=no
+        win64mouse:b=no
+        updateInThreads:b=no
+        webServer:b=no
+        twitch:b=no
+        disableChat:b=no
+        disableVoiceChat:b=no
+        dumpBadCharAnswers:b=no
+        testLocalization:b=no
+        testWebUI:b=no
+        noVignette:b=no
+        freeCamMoveSpd:r=0
+        freeCamTurboSpd:r=0
+        useHumanFreeCam:b=no
+        enableQuitHotkey:b=no
+        disableSslCertCheck:b=no
+        trackirSmoothing:i=0
+        webcacheTraceLevel:i=0
+        direct_skins_decals_cdn:t=""
+        direct_hashes_req_url:t=""
+        apexLowMemMode:b=no
+        experimentalCameraTrack:b=no
+        alwaysSendBattleResult:b=no
+        mainThreadPriorityAboveNormal:b=no
+        testPreloadTex:b=no
+        testPreloadUnits:b=no
+        coolDownWithVsync:b=no
+        outgoingPacketsBinaryDump:b=no
+        guiWebCache:b=yes
+        webfs_no_cache_vrom:b=no
+        enableNvHighlights:t=""
+        enableRawInput:b=yes
+        replayExportUnitPos:b=no
+        drawFov:b=no
+        netLogerr:b=yes
+        watchdogThresholdAtStart:i=-1
+      }
+
+      network{
+        stubServerIp:t=""
+        stubServerPort:i=0
+        clusterId:i=0
+      }
+
+      bandwidth{
+        outgoingBitsPerSecond:i=8388608
+        peerOutgoingBitsPerSecond:i=262144
+        sessionOutgoingBitsPerSecond:i=8388608
+      }
+
+      yunetwork{
+        login:t=""
+        password:t=""
+        curCircuit:t=""
+        yutag:t=""
+        psnDevOverride:t=""
+        psnFqaOverride:t=""
+        useTencentLogin:b=no
+        useFptLogin:b=no
+        isProdCircuit:b=no
+        forced_network_mission:t=""
+        forceAutoLogin:b=no
+      }
+
+      oculus{
+        fovMul:r=0
+        morpheusFovMul:r=0
+        k1:r=0
+        k2:r=0
+        maxSeparation:r=0
+        positionTrackingScale:r=0
+        hqDistortion:b=no
+        headMoveScale:p3=0, 0, 0
+        headMoveLimits:p3=0, 0, 0
+      }
+
+      phys{
+        multithreaded:b=no
+      }
+
+      gameplay{
+        multipointVisibilityAgainstTrees:b=no
+        enableVR:b=no
+      }
+
+      export{
+        __allow_all_params:b=yes
+      }
+
+      dlData{
+        timeoutSec:i=0
+      }
+    }
+
+    oldHardware{
+      p:t="FirePro D$"
+      p:t="FirePro M$"
+      p:t="FirePro W2$"
+      p:t="FirePro W4$"
+      p:t="FirePro W5$"
+      p:t="Radeon 3$"
+      p:t="Radeon 5$"
+      p:t="Radeon 61$"
+      p:t="Radeon 62$"
+      p:t="Radeon 63$"
+      p:t="Radeon Graphics$"
+      p:t="Radeon HD 2$"
+      p:t="Radeon HD 3$"
+      p:t="Radeon HD 4$"
+      p:t="Radeon HD 5$"
+      p:t="Radeon HD 6$"
+      p:t="Radeon HD 7$"
+      p:t="Radeon HD 8$"
+      p:t="Radeon R3$"
+      p:t="Radeon R4$"
+      p:t="Radeon R5$"
+      p:t="Radeon R7$"
+      p:t="Radeon R9 360"
+      p:t="Radeon R9 A360"
+      p:t="Radeon R9 A375"
+      p:t="Radeon R9 M2$"
+      p:t="Radeon R9 M3$"
+      p:t="Radeon R9 M470"
+      p:t="Radeon RX 460"
+      p:t="Radeon RX550$"
+      p:t="Radeon RX 550$"
+      p:t="Radeon RX 560"
+      p:t="Radeon RX Vega"
+      p:t="Radeon RX Vega 1$"
+      p:t="Radeon Vega 3$"
+      p:t="Radeon Vega 6$"
+      p:t="Radeon Vega 8$"
+      p:t="Radeon Vega 1$"
+      p:t="GeForce 2$"
+      p:t="GeForce 3$"
+      p:t="GeForce 4$"
+      p:t="GeForce 5$"
+      p:t="GeForce 6$"
+      p:t="GeForce 7$"
+      p:t="GeForce 8$"
+      p:t="GeForce 9$"
+      p:t="GeForce G 1$"
+      p:t="GeForce G1$"
+      p:t="GeForce G2$"
+      p:t="GeForce GT 120$"
+      p:t="GeForce GT 130$"
+      p:t="GeForce GT 2$"
+      p:t="GeForce GT 3$"
+      p:t="GeForce GT 4$"
+      p:t="GeForce GT 5$"
+      p:t="GeForce GT 6$"
+      p:t="GeForce GT 7$"
+      p:t="GeForce GT 820M"
+      p:t="GeForce GTS 2$"
+      p:t="GeForce GTS 3$"
+      p:t="GeForce GTS 450$"
+      p:t="GeForce GTX 26$"
+      p:t="GeForce GTX 27$"
+      p:t="GeForce GTX 28$"
+      p:t="GeForce GTX 29$"
+      p:t="GeForce GTX 46$"
+      p:t="GeForce GTX 47$"
+      p:t="GeForce GTX 48$"
+      p:t="GeForce GTX 55$"
+      p:t="GeForce GTX 56$"
+      p:t="GeForce GTX 57$"
+      p:t="GeForce GTX 58$"
+      p:t="GeForce GTX 59$"
+      p:t="GeForce GTX 64$"
+      p:t="GeForce GTX 65$"
+      p:t="GeForce GTX 745"
+      p:t="GeForce GTX 760M"
+      p:t="GeForce GTX 765M"
+      p:t="GeForce GTX 770M"
+      p:t="GeForce GTX 850M"
+      p:t="GeForce GTX 860M"
+      p:t="GeForce GTX 870M"
+      p:t="GeForce GTX 950"
+      p:t="GeForce MX1$"
+      p:t="GeForce MX2$"
+      p:t="ION"
+      p:t="NVS 2100M"
+      p:t="NVS 300"
+      p:t="NVS 310"
+      p:t="NVS 3100M"
+      p:t="NVS 315"
+      p:t="NVS 4200M"
+      p:t="NVS 510"
+      p:t="NVS 5100M"
+      p:t="NVS 5200M"
+      p:t="NVS 5400M"
+      p:t="Quadro 1000M"
+      p:t="Quadro 2000"
+      p:t="Quadro 3000M"
+      p:t="Quadro 400"
+      p:t="Quadro 4000"
+      p:t="Quadro 410"
+      p:t="Quadro 5000"
+      p:t="Quadro 5010M"
+      p:t="Quadro 600"
+      p:t="Quadro FX 1700"
+      p:t="Quadro FX 1800"
+      p:t="Quadro FX 2700M"
+      p:t="Quadro FX 2800M"
+      p:t="Quadro FX 3600M"
+      p:t="Quadro FX 3700"
+      p:t="Quadro FX 380"
+      p:t="Quadro FX 3800"
+      p:t="Quadro FX 4800"
+      p:t="Quadro FX 570"
+      p:t="Quadro FX 570M"
+      p:t="Quadro FX 580"
+      p:t="Quadro FX 5800"
+      p:t="Quadro FX 770M"
+      p:t="Quadro FX 880M"
+      p:t="Quadro K1000M"
+      p:t="Quadro K1100M"
+      p:t="Quadro K2000"
+      p:t="Quadro K2000M"
+      p:t="Quadro K2100M"
+      p:t="Quadro K3000M"
+      p:t="Quadro K3100M"
+      p:t="Quadro K4000"
+      p:t="Quadro K420"
+      p:t="Quadro K510M"
+      p:t="Quadro K600"
+      p:t="Quadro K610M"
+      p:t="Quadro K620"
+      p:t="Quadro K620M"
+      p:t="Quadro M1000M"
+      p:t="Quadro M3000M"
+      p:t="Quadro M500M"
+      p:t="Quadro M520"
+      p:t="Quadro M600M"
+      p:t="Quadro NVS 160M"
+      p:t="Quadro NVS 320M"
+      p:t="Quadro P400"
+      p:t="Quadro P500"
+      p:t="Quadro P520"
+      p:t="Quadro P600"
+      p:t="Tesla C2050"
+      p:t="Tesla C2070"
+      p:t="Tesla T10"
+      p:t="HD Graphics"
+      p:t="G41 Express Chipset$"
+      p:t="G45/G43 Express Chipset$"
+      p:t="HD Graphics 2500"
+      p:t="HD Graphics 3000"
+      p:t="HD Graphics 4$"
+      p:t="HD Graphics 5$"
+      p:t="HD Graphics 6$"
+      p:t="HD Graphics Family"
+      p:t="HD Graphics P3000"
+      p:t="HD Graphics P530"
+      p:t="Iris Graphics 5$"
+      p:t="Iris Plus Graphics"
+      p:t="Iris Plus Graphics 6$"
+      p:t="Iris Pro Graphics 5200"
+      p:t="Iris Xe Graphics"
+      p:t="UHD Graphics 6$"
+    }
+
+    shadows{
+      bigShipForShadowsFrom:r=50
+
+      fom{
+        texSize:i=0
+        distance:p2=256, 128
+        height:r=128
+
+        infantry{
+          texSize:i=256
+          distance:p2=128, 64
+          height:r=64
+        }
+      }
+
+      voxelShadows{
+        cascadeCount:i=4
+        xzDim:i=64
+        yDim:i=32
+        voxelSize:r=1
+        heightOffsetRatio:r=0.4
+        moveThreshold:i=4
+        sparseDivs:ip4=4, 4, 4, 4
+        allowDynamic:ip4=0, 0, 0, 0
+        temporalSpeed:p4=0.2, 0.2, 0.2, 0.2
+        computeGroupOrder:ip4=0, 1, 2, 3
+
+        infantry{
+          voxelSize:r=0.75
+        }
+
+        aircraft{
+          cascadeCount:i=0
+        }
+
+        cockpit{
+          cascadeCount:i=0
+        }
+
+        small_ship{
+          cascadeCount:i=0
+        }
+
+        big_ship{
+          cascadeCount:i=0
+        }
+
+        underwater{
+          cascadeCount:i=0
+        }
+
+        hangar_ship{
+          cascadeCount:i=0
+        }
+      }
+
+      staticShadows{
+        optimizeBigQuadRenderForSmallCascade:b=no
+        cascadeCount:i=2
+        maxDist:r=250
+        texWidth:i=512
+        cascadeStarting:i=0
+        depthBias:r=0
+        slopeBias:r=0.01
+        useRelativeBias:b=yes
+        relativeBiasMin:r=0.1
+        relativeBiasMax:r=1.5
+        cascadeTransition:b=yes
+        stopRenderingAfterRegionSplit:b=yes
+        riExLod0InCascade0:b=yes
+        maxUpdateTexelPart:r=0.1
+        minSizeForRiextraCascade1:r=-1
+
+        aircraft{
+          cascadeCount:i=0
+        }
+
+        cockpit{
+          cascadeCount:i=0
+        }
+
+        underwater{
+          cascadeCount:i=0
+        }
+
+        tank{}
+        infantry{
+          maxDist:r=700
+          relativeBiasMax:r=1.75
+          slopeBias:r=0.15
+        }
+
+        small_ship{}
+        big_ship{}
+        hangar{}
+        hangar_ship{}
+      }
+
+      csm{
+        fadeOut:r=30
+        depthBias:r=0.25
+        depthSlopeBias:r=0.7
+        depthConstBias:r=2.1e-05
+        shadowStart:r=0
+        zExpansion:r=100
+        rotationMargin:r=0.1
+        destructablesMinBboxRadiusTexelMul:r=0
+        zNearForCascadeDistribution:r=-1
+        useFixedShadowCascade:b=no
+        useOcclusion:b=yes
+        renderHeightmap:b=no
+        occlusionSunDirThreshold:r=0.5
+        enableSparseUpdate:b=yes
+
+        aircraft{}
+        cockpit{}
+        underwater{}
+        tank{}
+        infantry{
+          fadeOut:r=10
+          depthBias:r=0.2
+          depthConstBias:r=0.0005
+          depthSlopeBias:r=0.4
+          powWeight:r=0.9
+          shadowDist:r=75
+        }
+
+        small_ship{}
+        big_ship{}
+        hangar{}
+        hangar_ship{}
+      }
+
+      vsm{
+        texSize:i=1024
+        distance:r=10000
+        snapDistance:r=40
+        updateThresholdPart:r=0.1
+
+        aircraft{
+          distance:r=20000
+        }
+
+        cockpit{
+          distance:r=20000
+        }
+
+        universal{
+          distance:r=20000
+        }
+      }
+
+      dynamicLightsShadows{
+        shadowQuality:i=0
+        dynamicObjects:b=no
+        gpuObjects:b=no
+        contactShadows:b=no
+        zBias:r=-0.00012
+        slopeZBias:r=-0.2
+        shaderZBias:r=0.006
+        shaderSlopeZBias:r=0.016
+        retainShadowSizeMul:r=1.25
+      }
+
+      volfogShadows{
+        enabled:b=no
+      }
+
+      ultralow{
+        fom{
+          texSize:i=0
+        }
+
+        staticShadows{
+          cascadeCount:i=1
+          optimizeBigQuadRenderForSmallCascade:b=yes
+          riExLod0InCascade0:b=no
+          slopeBias:r=0.02
+          relativeBiasMin:r=1.5
+
+          aircraft{
+            cascadeCount:i=0
+          }
+
+          cockpit{
+            cascadeCount:i=0
+          }
+
+          underwater{
+            cascadeCount:i=0
+          }
+
+          infantry{
+            useRelativeBias:b=no
+            texWidth:i=1024
+            depthBias:r=0.001
+            maxDist:r=400
+          }
+
+          hangar{
+            maxDist:r=375
+            texWidth:i=1024
+          }
+
+          hangar_ship{
+            maxDist:r=375
+            texWidth:i=1024
+          }
+        }
+
+        csm{
+          cascadeWidth:i=600
+          splitsW:i=2
+          splitsH:i=1
+          fadeOut:r=10
+          destructablesMinBboxRadiusTexelMul:r=8
+
+          aircraft{
+            shadowDist:r=30
+            powWeight:r=0.3
+          }
+
+          cockpit{
+            shadowDist:r=65
+            powWeight:r=0.95
+          }
+
+          underwater{
+            shadowDist:r=35
+            powWeight:r=0.25
+          }
+
+          tank{
+            shadowDist:r=20
+            powWeight:r=0.4
+          }
+
+          infantry{
+            shadowDist:r=20
+            powWeight:r=0.4
+          }
+
+          small_ship{
+            shadowDist:r=35
+            powWeight:r=0.25
+          }
+
+          big_ship{
+            shadowDist:r=80
+            powWeight:r=0.4
+          }
+
+          hangar{
+            shadowDist:r=80
+            powWeight:r=0.4
+          }
+
+          hangar_ship{
+            shadowDist:r=80
+            powWeight:r=0.4
+          }
+        }
+
+        voxelShadows{
+          cascadeCount:i=0
+        }
+      }
+
+      low{
+        staticShadows{
+          cascadeCount:i=1
+          optimizeBigQuadRenderForSmallCascade:b=yes
+          riExLod0InCascade0:b=no
+          slopeBias:r=0.02
+          relativeBiasMin:r=1.5
+
+          aircraft{
+            cascadeCount:i=0
+          }
+
+          cockpit{
+            cascadeCount:i=0
+          }
+
+          underwater{
+            cascadeCount:i=0
+          }
+
+          infantry{
+            useRelativeBias:b=no
+            texWidth:i=2048
+            depthBias:r=0.001
+            maxDist:r=400
+          }
+
+          hangar{
+            maxDist:r=375
+            texWidth:i=1024
+          }
+
+          hangar_ship{
+            maxDist:r=375
+            texWidth:i=1024
+          }
+        }
+
+        csm{
+          cascadeWidth:i=600
+          splitsW:i=2
+          splitsH:i=1
+          fadeOut:r=10
+          destructablesMinBboxRadiusTexelMul:r=8
+
+          aircraft{
+            shadowDist:r=30
+            powWeight:r=0.3
+          }
+
+          cockpit{
+            shadowDist:r=65
+            powWeight:r=0.95
+          }
+
+          underwater{
+            shadowDist:r=35
+            powWeight:r=0.25
+          }
+
+          tank{
+            shadowDist:r=20
+            powWeight:r=0.4
+          }
+
+          infantry{
+            shadowDist:r=20
+            powWeight:r=0.4
+          }
+
+          small_ship{
+            shadowDist:r=35
+            powWeight:r=0.25
+          }
+
+          big_ship{
+            shadowDist:r=80
+            powWeight:r=0.4
+          }
+
+          hangar{
+            shadowDist:r=80
+            powWeight:r=0.4
+          }
+
+          hangar_ship{
+            shadowDist:r=80
+            powWeight:r=0.4
+          }
+        }
+
+        dynamicLightsShadows{
+          shadowQuality:i=0
+
+          infantry{
+            shadowQuality:i=1
+          }
+        }
+
+        voxelShadows{
+          sparseDivs:ip4=4, 4, 4, 4
+          allowDynamic:ip4=0, 0, 0, 0
+          temporalSpeed:p4=0.5, 0.5, 0.5, 0.5
+          computeGroupOrder:ip4=0, 1, 2, 3
+        }
+      }
+
+      medium{
+        staticShadows{
+          maxDist:r=375
+          texWidth:i=1024
+
+          infantry{
+            texWidth:i=4096
+            cascadeStarting:i=3
+          }
+        }
+
+        csm{
+          cascadeWidth:i=768
+          splitsW:i=2
+          splitsH:i=2
+
+          aircraft{
+            shadowDist:r=340
+            powWeight:r=0.92
+          }
+
+          cockpit{
+            shadowDist:r=300
+            powWeight:r=0.992
+          }
+
+          underwater{
+            shadowDist:r=80
+            powWeight:r=0.78
+          }
+
+          tank{
+            shadowDist:r=125
+            powWeight:r=0.8
+          }
+
+          small_ship{
+            shadowDist:r=80
+            powWeight:r=0.78
+          }
+
+          big_ship{
+            shadowDist:r=120
+            powWeight:r=0.66
+          }
+
+          hangar{
+            shadowDist:r=200
+            powWeight:r=0.9
+          }
+
+          hangar_ship{
+            shadowDist:r=200
+            powWeight:r=0.9
+          }
+
+          infantry{
+            cascadeWidth:i=1024
+            splitsW:i=2
+            splitsH:i=2
+          }
+        }
+
+        dynamicLightsShadows{
+          shadowQuality:i=1
+
+          infantry{
+            shadowQuality:i=2
+          }
+        }
+
+        voxelShadows{
+          sparseDivs:ip4=4, 4, 4, 4
+          allowDynamic:ip4=1, 1, 0, 0
+          temporalSpeed:p4=0.5, 0.5, 0.5, 0.5
+          computeGroupOrder:ip4=0, 0, 1, 1
+        }
+      }
+
+      ps4shadows{
+        staticShadows{
+          maxDist:r=375
+          texWidth:i=1024
+
+          infantry{
+            texWidth:i=4096
+            cascadeStarting:i=3
+          }
+        }
+
+        csm{
+          cascadeWidth:i=1024
+          splitsW:i=2
+          splitsH:i=2
+          useOcclusion:b=no
+          renderHeightmap:b=yes
+
+          aircraft{
+            shadowDist:r=340
+            powWeight:r=0.92
+          }
+
+          cockpit{
+            shadowDist:r=300
+            powWeight:r=0.992
+          }
+
+          underwater{
+            shadowDist:r=90
+            powWeight:r=0.68
+          }
+
+          tank{
+            shadowDist:r=100
+            powWeight:r=0.7
+          }
+
+          small_ship{
+            shadowDist:r=90
+            powWeight:r=0.78
+          }
+
+          big_ship{
+            shadowDist:r=125
+            powWeight:r=0.68
+          }
+
+          hangar{
+            shadowDist:r=200
+            powWeight:r=0.9
+          }
+
+          hangar_ship{
+            shadowDist:r=200
+            powWeight:r=0.9
+          }
+
+          infantry{
+            cascadeWidth:i=1024
+            splitsW:i=2
+            splitsH:i=2
+          }
+        }
+
+        dynamicLightsShadows{
+          shadowQuality:i=1
+
+          infantry{
+            shadowQuality:i=2
+          }
+        }
+
+        voxelShadows{
+          sparseDivs:ip4=4, 4, 4, 4
+          allowDynamic:ip4=1, 1, 0, 0
+          temporalSpeed:p4=0.5, 0.5, 0.5, 0.5
+          computeGroupOrder:ip4=0, 0, 1, 1
+        }
+      }
+
+      high{
+        fom{
+          texSize:i=256
+
+          cockpit{
+            texSize:i=0
+          }
+
+          aircraft{
+            texSize:i=0
+          }
+
+          underwater{
+            texSize:i=0
+          }
+        }
+
+        staticShadows{
+          maxDist:r=450
+          texWidth:i=2048
+
+          infantry{
+            texWidth:i=4096
+            cascadeStarting:i=3
+          }
+        }
+
+        csm{
+          cascadeWidth:i=1024
+          splitsW:i=2
+          splitsH:i=2
+          useOcclusion:b=no
+          renderHeightmap:b=yes
+
+          aircraft{
+            shadowDist:r=810
+            powWeight:r=0.91
+          }
+
+          cockpit{
+            shadowDist:r=600
+            powWeight:r=0.997
+          }
+
+          underwater{
+            shadowDist:r=200
+            powWeight:r=0.94
+          }
+
+          tank{
+            shadowDist:r=200
+            powWeight:r=0.96
+          }
+
+          small_ship{
+            shadowDist:r=200
+            powWeight:r=0.94
+          }
+
+          big_ship{
+            shadowDist:r=250
+            powWeight:r=0.95
+          }
+
+          hangar{
+            shadowDist:r=200
+            powWeight:r=0.9
+          }
+
+          hangar_ship{
+            shadowDist:r=200
+            powWeight:r=0.9
+          }
+
+          infantry{}
+        }
+
+        dynamicLightsShadows{
+          shadowQuality:i=2
+          gpuObjects:b=yes
+          contactShadows:b=yes
+
+          infantry{
+            shadowQuality:i=3
+          }
+        }
+
+        volfogShadows{
+          enabled:b=yes
+        }
+
+        voxelShadows{
+          sparseDivs:ip4=2, 2, 4, 4
+          allowDynamic:ip4=1, 1, 1, 1
+          temporalSpeed:p4=0.1, 0.1, 0.5, 0.5
+          computeGroupOrder:ip4=0, 1, 2, 2
+        }
+      }
+
+      ultrahigh{
+        depthAboveTextureSize:i=1024
+
+        fom{
+          texSize:i=256
+
+          cockpit{
+            texSize:i=0
+          }
+
+          aircraft{
+            texSize:i=0
+          }
+
+          underwater{
+            texSize:i=0
+          }
+        }
+
+        staticShadows{
+          maxDist:r=525
+          texWidth:i=4096
+          cascadeStarting:i=4
+
+          infantry{
+            texWidth:i=4096
+          }
+        }
+
+        csm{
+          cascadeWidth:i=1200
+          splitsW:i=3
+          splitsH:i=2
+          useOcclusion:b=no
+          renderHeightmap:b=yes
+
+          aircraft{
+            shadowDist:r=1800
+            powWeight:r=0.99
+          }
+
+          cockpit{
+            shadowDist:r=1500
+            powWeight:r=0.9991
+          }
+
+          underwater{
+            shadowDist:r=380
+            powWeight:r=0.94
+          }
+
+          tank{
+            shadowDist:r=450
+            powWeight:r=0.96
+          }
+
+          small_ship{
+            shadowDist:r=380
+            powWeight:r=0.94
+          }
+
+          big_ship{
+            shadowDist:r=400
+            powWeight:r=0.92
+          }
+
+          hangar{
+            shadowDist:r=200
+            powWeight:r=0.9
+          }
+
+          hangar_ship{
+            shadowDist:r=200
+            powWeight:r=0.9
+          }
+
+          infantry{
+            shadowDist:r=150
+            powWeight:r=0.9
+          }
+        }
+
+        dynamicLightsShadows{
+          shadowQuality:i=3
+          contactShadows:b=yes
+          gpuObjects:b=yes
+          dynamicObjects:b=yes
+
+          infantry{
+            shadowQuality:i=4
+          }
+        }
+
+        volfogShadows{
+          enabled:b=yes
+        }
+
+        vsm{
+          texSize:i=2048
+        }
+
+        voxelShadows{
+          sparseDivs:ip4=2, 2, 4, 4
+          allowDynamic:ip4=1, 1, 1, 1
+          temporalSpeed:p4=0.1, 0.1, 0.5, 0.5
+          computeGroupOrder:ip4=0, 1, 2, 2
+        }
+      }
+    }
+
+    gi{
+      dagiQuality:i=-1
+      dagiAlgorithm:r=1
+      temporalityFramesRemapLow:i=96
+      temporalityFramesRemapHigh:i=32
+      temporalitySpeedMul:r=0.0625
+      sdf_texWidth:i=128
+      sdf_clips:i=5
+      sdf_voxel0Size:r=0.3
+
+      gpu_high_blacklist{
+        gpu:t="NVIDIA GeForce GTX 10"
+        gpu:t="NVIDIA GeForce GTX 9"
+      }
+
+      infantry{
+        sdf_voxel0Size:r=0.15
+      }
+
+      low{
+        dagiQuality:i=-1
+
+        infantry{
+          dagiQuality:i=0
+          skyVisibility_clipW:i=56
+          skyVisibility_clips:i=6
+        }
+
+        hangar{
+          dagiQuality:i=0
+          skyVisibility_clipW:i=14
+          skyVisibility_clips:i=3
+        }
+
+        hangar_ship{
+          dagiQuality:i=0
+          pause_update:b=yes
+        }
+      }
+
+      medium{
+        skyVisibility_clipW:i=56
+        skyVisibility_clips:i=5
+
+        infantry{
+          dagiQuality:i=1
+          skyVisibility_clipW:i=0
+          skyVisibility_clips:i=0
+          albedoScene_clips:i=3
+          voxelScene_sdfResScale:r=0.5
+          radianceGrid_w:i=28
+          radianceGrid_clips:i=4
+          radianceGrid_irradianceProbeDetail:r=2
+          radianceGrid_additionalIrradianceClips:i=2
+          volumetricGI_blurTexelOfs:r=0.124
+          volumetricGI_slices:i=16
+          volumetricGI_tileSize:i=64
+        }
+
+        universal{
+          dagiQuality:i=0
+        }
+
+        tank{
+          dagiQuality:i=0
+        }
+
+        hangar{
+          dagiQuality:i=0
+        }
+
+        hangar_ship{
+          dagiQuality:i=0
+          pause_update:b=yes
+        }
+      }
+
+      high{
+        albedoScene_clips:i=3
+        voxelScene_sdfResScale:r=0.5
+        radianceGrid_w:i=28
+        radianceGrid_clips:i=4
+        radianceGrid_irradianceProbeDetail:r=2
+        radianceGrid_additionalIrradianceClips:i=2
+        volumetricGI_blurTexelOfs:r=0.124
+        volumetricGI_slices:i=16
+        volumetricGI_tileSize:i=64
+
+        universal{
+          dagiQuality:i=1
+        }
+
+        tank{
+          dagiQuality:i=1
+        }
+
+        infantry{
+          dagiQuality:i=1
+        }
+
+        hangar{
+          dagiQuality:i=1
+        }
+
+        hangar_ship{
+          dagiQuality:i=1
+          pause_update:b=yes
+        }
+      }
+
+      ultrahigh{
+        dagiQuality:i=-1
+      }
+    }
+
+    volfog{
+      enabled:b=no
+      froxelFogQuality:i=0
+      distantFogQuality:i=0
+
+      off{
+        enabled:b=no
+      }
+
+      low{
+        enabled:b=yes
+
+        hangar{}
+        hangar_ship{}
+      }
+
+      medium{
+        enabled:b=yes
+        distantFogQuality:i=1
+      }
+
+      high{
+        enabled:b=yes
+        froxelFogQuality:i=1
+        distantFogQuality:i=2
+      }
+    }
+
+    fx{
+      haze:b=no
+      lowres_tex_overbright:r=1
+      lowres_tex_float_target:b=yes
+      fx_density_mul:r=1
+      resolution_quality:i=1
+      dafx_prefab_quality:i=0
+      dafx_sim_lod_dist:r=1600
+      dafx_shading_quality:i=1
+      dafx_dynamic_lights:b=no
+      bvh_reduced_render:r=0.5
+      water_reflections_reduced_render:r=0.75
+
+      tank{
+        dafx_sim_lod_dist:r=600
+      }
+
+      infantry{
+        dafx_sim_lod_dist:r=600
+        dafx_dynamic_lights:b=yes
+      }
+
+      aircraft{
+        dafx_sim_lod_dist:r=1800
+        dafx_shading_quality:i=3
+      }
+
+      cockpit{
+        dafx_sim_lod_dist:r=1800
+        dafx_shading_quality:i=3
+      }
+
+      small_ship{
+        dafx_sim_lod_dist:r=1200
+      }
+
+      big_ship{
+        dafx_sim_lod_dist:r=1200
+      }
+
+      hangar{
+        dafx_dynamic_lights:b=yes
+      }
+
+      ultralow{
+        fx_density_mul:r=0.2
+        lowres_tex_float_target:b=no
+        lowres_tex_overbright:r=2
+        resolution_quality:i=0
+        dafx_prefab_quality:i=0
+        dafx_shading_quality:i=0
+      }
+
+      low{
+        fx_density_mul:r=0.4
+        dafx_prefab_quality:i=1
+        resolution_quality:i=1
+
+        tank{
+          resolution_quality:i=0
+        }
+
+        infantry{
+          resolution_quality:i=0
+        }
+      }
+
+      medium{
+        fx_density_mul:r=0.8
+        dafx_prefab_quality:i=1
+        resolution_quality:i=1
+      }
+
+      high{
+        fx_density_mul:r=1
+        dafx_prefab_quality:i=2
+        resolution_quality:i=1
+        haze:b=yes
+
+        tank{
+          dafx_shading_quality:i=2
+        }
+
+        infantry{
+          dafx_shading_quality:i=2
+        }
+      }
+
+      ultrahigh{
+        fx_density_mul:r=1
+        dafx_prefab_quality:i=2
+        haze:b=yes
+        resolution_quality:i=2
+
+        tank{
+          dafx_shading_quality:i=2
+        }
+
+        infantry{
+          dafx_shading_quality:i=2
+        }
+      }
+
+      ps4{
+        haze:b=yes
+        fx_density_mul:r=0.8
+        dafx_prefab_quality:i=1
+      }
+
+      ps5_performance{
+        haze:b=yes
+        fx_density_mul:r=0.8
+        dafx_prefab_quality:i=1
+      }
+
+      ps5_quality{
+        haze:b=yes
+        fx_density_mul:r=1
+        dafx_prefab_quality:i=2
+
+        tank{
+          dafx_shading_quality:i=2
+        }
+
+        infantry{
+          dafx_shading_quality:i=2
+        }
+      }
+
+      xb1{
+        haze:b=yes
+        fx_density_mul:r=0.8
+        dafx_prefab_quality:i=1
+      }
+
+      xbs_performance{
+        fx_density_mul:r=0.8
+        dafx_prefab_quality:i=1
+      }
+
+      xbs_quality{
+        haze:b=yes
+        fx_density_mul:r=1
+        dafx_prefab_quality:i=2
+
+        tank{
+          dafx_shading_quality:i=2
+        }
+
+        infantry{
+          dafx_shading_quality:i=2
+        }
+      }
+    }
+
+    hmapDisplacement{
+      tessellationFactor:i=0
+      maxTessellationFactorZoom:i=2
+      heightmapTexSizeScale:i=0
+      hmapMetricsHeightRelativeErr:r=0.012
+      hmapMetricsdisplacementMetersRepeat:r=0.08
+
+      ultralow{
+        tessellationFactor:i=0
+        heightmapTexSizeScale:i=0
+        hmapMetricsHeightRelativeErr:r=0.012
+        hmapMetricsdisplacementMetersRepeat:r=0.08
+      }
+
+      low{
+        tessellationFactor:i=1
+        heightmapTexSizeScale:i=1
+        hmapMetricsHeightRelativeErr:r=0.01
+        hmapMetricsdisplacementMetersRepeat:r=0.08
+      }
+
+      medium{
+        tessellationFactor:i=2
+        heightmapTexSizeScale:i=1
+        hmapMetricsHeightRelativeErr:r=0.008
+        hmapMetricsdisplacementMetersRepeat:r=0.1
+      }
+
+      high{
+        tessellationFactor:i=3
+        heightmapTexSizeScale:i=2
+        hmapMetricsHeightRelativeErr:r=0.006
+        hmapMetricsdisplacementMetersRepeat:r=0.15
+      }
+
+      ultrahigh{
+        tessellationFactor:i=4
+        heightmapTexSizeScale:i=2
+        hmapMetricsHeightRelativeErr:r=0.004
+        hmapMetricsdisplacementMetersRepeat:r=0.2
+      }
+    }
+
+    _gameres{
+      basePkgDir:t="content/base/res"
+      patchRoot:t="patch"
+    }
+
+    game_das_serialization_scan_paths{
+      it:t="%danetlibs"
+      it:t="%game"
+      it:t="%appGame"
+      it:t="%daslib"
+      it:t="%dasImgui"
+      it:t="%dasGameLibs"
+      it:t="%gameDev"
+      it:t="%scripts"
+    }
+
+    mountPoints{
+      "%darg"{
+        forSource:t="..\..\prog\scripts\sq\daRg"
+        forVromfs:t="daRg"
+      }
+
+      "%sqstd"{
+        forSource:t="..\..\prog\scripts\sq\std"
+        forVromfs:t="std"
+      }
+
+      "%daeditor"{
+        forSource:t="..\..\prog\scripts\sq\daeditor"
+        forVromfs:t="daeditor"
+      }
+
+      "%sonyLib"{
+        forSource:t="..\..\prog\scripts\sonyLib"
+        forVromfs:t="sonyLib"
+      }
+
+      "%gdkLib"{
+        forSource:t="..\..\prog\scripts\gdkLib"
+        forVromfs:t="gdkLib"
+      }
+
+      "%scripts"{
+        forSource:t="../prog/scripts/wt/scripts"
+        forVromfs:t="scripts"
+      }
+
+      "%gui"{
+        forSource:t="../prog/scripts/wt/gui"
+        forVromfs:t="gui"
+      }
+
+      "%game"{
+        forSource:t="../prog/scripts/game"
+        forVromfs:t="gameCommon"
+      }
+
+      "%rGui"{
+        forSource:t="../prog/scripts/wt/reactiveGui"
+        forVromfs:t="reactivegui"
+      }
+
+      "%globalScripts"{
+        forSource:t="../prog/scripts/globalScripts"
+        forVromfs:t="globalscripts"
+      }
+
+      "%appGame"{
+        forSource:t="../../skyquake/prog/scripts/wt/game"
+        forVromfs:t="game"
+      }
+
+      "%appGlobals"{
+        forSource:t="../prog/scripts/wt/globals"
+        forVromfs:t="globals"
+      }
+
+      "%dedScripts"{
+        forSource:t="../prog/scripts/wt/dedicatedScripts"
+        forVromfs:t="dedicatedscripts"
+      }
+
+      "%sqDagui"{
+        forSource:t="../prog/scripts/sqDagui"
+        forVromfs:t="sqDagui"
+      }
+
+      "%sqStdLibs"{
+        forSource:t="../prog/scripts/sqStdLibs"
+        forVromfs:t="sqStdLibs"
+      }
+
+      "%daslib"{
+        forSource:t="../../prog/1stPartyLibs/daScript/daslib"
+        forVromfs:t="daslib"
+      }
+
+      "%gameLibs"{
+        forSource:t="../../prog/gameLibs"
+        forVromfs:t="gameLibs"
+      }
+
+      "%dasGameLibs"{
+        forSource:t="../../prog/gameLibs/das"
+        forVromfs:t="das"
+      }
+
+      "%danetlibs"{
+        forSource:t="../../prog/daNetGameLibs"
+        forVromfs:t="danetlibs"
+      }
+
+      "%lang"{
+        forSource:t="../prog/gameBase/lang_src/lang"
+        forVromfs:t="lang"
+      }
+
+      "%langTxt"{
+        forSource:t="../prog/gameBase/gameBase/lang"
+        forVromfs:t="lang"
+      }
+
+      "%langRegional"{
+        forSource:t="../develop/gameBase/config_regional/lang/lang"
+        forVromfs:t="lang"
+      }
+
+      "%guiConfig"{
+        forSource:t="../prog/scripts/wt/config"
+        forVromfs:t="config"
+      }
+
+      "%gameDev"{
+        forSource:t="../prog/scripts/wt/game_pkg_dev"
+        forVromfs:t="game_pkg_dev"
+      }
+
+      "%dasImgui"{
+        forSource:t="../../prog/1stPartyLibs/daScript/modules/dasImgui/daslib"
+        forVromfs:t="daslib"
+      }
+
+      "%gameBase"{
+        forSource:t="../prog/gameBase/gamebase"
+        forVromfs:t=""
+      }
+
+      "%wtlibs"{
+        forSource:t="../prog/wtlibs"
+        forVromfs:t="wtlibs"
+      }
+    }
+
+    addonBasePath{
+      addon{
+        vrom:t="aces.vromfs.bin"
+        tag:t="configs"
+        src:t="../prog/gameBase/lang_src"
+        src:t="../prog/gameBase/gamebase"
+      }
+
+      addon{
+        vrom:t="char.vromfs.bin"
+        notImportantForSession:b=yes
+      }
+
+      addon{
+        vrom:t="mis.vromfs.bin"
+        tag:t="missions"
+        notImportantForSession:b=yes
+      }
+
+      addon{
+        vrom:t="game.vromfs.bin"
+        tag:t="game-scripts"
+        src:t="../prog/scripts"
+        src:t="../prog/scripts/wt"
+      }
+
+      addon{
+        vrom:t="regional.vromfs.bin"
+        vromOptional:b=yes
+        cacheOnly:b=yes
+      }
+
+      addon{
+        vrom:t="wwdata.vromfs.bin"
+        vromOptional:b=yes
+      }
+
+      addon{
+        vrom:t="dscripts.vromfs.bin"
+        vromIgnoreForClient:b=yes
+      }
+
+      addon{
+        vrom:t="servers.vromfs.bin"
+        vromIgnoreForClient:b=yes
+      }
+
+      addon{
+        vrom:t="regsrv.vromfs.bin"
+        vromIgnoreForClient:b=yes
+        vromOptional:b=yes
+        cacheOnly:b=yes
+      }
+
+      addon{
+        vrom:t="gui.vromfs.bin"
+        tag:t="gui-scripts"
+        vromIgnoreForServer:b=yes
+      }
+
+      addon{
+        vrom:t="ui/fonts.vromfs.bin"
+        mount:t="ui/"
+        vromIgnoreForServer:b=yes
+        mountAsPack:b=yes
+        webFs:b=yes
+      }
+
+      addon{
+        vrom:t="ui/atlases.vromfs.bin"
+        mount:t="ui/"
+        vromIgnoreForServer:b=yes
+        mountAsPack:b=yes
+        webFs:b=yes
+      }
+
+      addon{
+        vrom:t="ui/tex.vromfs.bin"
+        mount:t="ui/"
+        vromIgnoreForServer:b=yes
+        mountAsPack:b=yes
+        webFs:b=yes
+      }
+
+      addon{
+        vrom:t="ui/images.vromfs.bin"
+        mount:t="ui/"
+        vromIgnoreForServer:b=yes
+        mountAsPack:b=yes
+        webFs:b=yes
+      }
+
+      addon{
+        vrom:t="ui/slides.vromfs.bin"
+        mount:t="ui/slides/"
+        vromIgnoreForServer:b=yes
+        vromOptional:b=yes
+        mountAsPack:b=yes
+        webFs:b=yes
+      }
+    }
+
+    addons{
+      folder:t="content.hq/hq_tex"
+      folder:t="content.hq/pkg_cockpits"
+      folder:t="content/pkg_china"
+      folder:t="content.hq/pkg_china_hq"
+      folder:t="content/pkg_dev"
+      folder:t="content.hq/pkg_dev_hq"
+      folder:t="content/pkg_infantry"
+      folder:t="content.hq/pkg_infantry_hq"
+      folder:t="content/pkg_modern"
+      folder:t="content.hq/pkg_modern_hq"
+      folder:t="content/hc_pacific"
+      folder:t="content/pkg_user"
+      folder:t="content/pkg_local"
+      folder:t="content/tomoe"
+      folder:t="content.hq/tomoe_hq"
+      folder:t="content.hq/uhq_vehicles"
+      folder:t="content.hq/uhq_aircraft"
+      folder:t="content.hq/uhq_environment"
+      folder:t="content/lshaders_{SHADER_SUFFIX}"
+    }
+
+    addons_no_check{
+      folder:t="content.hq/hq_tex"
+      folder:t="content.hq/pkg_cockpits"
+      folder:t="content/pkg_china"
+      folder:t="content.hq/pkg_china_hq"
+      folder:t="content/pkg_dev"
+      folder:t="content.hq/pkg_dev_hq"
+      folder:t="content/pkg_infantry"
+      folder:t="content.hq/pkg_infantry_hq"
+      folder:t="content/pkg_modern"
+      folder:t="content.hq/pkg_modern_hq"
+      folder:t="content/hc_pacific"
+      folder:t="content/pkg_user"
+      folder:t="content/pkg_local"
+      folder:t="content/tomoe"
+      folder:t="content.hq/tomoe_hq"
+      folder:t="content.hq/uhq_vehicles"
+      folder:t="content.hq/uhq_aircraft"
+      folder:t="content.hq/uhq_environment"
+      folder:t="content/lshaders_{SHADER_SUFFIX}"
+    }
+
+    addonToXboxChunk{
+      "content.hq/hq_tex":i=1002
+      "content.hq/pkg_cockpits":i=1002
+      "content/lshaders_{SHADER_SUFFIX}":i=1001
+    }
+
+    xboxSeriesDlcs{}
+    lockhartDlcs{}
+    anacondaDlcs{
+      "content.hq/uhq_aircraft":t="9P49BRD9XD2V"
+      "content.hq/uhq_environment":t="9NNW1BD54XPS"
+      "content.hq/uhq_vehicles":t="9NNW1BD54XPS"
+    }
+
+    addonToPs4Chunk{
+      "content.hq/hq_tex":i=19
+      "content.hq/pkg_cockpits":i=10
+      "content/lshaders_{SHADER_SUFFIX}":i=0
+    }
+
+    addonToPs5Chunk{
+      "content.hq/hq_tex":i=1
+      "content.hq/pkg_cockpits":i=1
+      "content/lshaders_{SHADER_SUFFIX}":i=0
+    }
+
+    addonToPs5ContentLabel{
+      "content.hq/uhq_vehicles":t="UHQVEHICLES00000"
+      "content.hq/uhq_aircraft":t="UHQAIRCRAFT00000"
+    }
+
+    steamDlcs{
+      "content.hq/uhq_aircraft":i=1945841
+      "content.hq/uhq_environment":i=1945930
+      "content.hq/uhq_vehicles":i=1945840
+    }
+
+    video{
+      safeArea:b=no
+      drawDebug:b=no
+      disable_backbuffer_aa:b=yes
+      maxTexCount:i=131072
+      sRGBrw:b=yes
+      enableHmdSupport:b=yes
+      allowDx10Fallback:b=yes
+      threadedWindow:b=yes
+      enableHdr:b=no
+      vsync:b=no
+      resolution:t="auto"
+      mode:t="fullscreen"
+      driver:t="auto"
+      compatibilityMode:b=yes
+      antialiasing_mode:t="off"
+      antialiasing_upscaling:t="native"
+
+      hdrBlackList{
+        blocked:t="AMD Radeon Pro 560"
+      }
+    }
+
+    graphics{
+      max_bindump_shadervars:i=8192
+      quality:t="high"
+      gamma:r=1
+      useConditionalRendering:b=no
+      impostorScreenMul:r=6.2
+      waterCutMask:b=no
+      useFoamFx:b=no
+      clipmapScaleFor4K:i=6
+      waterChopInit:b=no
+      waterChopEnable:b=no
+      backgroundAptiveSharpen:b=no
+      backgroundAptiveSharpenAdaptiveness:r=16
+      backgroundAptiveSharpenQuality:r=12
+      riGpuObjects:b=no
+      vrMipBias:r=-0.8
+      useCellSBuffer:b=no
+      riUseStructuredBuffer:b=no
+      supportsIndoorProbes:b=yes
+      cloudHoleThresholdDist:r=500
+      shadowQuality:t="ultralow"
+      waterEffectsQuality:t="low"
+      anisotropy:i=0
+      contactShadowsQuality:i=0
+      lenseFlares:b=no
+      waterQuality:t="low"
+      giQuality:t="low"
+      displacementQuality:i=0
+      tireTracksQuality:i=0
+      lastClipSize:i=4096
+      landquality:i=0
+      rendinstDistMul:r=0.5
+      fxQuality:t="ultralow"
+      fxDistortionStrength:r=0
+      grassRadiusMul:r=0.1
+      backgroundScale:r=1
+      advancedShore:b=no
+      panoramaResolution:i=1024
+      mirrorQuality:i=0
+      cloudsQuality:i=2
+      skyQuality:i=2
+      bloomQuality:i=0
+      texquality:t="low"
+      riColorPadding:b=no
+    }
+
+    cfdWind{
+      particleInfluenceThresholdMin:r=1
+      particleInfluenceThresholdMax:r=15
+    }
+
+    ps4{
+      garlic_size_mb:i=2560
+      neo_garlic_size_mb:i=3060
+      onion_size_mb:i=170
+      dcb_size_mb:i=4
+      onion_blocks:i=16384
+      max_genmip_tex_sz:i=2048
+      mem_reserve_mb:i=512
+      emergency_buffer_pages:i=20
+      garlic_blocks:i=25000
+      shader_garlic_size_kb:i=3840
+      dynbuf_heap_garlic_mb:i=32
+      dynbuf_heap_onion_mb:i=32
+      dynbuf_garlic_threshold_kb:i=1024
+      dynbuf_onion_threshold_kb:i=1024
+      enable_deferred_mipgen:b=yes
+      neo_4k_scale:i=150
+      guiWebCacheCircuit:t="production"
+      enable_defrag:b=yes
+      defrag_threshold:i=80
+    }
+
+    ps5{
+      dcb_size_mb:i=8
+      mem_direct_size_mb:i=6144
+      mem_shader_heap_size_kb:i=16384
+      mem_reserve_mb:i=256
+      max_genmip_tex_sz:i=2048
+      dynbuf_heap_gpu_mb:i=256
+      dynbuf_direct_threshold_kb:i=1024
+      enable_deferred_mipgen:b=yes
+      guiWebCacheCircuit:t="production"
+      enable_defrag:b=yes
+      defrag_threshold:i=84
+      defrag_cooldown_min:i=63
+      useHfr:b=no
+    }
+
+    skies{
+      common{
+        geom_table_part:r=0.8
+        cloudsOffsetFrom:r=25000
+        cloudsOffsetTo:r=40000
+        cloudsOffset:r=1800
+        cloudGridSize:i=128
+        cloudGridHeight:i=16
+      }
+    }
+
+    stub3d{
+      autoBufferReallocate:b=yes
+      bufferSize:i=0
+      vb_ib_dataSupport:b=yes
+    }
+
+    sound{
+      voice_country:t="GB"
+      sound_reverb:b=yes
+      speakerMode:t="auto"
+      fmod_sound_enable:b=yes
+    }
+
+    gameplay{
+      stalls_n_spins:b=no
+      torque_n_gyro_effects:b=no
+      coordinated_turn:b=no
+      ai_skill:t="2 - veteran"
+      immortalHero:b=no
+      test_fight:b=no
+      difficulty:t="realistic"
+      enableVR:b=no
+    }
+
+    calc_deaths_matrix{
+      enabled:b=no
+      numIterations:i=5
+      dt:r=0.03
+      time:r=10
+    }
+
+    debug{
+      enableApex:b=yes
+      disableAnsel:b=no
+      apexLowMemMode:b=yes
+      disableFmSyncDumps:b=yes
+      mpBulletDiagnostics:b=no
+      trackEnvChanges:b=no
+      gamepadInBackground:b=yes
+      useDpadDiagonals:b=no
+      helicopterGame:b=yes
+      colorMips:b=no
+      sharpenTextures:b=no
+      centerWeight:r=1.8
+      orthogonalWeight:r=-0.1
+      diagonalWeight:r=-0.1
+      debugConsole:b=no
+      disableMenu:b=no
+      max_giant_smokes:i=1
+      max_giant_fires:i=1
+      max_just_fires:i=1
+      flyTurbo:r=500
+      forcedFrameTimeSec:r=-1
+      smoothDt:b=yes
+      warningOnFrameTimeSec:r=0.066
+      limitFps:r=0
+      checkModels:b=no
+      shouldCheckDm:b=yes
+      consoleLines:i=20
+      debugFlush:b=no
+      fatalOnCheckSanityFail:b=no
+      x360EnableFatal:b=yes
+      maxScriptMsec:i=1000
+      lodDistanceScale:r=1
+      shouldUnlockAllMissions:b=no
+      shouldUnlockAllContent:b=no
+      dontUseCpuInBackground:b=no
+      autoRespawn:b=no
+      usePip:b=yes
+      hugeScreenshotMultiplier:i=3
+      minimalGUI:b=no
+      disableMultithreadWaitBox:b=no
+      isMultiplayerDebug:b=no
+      hostMigration:b=no
+      replay:b=yes
+      goLobbyAfterStatistics:b=yes
+      isTextProfile:b=no
+      lowQualityEnemies:b=yes
+      guiStrPoolSize:i=524288
+      disableNetwork:b=no
+      offlineConfigs:b=no
+      drawTimestamp:b=yes
+      disableOverlay:b=yes
+      skipMovies:b=no
+      disableBackgroundMovie:b=no
+      noGuiFade:b=no
+      disableHangar:b=no
+      disableChat:b=no
+      workThreadsStackSize:i=270336
+      enableMouseHints:b=yes
+      replayDofFar:p3=100, 400, 0.5
+      disableMultithreadUI:b=no
+      toolsPathWin:t="../../tools/dagor_cdk/windows-x86_64"
+      watchdogThresholdAtStart:i=180000
+      testYunetwork:b=no
+    }
+
+    directx{
+      debug:b=no
+      disableNvapi:b=no
+      nvVbBugWorkaround:b=no
+      useGpuDt:b=no
+      flushOnPresent:b=yes
+      ignore_resource_leaks_on_exit:b=no
+      max_genmip_tex_sz:i=4096
+    }
+
+    openGL{
+      nvGLShaderAVWorkaround:b=yes
+    }
+
+    render{
+      heightmap:b=yes
+      hmapEnableMipsUpdating:b=no
+      environment:b=yes
+      rendinst:b=yes
+      clouds:b=yes
+      scene:b=yes
+      dynmodels:b=yes
+      fx:b=yes
+      tracers:b=yes
+      rainX7:b=yes
+      fog:b=yes
+      gui:b=yes
+      water3d:b=yes
+      clipmap:b=yes
+      rendinstClipmapShadows:b=yes
+      fxReflection:b=yes
+      wakeFoamWithoutAA:b=yes
+      ssaoQuality:i=0
+      ssrQuality:i=0
+      shadows:b=yes
+      selfReflection:b=no
+    }
+
+    clipmap{
+      sideSize:i=768
+      texelSize:r=0.015
+      tankTexelSize:r=0.015
+      stackCount:i=8
+      step:r=1.7
+      finalSize:r=0
+    }
+
+    clipmapImpostor{
+      enabled:b=no
+      distance:r=1300
+    }
+
+    aviWriter{
+      quality:i=100
+      folder:t="d:\video\bos_video"
+      fileLimit:i=2100000000
+    }
+
+    network{
+      stubServerIp:t="127.0.0.1"
+      stubServerPort:i=14042
+      stubOnlineName:t="Server"
+      stubOnlineId:i=1
+      stubServerOnlineName:t="Server"
+      stubServerOnlineId:i=1
+      psnAuthRequestTimeout:i=30
+      publicConfigsUrl:t="https://public-configs.warthunder.com/"
+      sendAppStateMetricsTimerIntervalMs:i=60000
+
+      publicConfigsUrls{
+        url:t="https://public-configs.warthunder.com/"
+        url:t="https://public-configs-warthunder-gcore.cdn.gaijin.net/"
+      }
+    }
+
+    net{
+      useServerRouteEvaluation:b=yes
+      echoTimeoutMs:i=5000
+      addRtt:i=-20
+    }
+
+    general{
+      environment:t="day"
+      weather:t="clear"
+    }
+
+    texStreaming{
+      enableStreaming:b=yes
+      texLoadOnDemand:b=yes
+      hqTexPrio:i=1
+      defStubTexColor:c=80, 80, 80, 0
+      verboseLogs:b=no
+      lqIsSplitBQ:b=no
+      driverReserveKB:i=262144
+
+      win32{
+        enableStreaming:b=yes
+      }
+
+      win64{
+        enableStreaming:b=yes
+      }
+
+      stubTex{
+        tag:t="diffuse"
+        idx:i=1
+        color:c=80, 82, 80, 255
+      }
+
+      stubTex{
+        tag:t="nx_ny_nz_0"
+        idx:i=2
+        color:c=128, 128, 255, 0
+        gamma1:b=yes
+      }
+
+      stubTex{
+        tag:t="smooth0_nx_metal0_ny"
+        idx:i=3
+        color:c=0, 128, 0, 128
+        gamma1:b=yes
+      }
+
+      stubTex{
+        tag:t="ao"
+        idx:i=4
+        color:c=200, 200, 200, 255
+      }
+
+      stubTex{
+        tag:t="black"
+        idx:i=5
+        color:c=0, 0, 0, 0
+      }
+
+      stubTex{
+        tag:t="nx_ny_0_0.5"
+        idx:i=6
+        color:c=128, 128, 0, 128
+        gamma1:b=yes
+      }
+
+      stubTex{
+        tag:t="mod2x"
+        idx:i=7
+        color:c=128, 128, 128, 128
+      }
+
+      stubTex{
+        tag:t="nx_ny_0_0"
+        idx:i=8
+        color:c=128, 128, 0, 0
+        gamma1:b=yes
+      }
+    }
+
+    dlData{
+      timeoutSec:i=500
+    }
+
+    ugc{
+      enabled:b=yes
+    }
+
+    unitedVdata.dynModel{
+      use:b=yes
+      canRebuild:b=no
+
+      ps4{
+        IB:i=68000
+        VB1:i=65536
+        VB2:i=65536
+        VB3:i=65536
+        VB4:i=65536
+        VB5:i=0
+      }
+
+      xboxOne{
+        IB:i=72000
+        VB1:i=65536
+        VB2:i=65536
+        VB3:i=65536
+        VB4:i=65536
+        VB5:i=0
+      }
+
+      scarlett{
+        IB:i=80000
+        VB1:i=65536
+        VB2:i=65536
+        VB3:i=65536
+        VB4:i=65536
+        VB5:i=0
+      }
+
+      ps5{
+        IB:i=80000
+        VB1:i=65536
+        VB2:i=65536
+        VB3:i=65536
+        VB4:i=65536
+        VB5:i=0
+      }
+
+      common_3GB{
+        IB:i=80000
+        VB1:i=65536
+        VB2:i=65536
+        VB3:i=65536
+        VB4:i=65536
+        VB5:i=0
+      }
+
+      common_4GB{
+        IB:i=120000
+        VB1:i=65536
+        VB2:i=65536
+        VB3:i=65536
+        VB4:i=65536
+        VB5:i=65536
+        VB6:i=0
+      }
+
+      common{
+        IB:i=68000
+        VB1:i=65536
+        VB2:i=65536
+        VB3:i=65536
+        VB4:i=65536
+        VB5:i=0
+      }
+
+      ps5proRTLimits{
+        ibLimitsKb:i=72000
+        vbLimitsKb:i=196608
+      }
+    }
+
+    unitedVdata.rendInst{
+      ps4{
+        IB:i=16384
+        VB1:i=65536
+        VB2:i=0
+      }
+
+      common_3GB{
+        IB:i=24000
+        VB1:i=65536
+        VB2:i=65536
+        VB3:i=0
+      }
+
+      common_4GB{
+        IB:i=114688
+        VB1:i=65536
+        VB2:i=65536
+        VB3:i=65536
+        VB4:i=65536
+        VB5:i=65536
+        VB6:i=65536
+        VB7:i=0
+      }
+
+      common{
+        IB:i=16384
+        VB1:i=65536
+        VB2:i=0
+      }
+    }
+
+    xr{
+      depthBlacklist{
+        vendorid:i=10462
+        vendorid:i=1118
+        vendorid:i=10291
+        vendorid:i=-11714
+      }
+    }
+
+    graphicsAutodetect{
+      gpuBenchmarkDuration:r=10
+      presetDefault:t="high"
+      presetUltralow:t="ultralow"
+
+      presets{
+        ultralow{
+          timeMs30:r=30
+          timeMs60:r=15
+          timeMs120:r=7
+          timeMs240:r=3
+        }
+
+        low{
+          timeMs30:r=17
+          timeMs60:r=8
+          timeMs120:r=4
+          timeMs240:r=2
+        }
+
+        medium{
+          timeMs30:r=11
+          timeMs60:r=5.5
+          timeMs120:r=2.5
+          timeMs240:r=1.25
+        }
+
+        high{
+          timeMs30:r=6.5
+          timeMs60:r=3
+          timeMs120:r=1.5
+          timeMs240:r=0.75
+        }
+
+        max{
+          timeMs30:r=4.5
+          timeMs60:r=2
+          timeMs120:r=1
+          timeMs240:r=0.5
+        }
+
+        movie{
+          timeMs30:r=3.5
+          timeMs60:r=1.25
+          timeMs120:r=0.6
+          timeMs240:r=0.3
+        }
+      }
+    }
+
+    phys{
+      fixedTimeStepHz:i=-60
+      maxSubSteps:i=3
+    }
+
+    dx12{
+      rootSignaturesUsesCBVDescriptorRanges:b=yes
+      pso_cache_sending_enabled:b=no
+      pso_cache_enabled:b=yes
+      pso_app_key:t="war_thunder"
+
+      debug{
+        loadPixCapturer:b=no
+      }
+
+      gpuPreferences{
+        intel{
+          vendorId:i=32902
+          preferredDeviceIds:i=22176
+          preferredDeviceIds:i=22177
+          preferredDeviceIds:i=22178
+          preferredDeviceIds:i=22181
+          preferredDeviceIds:i=22182
+          preferredDeviceIds:i=22160
+          preferredDeviceIds:i=22161
+          preferredDeviceIds:i=22162
+          preferredDeviceIds:i=22163
+          preferredDeviceIds:i=22164
+          minDriver:t="26.20.0.0"
+        }
+
+        nvidia{
+          vendorId:i=4318
+          minDriver:t="27.21.14.6140"
+          blacklistedDrivers:t="27.21.14.6172"
+        }
+      }
+    }
+
+    vulkan{
+      enableBindless:b=yes
+      max_genmip_tex_sz:i=4096
+
+      vendor{
+        Intel{
+          driverProps{
+            disableBindless{
+              entry{
+                hwType:i=1
+
+                data{
+                  affected:b=yes
+                }
+              }
+
+              entry{
+                gpu:t="Arc"
+
+                data{
+                  affected:b=no
+                }
+              }
+            }
+          }
+        }
+      }
+
+      allocators{
+        freelist{
+          pageSizeMb:i=64
+          maxElementSizeMb:i=8
+        }
+      }
+    }
+
+    console_presets{}
+    yunetwork{
+      curCircuit:t="production"
+    }
+  }
+}

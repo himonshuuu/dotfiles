@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QtCreatorSession>
+<!-- Written by QtCreator 18.0.1, 2025-12-12T16:25:24. -->
+<qtcreator>
+ <data>
+  <variable>AutoTest.MessageFilter</variable>
+  <valuelist type="QVariantList">
+   <value type="int">12</value>
+   <value type="int">21</value>
+   <value type="int">7</value>
+   <value type="int">3</value>
+   <value type="int">22</value>
+   <value type="int">5</value>
+   <value type="int">0</value>
+   <value type="int">10</value>
+   <value type="int">9</value>
+   <value type="int">8</value>
+   <value type="int">20</value>
+   <value type="int">4</value>
+   <value type="int">13</value>
+   <value type="int">16</value>
+   <value type="int">6</value>
+   <value type="int">15</value>
+   <value type="int">1</value>
+   <value type="int">14</value>
+   <value type="int">2</value>
+   <value type="int">11</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>AutoTest.ShowDurations</variable>
+  <value type="bool">true</value>
+ </data>
+ <data>
+  <variable>CascadeSetActive</variable>
+  <value type="bool">false</value>
+ </data>
+ <data>
+  <variable>Color</variable>
+  <value type="QString">#666666</value>
+ </data>
+ <data>
+  <variable>DeployProjectDependencies</variable>
+  <value type="bool">false</value>
+ </data>
+ <data>
+  <variable>EditorSettings</variable>
+  <value type="QByteArray">AAAAD0VkaXRvck1hbmFnZXJWNQAAAAEAAABaAC8AaABvAG0AZQAvAGgAdQBtAGEAbgAvAFAAcgBvAGoAZQBjAHQAcwAvAHEAdAAtAHAAcgBvAGoAZQBjAHQAcwAvAGIAYQByAC8ATQBhAGkAbgAuAHEAbQBsAAAADAAAAAAgAAAAAgAAAAAAAAAAAAAAKgAAACgAAAAAAAAAAAAAADAAAAABAAAAWgAvAGgAbwBtAGUALwBoAHUAbQBhAG4ALwBQAHIAbwBqAGUAYwB0AHMALwBxAHQALQBwAHIAbwBqAGUAYwB0AHMALwBiAGEAcgAvAE0AYQBpAG4ALgBxAG0AbAAAABAATQBhAGkAbgAuAHEAbQBsAAAAF1FtbEpTRWRpdG9yLlFNTEpTRWRpdG9yAAAAAcwAAAANY3VycmVudGVkaXRvcgAAAFoALwBoAG8AbQBlAC8AaAB1AG0AYQBuAC8AUAByAG8AagBlAGMAdABzAC8AcQB0AC0AcAByAG8AagBlAGMAdABzAC8AYgBhAHIALwBNAGEAaQBuAC4AcQBtAGwAAAAuAFEAbQBsAEoAUwBFAGQAaQB0AG8AcgAuAFEATQBMAEoAUwBFAGQAaQB0AG8AcgAAACAAAAACAAAAAAAAAAAAAAAqAAAAKAAAAAAAAAAAAAAAMAAAAAEAAACdAAAAWgAvAGgAbwBtAGUALwBoAHUAbQBhAG4ALwBQAHIAbwBqAGUAYwB0AHMALwBxAHQALQBwAHIAbwBqAGUAYwB0AHMALwBiAGEAcgAvAE0AYQBpAG4ALgBxAG0AbAAAABdRbWxKU0VkaXRvci5RTUxKU0VkaXRvcgAAACAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAMAAAAAEAAABaAC8AaABvAG0AZQAvAGgAdQBtAGEAbgAvAFAAcgBvAGoAZQBjAHQAcwAvAHEAdAAtAHAAcgBvAGoAZQBjAHQAcwAvAGIAYQByAC8ATQBhAGkAbgAuAHEAbQBsAAAAAA==</value>
+ </data>
+ <data>
+  <variable>ProjectDependencies</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+ <data>
+  <variable>ProjectList</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">/home/human/Projects/qt-projects/bar/CMakeLists.txt</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>StartupProject</variable>
+  <value type="QString">/home/human/Projects/qt-projects/bar/CMakeLists.txt</value>
+ </data>
+ <data>
+  <variable>value-ActiveMode</variable>
+  <value type="QString">Edit</value>
+ </data>
+ <data>
+  <variable>value-Breakpoints</variable>
+  <valuelist type="QVariantList"/>
+ </data>
+ <data>
+  <variable>value-Find</variable>
+  <valuemap type="QVariantMap">
+   <valuemap type="QVariantMap" key="AdvancedSearch">
+    <valuemap type="QVariantMap" key="Files on Disk">
+     <value type="bool" key="GitGrepRecurse">false</value>
+    </valuemap>
+   </valuemap>
+  </valuemap>
+ </data>
+ <data>
+  <variable>value-ProjectTree.ExpandData</variable>
+  <valuelist type="QVariantList">
+   <valuelist type="QVariantList">
+    <value type="QString">/home/human/Projects/qt-projects/bar</value>
+    <value type="int">200000</value>
+    <value type="QString">bar</value>
+   </valuelist>
+   <valuelist type="QVariantList">
+    <value type="QString">/home/human/Projects/qt-projects/bar</value>
+    <value type="int">400900</value>
+    <value type="QString">appbar</value>
+   </valuelist>
+   <valuelist type="QVariantList">
+    <value type="QString">/home/human/Projects/qt-projects/bar</value>
+    <value type="int">200005</value>
+    <value type="QString">Header Files</value>
+   </valuelist>
+   <valuelist type="QVariantList">
+    <value type="QString">/home/human/Projects/qt-projects/bar</value>
+    <value type="int">200005</value>
+    <value type="QString">Source Files</value>
+   </valuelist>
+  </valuelist>
+ </data>
+ <data>
+  <variable>value-TaskWindow.Categories</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">Task.Category.QmlAnalysis</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>value-TaskWindow.IncludeWarnings</variable>
+  <value type="bool">true</value>
+ </data>
+ <data>
+  <variable>valueKeys</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">ActiveMode</value>
+   <value type="QString">Breakpoints</value>
+   <value type="QString">Find</value>
+   <value type="QString">ProjectTree.ExpandData</value>
+   <value type="QString">TaskWindow.Categories</value>
+   <value type="QString">TaskWindow.IncludeWarnings</value>
+  </valuelist>
+ </data>
+</qtcreator>
