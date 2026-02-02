@@ -1,0 +1,9 @@
+[sie][Reverb#0]
+bypass=true
+
+[soe][Reverb#0]
+bypass=true
+decayTime=0.6
+dry=-2.5
+predelay=15
+roomSize=0

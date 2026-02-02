@@ -1,0 +1,180 @@
+# System & Base
+base
+base-devel
+linux
+linux-headers
+linux-firmware-intel
+linux-firmware-other
+intel-ucode
+man-db
+man-pages
+sudo
+
+# Boot/Init & System Utilities
+plymouth
+efibootmgr
+dosfstools
+reflector
+power-profiles-daemon
+ly
+
+# Filesystems & Disk Tools
+btrfs-progs
+ntfs-3g (add if used, not in original list)
+gparted
+ncdu
+tree
+
+# Networking & Internet
+networkmanager
+network-manager-applet
+nmap
+wget
+aria2
+bind
+
+# Virtualization & Emulation
+qemu-system-x86
+qemu-ui-gtk
+podman
+podman-compose
+spice-vdagent
+
+# Audio & Multimedia
+alsa-utils
+pipewire
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
+
+pavucontrol
+mpv
+vlc
+vlc-plugin-mpeg2
+vlc-plugin-x264
+ffmpegthumbnailer
+cava
+wf-recorder
+espeak-ng
+
+# Graphics & Fonts
+imagemagick
+tela-circle-icon-theme-blue
+xfce4-settings
+nwg-look
+orchis-theme
+tumbler
+thunar-archive-plugin
+terminus-font
+ttf-dejavu
+ttf-droid
+ttf-ibm-plex
+ttf-jetbrains-mono
+ttf-jetbrains-mono-nerd
+ttf-liberation
+ttf-roboto
+ttf-roboto-mono
+ttf-ubuntu-font-family
+noto-fonts-emoji
+
+# Desktop Environment & Utilities
+hyprland
+hyprshot
+xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland
+xdg-user-dirs
+blueman
+bluez
+bluez-utils
+polkit-gnome
+gvfs
+gvfs-google
+gvfs-mtp
+ibus
+brightnessctl
+power-profiles-daemon
+wireplumber
+swappy
+swaync
+swww
+rofi
+quickshell
+cliphist
+
+# Terminal & Shells
+kitty
+vim
+nano
+neovim
+tmux
+zsh
+bat
+btop
+fzf
+eza
+yazi
+upterm
+
+# Arch Tools & Install
+archiso
+fastfetch
+
+# File Compression & Archivers
+7zip
+unzip
+zip
+xarchiver
+
+# Development Tools
+git
+gopls
+go
+rustup
+clang
+nasm
+python-pip
+python-evdev
+nodejs
+npm
+elixir
+sassc
+
+# Editors & IDEs
+gedit
+dbeaver
+
+# Miscellaneous Utilities
+inotify-tools
+usbutils
+xdotool
+scrcpy
+evtest
+swappy
+celluloid
+cowsay
+
+# Security & Encryption
+gnome-keyring
+
+# Miscellaneous
+mpv
+vivaldi
+mtpfs
+
+# Theming & Appearance
+nwg-look
+orchis-theme
+tela-circle-icon-theme-blue
+
+# Other
+upterm
+quickshell
+reflector
+gedit
+vim
+kitty
+nano
+swaync
+btop
+swww
+wf-recorder

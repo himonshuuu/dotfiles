@@ -1,0 +1,15 @@
+antigravity-bin
+cmatrix-git
+cursor-beta-bin
+discord-ptb
+droidcam
+elixir-ls
+gnu-netcat
+google-chrome
+gtk-engine-murrine
+postman-bin
+rar
+spotify
+telegram-desktop-bin
+visual-studio-code-insiders-bin
+waybar-git

@@ -42,3 +42,12 @@ QtProject.conf
 WarThunder*
 Antigravity*
 configstore*
+Gaijin
+zsh/cache*
+subfinder
+eas-cli-nodejs
+Notion*
+hub*
+.ignore/*
+# .qmlls.ini
+kicad

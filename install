@@ -1,0 +1,70 @@
+#!/bin/bash
+set -e
+
+USER="human"
+HOSTNAME="machine"
+TIMEZONE="Asia/Kolkata"
+PASSWORD="password"
+DISK="/dev/nvme0n1"
+
+BOOT="${DISK}p1"
+ROOT="${DISK}p2"
+SWAP="${DISK}p3"
+
+timedatectl set-ntp true
+
+echo "Partitioning disk..."
+parted -s $DISK \
+  mklabel gpt \
+  mkpart ESP fat32 1MiB 513MiB \
+  set 1 esp on \
+  mkpart primary ext4 513MiB 100% \
+  mkpart primary linux-swap 100%
+
+mkfs.fat -F32 $BOOT
+mkfs.ext4 -f $ROOT
+mkswap $SWAP
+
+mount $ROOT /mnt
+mount --mkdir $BOOT /mnt/boot
+swapon $SWAP
+
+
+packages=()
+
+pacstrap /mnt ${packages[@]}
+
+genfstab -U /mnt >> /mnt/etc/fstab
+
+arch-chroot /mnt /bin/bash <<EOF
+
+ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
+hwclock --systohc
+echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+
+echo "$HOSTNAME" > /etc/hostname
+
+systemctl enable NetworkManager
+
+echo "root:$(openssl passwd -6 $PASSWORD)" | chpasswd
+
+useradd -m -G wheel,audio,video,storage,power $USER
+echo "$USER:$(openssl passwd -6 $PASSWORD)" | chpasswd
+
+sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
+
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=ARCH
+grub-mkconfig -o /boot/grub/grub.cfg
+
+cd /home/$USER
+sudo -u $USER git clone https://aur.archlinux.org/paru.git
+cd paru
+sudo -u $USER makepkg -si --noconfirm
+
+EOF
+
+umount -R /mnt
+swapoff $SWAP
+reboot
