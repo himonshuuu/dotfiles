@@ -7,13 +7,6 @@ Arch Linux + Hyprland (Lua) with a Quickshell island bar.
 | `hypr/` | monitors, appearance, input, keybinds, autostart, window rules |
 | `quickshell/` | bar, OSD, notifications, launcher, power menu, lock screen, wallpaper, screenshot, bluetooth, polkit agent |
 | `kitty/` | terminal |
-| `fastfetch/` | minimal fetch config, small Arch logo |
-
-## Preview
-
-![Island bar over the wallpaper](screenshots/desktop.png)
-
-![Floating kitty running fastfetch](screenshots/terminal.png)
 
 ## Install
 
@@ -38,3 +31,5 @@ Targets: `notifcenter`, `launcher`, `powermenu`, `wallpaper`, `screenshot`, `blu
 
 After config changes Quickshell hot-reloads; a clean restart is
 `pkill -x quickshell; qs`.
+
+![Terminal with fastfetch](screenshots/terminal.png)
