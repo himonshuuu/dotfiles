@@ -7,6 +7,13 @@ Arch Linux + Hyprland (Lua) with a Quickshell island bar.
 | `hypr/` | monitors, appearance, input, keybinds, autostart, window rules |
 | `quickshell/` | bar, OSD, notifications, launcher, power menu, lock screen, wallpaper, screenshot, bluetooth, polkit agent |
 | `kitty/` | terminal |
+| `fastfetch/` | minimal fetch config, small Arch logo |
+
+## Preview
+
+![Island bar over the wallpaper](screenshots/desktop.png)
+
+![Floating kitty running fastfetch](screenshots/terminal.png)
 
 ## Install
 
@@ -20,17 +27,6 @@ anything already there to `<name>.bak.<timestamp>`. It is safe to re-run.
 
 - `-n`, `--dry-run` — show what it would do
 - `--unlink` — remove the links this repo created
-
-## Layout
-
-`quickshell/` is split by role:
-
-- `services/` — background logic, never draws anything
-- `components/` — markup only
-- `utils/` — logic shared between components
-- `config/` — design tokens (`theme.js`)
-
-Services are instantiated once in `shell.qml` and passed into components.
 
 ## IPC
 
