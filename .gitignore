@@ -1,0 +1,8 @@
+# editor / OS noise
+*.bak.*
+*.swp
+*~
+.DS_Store
+
+# generated caches
+*.log
