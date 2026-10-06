@@ -57,6 +57,7 @@ found=0
 for src in "$DOTFILES"/*/; do
     [ -e "$src" ] || continue
     name="$(basename "$src")"
+    case "$name" in screenshots) continue ;; esac
     found=1
     link_one "${src%/}" "$name"
 done
