@@ -26,16 +26,14 @@ Item {
 
     function begin() {
         if (pam.active) return
-        if (!pam.start()) {
-            root.hint = "Could not start PAM"
-            lock.locked = false
-        }
+        if (!pam.start()) root.hint = "Could not start PAM"
     }
 
     function submit() {
+        if (!pam.active) { root.begin(); return }
         // responseRequired only goes true while PAM is actually waiting on a
         // reply, so an early Enter is ignored instead of desyncing the chat
-        if (!pam.active || !pam.responseRequired) return
+        if (!pam.responseRequired) return
         const pw = root.password
         root.password = ""
         pam.respond(pw)
@@ -56,6 +54,7 @@ Item {
                 root.hint = ""
                 root.retries = 0
                 lock.locked = false
+                root.session.unlock()
                 return
             }
             root.hint = "Authentication failed"
@@ -66,7 +65,8 @@ Item {
         onError: function(err) {
             root.hint = PamError.toString(err)
             root.password = ""
-            if (++root.retries > 2) { lock.locked = false; return }
+            // a broken PAM must never open the gate; Enter retries
+            if (++root.retries > 2) return
             Qt.callLater(function() { root.begin() })
         }
     }
