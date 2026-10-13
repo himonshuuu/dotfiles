@@ -27,6 +27,8 @@ PanelWindow {
     WlrLayershell.exclusiveZone: -1
     WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
     WlrLayershell.margins.right: rightGap
+    // clears the island so the stack never covers the controls pill
+    WlrLayershell.margins.top: 42
 
     // themed-icon lookup stays here: Quickshell.iconPath is only reachable
     // from QML, so utils/icons.js hands this function back and forth

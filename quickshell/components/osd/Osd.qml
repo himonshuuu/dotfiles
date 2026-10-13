@@ -9,8 +9,7 @@ import "../../config/theme.js" as Theme
 PanelWindow {
     id: osd
 
-    anchors { top: true; left: true }
-    implicitWidth: 360
+    anchors { left: true; right: true; bottom: true }
     implicitHeight: 80
     color: "transparent"
     visible: shown
@@ -18,7 +17,12 @@ PanelWindow {
     WlrLayershell.layer: WlrLayer.Overlay
     WlrLayershell.exclusiveZone: -1
     WlrLayershell.namespace: "osd"
-    WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
+    WlrLayershell.keyboardFocus: WlrKey // Text {
+                //     anchors.centerIn: parent
+                //     text: (modelData.cls || "?")[0]
+                //     color: Theme.textPrimary; font.bold: true; font.pixelSize: 12
+                //     visible: parent.iconUrl === ""
+                // }boardFocus.None
 
     // required so they are set before the Connections below are created
     required property var volume      // services/audio/Volume.qml
@@ -55,13 +59,12 @@ PanelWindow {
 
     Rectangle {
         id: bubble
-        anchors.top: parent.top
-        anchors.topMargin: 8
-        anchors.left: parent.left
-        anchors.leftMargin: 8
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 14
         width: 300
         height: 32
-        radius: 12
+        radius: 20
         color: Theme.bg
         opacity: osd.shown ? 1 : 0
         visible: opacity > 0

@@ -66,7 +66,7 @@ ShellRoot {
 
     // one lock surface per output, owned at the shell root rather than per
     // screen - the session-lock protocol already covers every monitor
-    LockScreen.LockScreen { session: sessionService }
+    // LockScreen.LockScreen { session: sessionService }
 
     Variants {
         model: Quickshell.screens
@@ -101,6 +101,7 @@ ShellRoot {
             Bar.Island {
                 screen: v.modelData
                 toggleNotif: function() { notifViewer.isOpen = !notifViewer.isOpen }
+                openPowerMenu: function() { powerMenu.open() }
                 apps: appsService
                 media: mediaService
                 battery: batteryService
@@ -133,6 +134,7 @@ ShellRoot {
 
             // qs ipc call powermenu <toggle|open|hide>
             PowerMenu.PowerMenu {
+                id: powerMenu
                 screen: v.modelData
                 session: sessionService
             }
