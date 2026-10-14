@@ -3,7 +3,7 @@ import Quickshell
 import Quickshell.Hyprland
 import "../../config/theme.js" as Theme
 
-// Left island: one slot per workspace - app icon when it has windows, dash when empty.
+// Left island: one group per workspace - every app icon it holds, or a dashed tile when empty.
 Rectangle {
     id: pill
 
@@ -11,11 +11,10 @@ Rectangle {
     implicitWidth: row.implicitWidth + 20
     radius: Theme.radiusOuter
     color: Theme.bg
-    visible: row.implicitWidth > 0
 
     required property var apps
 
-    // slots kept visible even when those workspaces don't exist yet
+    // slots kept even when those workspaces don't exist yet
     property int minWorkspaces: 5
 
     readonly property var slots: {
@@ -31,45 +30,77 @@ Rectangle {
         }
 
         const focused = Hyprland.focusedWorkspace ? Hyprland.focusedWorkspace.id : -1
-        return Object.keys(ids).map(Number).sort((a, b) => a - b).map(id => {
-            const list = wins[id] || []
-            const lead = list.find(e => e.activated) || list[0]
-            return {
-                id: id,
-                icon: lead ? lead.icon : "",
-                cls: lead ? lead.cls : "",
-                active: id === focused
-            }
-        })
+        return Object.keys(ids).map(Number).sort((a, b) => a - b).map(id => ({
+            id: id,
+            active: id === focused,
+            icons: (wins[id] || []).map(e => ({ icon: e.icon, cls: e.cls }))
+        }))
     }
 
     Row {
         id: row
         anchors.centerIn: parent
-        spacing: 6
+        spacing: 10
 
         Repeater {
             model: pill.slots
-            delegate: Rectangle {
+
+            delegate: Item {
+                id: slot
                 required property var modelData
-                width: 24; height: 24; radius: 6
-                color: modelData.active ? Theme.activeBg : (mouse.containsMouse ? Theme.bgItemHover : Theme.bgItem)
 
-                readonly property bool occupied: modelData.icon !== ""
-                readonly property string iconUrl: occupied ? Quickshell.iconPath(modelData.icon, true) : ""
+                readonly property bool isEmpty: modelData.icons.length === 0
+                implicitWidth: slot.isEmpty ? 24 : iconRow.implicitWidth
+                implicitHeight: 24
 
-                Image {
-                    anchors.centerIn: parent
-                    width: 18; height: 18
-                    source: parent.iconUrl
-                    asynchronous: true
-                    visible: source !== ""
+                Row {
+                    id: iconRow
+                    visible: !slot.isEmpty
+                    spacing: 4
+
+                    Repeater {
+                        model: slot.modelData.icons
+
+                        delegate: Item {
+                            required property var modelData
+                            width: 20
+                            height: 24
+                            // no tile behind icons - focus is carried by the opacity
+                            opacity: slot.modelData.active ? 1 : 0.55
+
+                            readonly property string iconUrl: modelData.icon ? Quickshell.iconPath(modelData.icon, true) : ""
+
+                            Image {
+                                anchors.centerIn: parent
+                                width: 18; height: 18
+                                source: parent.iconUrl
+                                asynchronous: true
+                                visible: source !== ""
+                            }
+                            Text {
+                                anchors.centerIn: parent
+                                text: (modelData.cls || "?")[0]
+                                color: Theme.textPrimary; font.bold: true; font.pixelSize: 12
+                                visible: parent.iconUrl === ""
+                            }
+                        }
+                    }
                 }
-                Text {
-                    anchors.centerIn: parent
-                    text: parent.occupied ? (modelData.cls || "?")[0] : "-"
-                    color: Theme.textPrimary; font.bold: true; font.pixelSize: 12
-                    visible: parent.iconUrl === ""
+
+                Rectangle {
+                    visible: slot.isEmpty
+                    anchors.fill: parent
+                    radius: 6
+                    color: slot.modelData.active ? Theme.activeBg
+                        : (mouse.containsMouse ? Theme.bgItemHover : Theme.bgItem)
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: "-"
+                        color: Theme.textMuted
+                        font.family: Theme.textFont
+                        font.pixelSize: Theme.pixelSize
+                    }
                 }
 
                 MouseArea {
@@ -77,7 +108,7 @@ Rectangle {
                     anchors.fill: parent
                     hoverEnabled: true
                     cursorShape: Qt.PointingHandCursor
-                    onClicked: Hyprland.dispatch('hl.dsp.focus({ workspace = ' + modelData.id + ' })')
+                    onClicked: Hyprland.dispatch('hl.dsp.focus({ workspace = ' + slot.modelData.id + ' })')
                 }
             }
         }
