@@ -1,8 +1,6 @@
 //@ pragma IconTheme Tela-circle-blue-dark
 import QtQuick
 import Quickshell
-
-// Composition root: services/ (logic) wired to components/ (UI).
 import "services/notifications" as NotifService
 import "services/power" as Power
 import "services/apps" as Apps
@@ -98,7 +96,7 @@ ShellRoot {
                 rightGap: notifViewer.isOpen ? notifViewer.implicitWidth : 0
             }
 
-            Bar.Island {
+            Bar.Bar {
                 screen: v.modelData
                 toggleNotif: function() { notifViewer.isOpen = !notifViewer.isOpen }
                 openPowerMenu: function() { powerMenu.open() }
@@ -106,6 +104,12 @@ ShellRoot {
                 media: mediaService
                 battery: batteryService
                 bluetooth: bluetoothService
+            }
+
+            // hover card over the center player
+            Bar.MediaCard {
+                screen: v.modelData
+                media: mediaService
             }
 
             Osd.Osd {

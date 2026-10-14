@@ -60,6 +60,8 @@ Rectangle {
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
                 acceptedButtons: Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
+                onEntered: pill.media.popupEnter()
+                onExited: pill.media.popupLeave()
                 onClicked: function(mouse) {
                     const p = pill.media.player
                     if (!p) return

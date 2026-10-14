@@ -44,17 +44,33 @@ Rectangle {
         }
 
         Item {
-            width: pill.cell
+            width: btRow.implicitWidth
             height: pill.cell
 
-            Image {
+            Row {
+                id: btRow
                 anchors.centerIn: parent
-                width: 14
-                height: 14
-                source: Quickshell.iconPath("bluetooth", true)
-                asynchronous: true
-                fillMode: Image.PreserveAspectFit
-                opacity: btMouse.containsMouse ? 1.0 : 0.75
+                spacing: 4
+
+                Image {
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: 14
+                    height: 14
+                    source: Quickshell.iconPath("bluetooth", true)
+                    asynchronous: true
+                    fillMode: Image.PreserveAspectFit
+                    opacity: btMouse.containsMouse ? 1.0 : 0.75
+                }
+                Text {
+                    anchors.verticalCenter: parent.verticalCenter
+                    visible: pill.bluetooth.connectedName !== ""
+                    text: pill.bluetooth.connectedName
+                    color: btMouse.containsMouse ? Theme.textPrimary : Theme.textMuted
+                    font.family: Theme.textFont
+                    font.pixelSize: Theme.pixelSize
+                    elide: Text.ElideRight
+                    width: Math.min(implicitWidth, 120)
+                }
             }
             MouseArea {
                 id: btMouse

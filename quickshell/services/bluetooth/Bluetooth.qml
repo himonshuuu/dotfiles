@@ -16,6 +16,15 @@ Item {
     readonly property bool scanning: !!adapter && adapter.discovering
     readonly property string adapterName: adapter ? adapter.name : ""
 
+    // first connected device - the bar reads this, the panel keeps its own list
+    readonly property string connectedName: {
+        const src = (Bluetooth.devices && Bluetooth.devices.values)
+            ? Array.from(Bluetooth.devices.values) : []
+        for (const d of src)
+            if (d.connected) return String(d.deviceName || d.name || "")
+        return ""
+    }
+
     // ---------------------------------------------------------------- panel
     function togglePanel() { root.open ? root.closePanel() : root.openPanel() }
 

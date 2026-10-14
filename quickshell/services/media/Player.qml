@@ -8,6 +8,14 @@ Item {
 
     property var player: null
 
+    // hover card state - the card window maps off this
+    property bool open: false
+
+    function popupEnter() { closeTimer.stop(); root.open = true }
+    function popupLeave() { closeTimer.start() }
+
+    Timer { id: closeTimer; interval: 180; onTriggered: root.open = false }
+
     readonly property bool playing: player ? player.isPlaying : false
     readonly property string label: (player && player.trackTitle)
         ? player.trackTitle + (player.trackArtist ? " - " + player.trackArtist : "")
