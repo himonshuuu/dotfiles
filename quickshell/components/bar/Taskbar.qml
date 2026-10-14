@@ -3,7 +3,7 @@ import Quickshell
 import Quickshell.Hyprland
 import "../../config/theme.js" as Theme
 
-// Left island: one group per workspace - every app icon it holds, or a dashed tile when empty.
+// Left island: one group per workspace - every app icon it holds, or its number when empty.
 Rectangle {
     id: pill
 
@@ -65,8 +65,6 @@ Rectangle {
                             required property var modelData
                             width: 20
                             height: 24
-                            // no tile behind icons - focus is carried by the opacity
-                            opacity: slot.modelData.active ? 1 : 0.55
 
                             readonly property string iconUrl: modelData.icon ? Quickshell.iconPath(modelData.icon, true) : ""
 
@@ -87,20 +85,24 @@ Rectangle {
                     }
                 }
 
-                Rectangle {
+                Text {
                     visible: slot.isEmpty
-                    anchors.fill: parent
-                    radius: 6
-                    color: slot.modelData.active ? Theme.activeBg
-                        : (mouse.containsMouse ? Theme.bgItemHover : Theme.bgItem)
+                    anchors.centerIn: parent
+                    text: slot.modelData.id
+                    color: Theme.textMuted
+                    font.family: Theme.textFont
+                    font.pixelSize: Theme.pixelSize
+                }
 
-                    Text {
-                        anchors.centerIn: parent
-                        text: "-"
-                        color: Theme.textMuted
-                        font.family: Theme.textFont
-                        font.pixelSize: Theme.pixelSize
-                    }
+                // the only cue for the focused workspace
+                Rectangle {
+                    anchors.bottom: parent.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: (slot.isEmpty ? 14 : iconRow.implicitWidth) - 6
+                    height: 2
+                    radius: 1
+                    color: Theme.accent
+                    visible: slot.modelData.active
                 }
 
                 MouseArea {
