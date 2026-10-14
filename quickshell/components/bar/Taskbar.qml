@@ -3,17 +3,45 @@ import Quickshell
 import Quickshell.Hyprland
 import "../../config/theme.js" as Theme
 
-// Left island: running windows, click to focus.
+// Left island: one slot per workspace - app icon when it has windows, dash when empty.
 Rectangle {
     id: pill
 
     implicitHeight: 30
-    implicitWidth: row.implicitWidth + 12
+    implicitWidth: row.implicitWidth + 20
     radius: Theme.radiusOuter
     color: Theme.bg
     visible: row.implicitWidth > 0
 
     required property var apps
+
+    // slots kept visible even when those workspaces don't exist yet
+    property int minWorkspaces: 5
+
+    readonly property var slots: {
+        const ids = {}
+        for (let i = 1; i <= pill.minWorkspaces; i++) ids[i] = true
+        for (const w of (Hyprland.workspaces?.values ?? [])) ids[w.id] = true
+
+        const wins = {}
+        for (const e of pill.apps.list) {
+            const id = e.tl?.workspace?.id
+            if (id === undefined || id === null) continue
+            (wins[id] = wins[id] || []).push(e)
+        }
+
+        const focused = Hyprland.focusedWorkspace ? Hyprland.focusedWorkspace.id : -1
+        return Object.keys(ids).map(Number).sort((a, b) => a - b).map(id => {
+            const list = wins[id] || []
+            const lead = list.find(e => e.activated) || list[0]
+            return {
+                id: id,
+                icon: lead ? lead.icon : "",
+                cls: lead ? lead.cls : "",
+                active: id === focused
+            }
+        })
+    }
 
     Row {
         id: row
@@ -21,14 +49,14 @@ Rectangle {
         spacing: 6
 
         Repeater {
-            model: pill.apps.list
+            model: pill.slots
             delegate: Rectangle {
                 required property var modelData
-                width: 24; height: 24; 
-                // color: modelData.activated ? Theme.activeBg : (mouse.containsMouse ? Theme.bgItemHover : Theme.bgItem)
-                color: "transparent"
+                width: 24; height: 24; radius: 6
+                color: modelData.active ? Theme.activeBg : (mouse.containsMouse ? Theme.bgItemHover : Theme.bgItem)
 
-                readonly property string iconUrl: Quickshell.iconPath(modelData.icon, true)
+                readonly property bool occupied: modelData.icon !== ""
+                readonly property string iconUrl: occupied ? Quickshell.iconPath(modelData.icon, true) : ""
 
                 Image {
                     anchors.centerIn: parent
@@ -37,29 +65,19 @@ Rectangle {
                     asynchronous: true
                     visible: source !== ""
                 }
-                // Text {
-                //     anchors.centerIn: parent
-                //     text: (modelData.cls || "?")[0]
-                //     color: Theme.textPrimary; font.bold: true; font.pixelSize: 12
-                //     visible: parent.iconUrl === ""
-                // }
+                Text {
+                    anchors.centerIn: parent
+                    text: parent.occupied ? (modelData.cls || "?")[0] : "-"
+                    color: Theme.textPrimary; font.bold: true; font.pixelSize: 12
+                    visible: parent.iconUrl === ""
+                }
 
                 MouseArea {
                     id: mouse
                     anchors.fill: parent
                     hoverEnabled: true
                     cursorShape: Qt.PointingHandCursor
-                    onClicked: {
-                        const tl = modelData.tl
-                        let addr = tl?.lastIpcObject?.address
-                        if (!addr || addr === "0") addr = (tl?.address ? "0x" + tl.address : "")
-                        if (addr && addr !== "0x0") {
-                            Hyprland.dispatch('hl.dsp.focus({ window = "address:' + addr + '" })')
-                        } else {
-                            const cls = tl?.lastIpcObject?.class
-                            if (cls) Hyprland.dispatch('hl.dsp.focus({ window = "class:' + cls + '" })')
-                        }
-                    }
+                    onClicked: Hyprland.dispatch('hl.dsp.focus({ workspace = ' + modelData.id + ' })')
                 }
             }
         }
