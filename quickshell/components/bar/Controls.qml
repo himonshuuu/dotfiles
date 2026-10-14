@@ -2,7 +2,7 @@ import QtQuick
 import Quickshell
 import "../../config/theme.js" as Theme
 
-// Right island: bell, bluetooth, battery, power.
+// Right island: status cells then the power button, every cell on the same 20px line.
 Rectangle {
     id: pill
 
@@ -16,18 +16,18 @@ Rectangle {
     property var toggleNotif: function() {}
     property var openPowerMenu: function() {}
 
+    readonly property int cell: 20
+
     Row {
         id: row
         anchors.centerIn: parent
-        spacing: 8
+        spacing: 6
 
-        // notification viewer toggle
         Item {
-            implicitWidth: bellText.implicitWidth
-            implicitHeight: bellText.implicitHeight
+            width: pill.cell
+            height: pill.cell
 
             Text {
-                id: bellText
                 anchors.centerIn: parent
                 text: "󰂚"
                 color: bellMouse.containsMouse ? Theme.textPrimary : Theme.textMuted
@@ -43,15 +43,14 @@ Rectangle {
             }
         }
 
-        // bluetooth panel toggle
         Item {
-            width: 16
-            height: 16
+            width: pill.cell
+            height: pill.cell
 
             Image {
-                id: btIcon
-                anchors.fill: parent
-                // generic theme lookup, no per-app overrides
+                anchors.centerIn: parent
+                width: 14
+                height: 14
                 source: Quickshell.iconPath("bluetooth", true)
                 asynchronous: true
                 fillMode: Image.PreserveAspectFit
@@ -66,28 +65,48 @@ Rectangle {
             }
         }
 
-        // battery status
-        Row {
-            spacing: 5
+        Item {
+            width: battRow.implicitWidth
+            height: pill.cell
             visible: pill.battery.ready
-            Text {
-                anchors.verticalCenter: parent.verticalCenter
-                text: pill.battery.glyph
-                color: pill.battery.charging ? Theme.accent : Theme.textMuted
-                font.family: Theme.textFont; font.pixelSize: Theme.pixelSize
-            }
-            Text {
-                anchors.verticalCenter: parent.verticalCenter
-                text: pill.battery.percentage + "%"
-                color: Theme.textPrimary; font.family: Theme.textFont; font.pixelSize: Theme.pixelSize
+
+            Row {
+                id: battRow
+                anchors.centerIn: parent
+                spacing: 4
+
+                Text {
+                    text: pill.battery.glyph
+                    color: pill.battery.charging ? Theme.accent : Theme.textMuted
+                    font.family: Theme.textFont
+                    font.pixelSize: Theme.pixelSize
+                }
+                Text {
+                    text: pill.battery.percentage + "%"
+                    color: Theme.textPrimary
+                    font.family: Theme.textFont
+                    font.pixelSize: Theme.pixelSize
+                }
             }
         }
 
-        Text { text: "•"; color: Theme.textMuted }
+        Item {
+            width: 6
+            height: pill.cell
+
+            Text {
+                anchors.centerIn: parent
+                text: "•"
+                color: Theme.textMuted
+                font.family: Theme.textFont
+                font.pixelSize: Theme.pixelSize
+            }
+        }
 
         Rectangle {
-            id: powerBox
-            width: 24; height: 24; radius: 6
+            width: pill.cell
+            height: pill.cell
+            radius: 6
             color: powerMouse.containsMouse ? Theme.activeBg : Theme.bgItem
 
             Text {
@@ -95,7 +114,7 @@ Rectangle {
                 text: "󰐥"
                 color: Theme.textPrimary
                 font.family: Theme.textFont
-                font.pixelSize: 14
+                font.pixelSize: Theme.pixelSize
             }
             MouseArea {
                 id: powerMouse
