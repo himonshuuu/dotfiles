@@ -6,6 +6,7 @@ import "services/power" as Power
 import "services/apps" as Apps
 import "services/media" as Media
 import "services/network" as Network
+import "services/activity" as Activity
 import "services/audio" as Audio
 import "services/display" as Display
 import "services/wallpaper" as WallpaperService
@@ -30,6 +31,7 @@ ShellRoot {
     Power.Session { id: sessionService }
     Media.Player { id: mediaService }
     Network.Network { id: netService }
+    Activity.Activity { id: activityService }
     Apps.Running { id: appsService }
     Apps.Catalog { id: catalogService }
     Audio.Volume { id: volumeService }
@@ -60,6 +62,9 @@ ShellRoot {
 
     // qs ipc call network <info>
     Network.Ipc { net: netService }
+
+    // qs ipc call activity <info>
+    Activity.Ipc { activity: activityService }
 
     // polkit auth agent - registering is all this does; pkexec finds us
     Polkit.Agent { id: polkitService }
@@ -110,6 +115,7 @@ ShellRoot {
                 battery: batteryService
                 bluetooth: bluetoothService
                 net: netService
+                activity: activityService
             }
 
             // hover card over the center player

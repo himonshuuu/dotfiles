@@ -20,15 +20,25 @@ PanelWindow {
     required property var battery   // services/power/Battery.qml
     required property var bluetooth // services/bluetooth/Bluetooth.qml
     required property var net       // services/network/Network.qml
+    required property var activity  // services/activity/Activity.qml
     property var toggleNotif: function() {}
     property var openPowerMenu: function() {}
 
     Taskbar {
+        id: taskbar
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.leftMargin: 8
         anchors.topMargin: 6
         apps: win.apps
+    }
+
+    Indicators {
+        anchors.left: taskbar.right
+        anchors.leftMargin: 8
+        anchors.top: parent.top
+        anchors.topMargin: 6
+        activity: win.activity
     }
 
     Speed {
