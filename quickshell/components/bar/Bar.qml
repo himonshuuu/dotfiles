@@ -19,6 +19,7 @@ PanelWindow {
     required property var media     // services/media/Player.qml
     required property var battery   // services/power/Battery.qml
     required property var bluetooth // services/bluetooth/Bluetooth.qml
+    required property var net       // services/network/Network.qml
     property var toggleNotif: function() {}
     property var openPowerMenu: function() {}
 
@@ -30,6 +31,15 @@ PanelWindow {
         apps: win.apps
     }
 
+    Speed {
+        id: speed
+        anchors.right: controls.left
+        anchors.rightMargin: 8
+        anchors.top: parent.top
+        anchors.topMargin: 6
+        net: win.net
+    }
+
     Center {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
@@ -38,6 +48,7 @@ PanelWindow {
     }
 
     Controls {
+        id: controls
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.rightMargin: 8

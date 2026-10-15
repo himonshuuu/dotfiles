@@ -9,6 +9,7 @@ var border   = "#3b3b5d"
 var textPrimary = "#ffdfc3" // clock/main text
 var textMuted   = "#c19191" // dots / separators
 var accent      = "#905454" // active app tint (if used)
+var hot         = "#e06c75" // speed arrows while data flows
 
 var radiusOuter = 20
 
