@@ -83,6 +83,7 @@ PanelWindow {
                             id: artMask
                             anchors.fill: parent
                             visible: false
+                            layer.enabled: true
                             Rectangle { anchors.fill: parent; radius: art.radius; color: "white" }
                         }
 
