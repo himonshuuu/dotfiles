@@ -42,3 +42,4 @@ After config changes Quickshell hot-reloads; a clean restart is
 `pkill -x quickshell; qs`.
 
 ![Terminal with fastfetch](screenshots/terminal.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f7fbf154-786c-4319-9573-13c797cfb460" />
