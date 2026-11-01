@@ -80,26 +80,26 @@ PanelWindow {
     }
 
     // ------------------------------------------------------------- size chip
-    Rectangle {
-        readonly property int chipW: sizeText.width + 18
+    // Rectangle {
+    //     readonly property int chipW: sizeText.width + 18
 
-        visible: win.dragging && win.selW > 48 && win.selH > 26
-        x: win.selX
-        y: Math.max(4, win.selY - 30)
-        width: chipW
-        height: 24
-        radius: 6
-        color: Theme.activeBg
+    //     visible: win.dragging && win.selW > 48 && win.selH > 26
+    //     x: win.selX
+    //     y: Math.max(4, win.selY - 30)
+    //     width: chipW
+    //     height: 24
+    //     radius: 6
+    //     color: Theme.activeBg
 
-        Text {
-            id: sizeText
-            anchors.centerIn: parent
-            text: Math.round(win.selW) + " \u00d7 " + Math.round(win.selH)
-            color: Theme.textPrimary
-            font.family: Theme.textFont
-            font.pixelSize: Theme.pixelSize
-        }
-    }
+    //     Text {
+    //         id: sizeText
+    //         anchors.centerIn: parent
+    //         text: Math.round(win.selW) + " \u00d7 " + Math.round(win.selH)
+    //         color: Theme.textPrimary
+    //         font.family: Theme.textFont
+    //         font.pixelSize: Theme.pixelSize
+    //     }
+    // }
 
     // ----------------------------------------------------------- idle hint
     Rectangle {

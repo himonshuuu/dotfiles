@@ -16,7 +16,9 @@ import "services/polkit" as Polkit
 import "components/bar" as Bar
 import "components/osd" as Osd
 import "components/notifications" as Notifications
+import "services/switcher" as Switcher
 import "components/launcher" as Launcher
+import "components/switcher" as SwitcherUi
 import "components/powermenu" as PowerMenu
 import "components/lockscreen" as LockScreen
 import "components/wallpaper" as Wallpaper
@@ -78,7 +80,7 @@ ShellRoot {
 
     // one lock surface per output, owned at the shell root rather than per
     // screen - the session-lock protocol already covers every monitor
-    // LockScreen.LockScreen { session: sessionService }
+    LockScreen.LockScreen { session: sessionService }
 
     Variants {
         model: Quickshell.screens
