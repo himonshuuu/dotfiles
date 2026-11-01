@@ -59,10 +59,20 @@ hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("qs ipc call screenshot pick"
 hl.bind(mainMod .. " + ALT + N", hl.dsp.exec_cmd("qs ipc call wallpaper random"))
 
 -- Window switcher (Quickshell): hold SUPER, tap Tab, release SUPER to confirm.
--- The release confirm lives in the popup (components/switcher/Switcher.qml) -
--- a compositor release bind can't fire for a modifier after a chord.
+-- Binds cycle the selection; the confirm-on-release is the input.keyboard.key
+-- handler below, since a compositor release bind can't fire for a modifier
+-- after a chord (hyprwm/Hyprland#4378). confirm() no-ops when the switcher
+-- is closed, so firing on every SUPER release is harmless.
 hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd("qs ipc call switcher next"), { repeating = true })
 hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.exec_cmd("qs ipc call switcher prev"), { repeating = true })
+
+-- Catch SUPER release (fires before the keybind manager, sees every key).
+local SUPER_L, SUPER_R = 133, 134
+hl.on("input.keyboard.key", function(keycode, _, state)
+    if (keycode == SUPER_L or keycode == SUPER_R) and state ~= 1 then
+        hl.exec_cmd("qs ipc call switcher confirm")
+    end
+end)
 
 -- Notification viewer (Quickshell side panel)
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("qs ipc call notifviewer toggle"))

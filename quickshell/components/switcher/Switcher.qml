@@ -112,9 +112,9 @@ PanelWindow {
     }
 
     // Escape cancels, Enter confirms, arrows / bare Tab also cycle.
-    // SUPER release confirms - compositor release binds can't fire for a
-    // modifier after a chord (hyprwm/Hyprland#4378, #15837), so the popup
-    // catches it here, since it holds the keyboard while open.
+    // SUPER release confirms via the input.keyboard.key handler in
+    // hypr/keybinds.lua (layer-shell focus doesn't deliver modifier
+    // releases to Keys here); the Super branch below is a harmless fallback.
     Item {
         id: keySink
         focus: win.visible
