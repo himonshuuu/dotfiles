@@ -58,6 +58,12 @@ hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("qs ipc call screenshot pick"
 -- in itself (services/wallpaper/Wallpaper.qml), so no awww/find/shuf needed
 hl.bind(mainMod .. " + ALT + N", hl.dsp.exec_cmd("qs ipc call wallpaper random"))
 
+-- Window switcher (Quickshell): hold SUPER, tap Tab, release SUPER to confirm.
+-- The release confirm lives in the popup (components/switcher/Switcher.qml) -
+-- a compositor release bind can't fire for a modifier after a chord.
+hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd("qs ipc call switcher next"), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.exec_cmd("qs ipc call switcher prev"), { repeating = true })
+
 -- Notification viewer (Quickshell side panel)
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("qs ipc call notifviewer toggle"))
 

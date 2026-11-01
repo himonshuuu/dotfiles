@@ -34,6 +34,10 @@ ShellRoot {
     Activity.Activity { id: activityService }
     Apps.Running { id: appsService }
     Apps.Catalog { id: catalogService }
+    Switcher.Switcher { id: switcherService; apps: appsService }
+
+    // qs ipc call switcher <open|next|prev|confirm|cancel|info>
+    Switcher.Ipc { sw: switcherService }
     Audio.Volume { id: volumeService }
     Display.Brightness { id: brightnessService }
 
@@ -146,6 +150,12 @@ ShellRoot {
             Launcher.Launcher {
                 screen: v.modelData
                 catalog: catalogService
+            }
+
+            // SUPER+Tab window switcher - hold SUPER, tap Tab, release to confirm
+            SwitcherUi.Switcher {
+                screen: v.modelData
+                sw: switcherService
             }
 
             // qs ipc call powermenu <toggle|open|hide>
