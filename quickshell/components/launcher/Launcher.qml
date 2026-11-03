@@ -29,6 +29,9 @@ PanelWindow {
     // grows with the result count, but never taller than 9 rows
     readonly property int rows: Math.min(Math.max(win.results.length, 1), 9)
 
+    readonly property bool showRecents: input.text === "" && catalog.recents.length > 0
+    readonly property int recentsH: win.showRecents ? 62 + 8 : 0
+
     IpcHandler {
         target: "launcher"
         function toggle(): void { win.toggle() }
@@ -91,7 +94,7 @@ PanelWindow {
         id: panel
         anchors.centerIn: parent
         width: 640
-        height: 64 + win.rows * win.rowH
+        height: 64 + win.recentsH + win.rows * win.rowH
         radius: Theme.radiusOuter
         color: Theme.bg
 
@@ -161,6 +164,76 @@ PanelWindow {
                                 win.launchSelected(); event.accepted = true
                             } else if (event.key === Qt.Key_Escape) {
                                 win.close(); event.accepted = true
+                            }
+                        }
+                    }
+                }
+            }
+
+            // ------------------------------------------------------- recents
+            RowLayout {
+                id: recents
+                Layout.fillWidth: true
+                Layout.preferredHeight: 62
+                spacing: 8
+                visible: win.showRecents
+
+                Repeater {
+                    model: win.showRecents ? catalog.recents : []
+
+                    delegate: Rectangle {
+                        id: tile
+
+                        required property var modelData
+
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        radius: 10
+                        color: tileMouse.containsMouse ? Theme.bgItemHover : Theme.bgItem
+
+                        Image {
+                            id: tileIcon
+                            anchors.top: parent.top
+                            anchors.topMargin: 10
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            width: 28
+                            height: 28
+                            fillMode: Image.PreserveAspectFit
+                            asynchronous: true
+                            source: tile.modelData.icon
+                                ? Quickshell.iconPath(tile.modelData.icon, true) : ""
+                        }
+
+                        Text {
+                            anchors.centerIn: tileIcon
+                            visible: tileIcon.status !== Image.Ready
+                            text: (tile.modelData.name || "?").charAt(0).toUpperCase()
+                            color: Theme.textMuted
+                            font.family: Theme.textFont
+                            font.pixelSize: 16
+                        }
+
+                        Text {
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.bottom: parent.bottom
+                            anchors.bottomMargin: 9
+                            horizontalAlignment: Text.AlignHCenter
+                            text: tile.modelData.name || "?"
+                            color: Theme.textPrimary
+                            elide: Text.ElideRight
+                            font.family: Theme.textFont
+                            font.pixelSize: 11
+                        }
+
+                        MouseArea {
+                            id: tileMouse
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: {
+                                win.close()
+                                win.catalog.launch(tile.modelData)
                             }
                         }
                     }

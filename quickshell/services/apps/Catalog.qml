@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell
+import Quickshell.Io
 
 // Installed applications + fuzzy search over DesktopEntries.applications. No visual code here.
 Item {
@@ -10,6 +11,51 @@ Item {
 
     readonly property var entries: DesktopEntries.applications.values
     readonly property var results: root.search(root.query, root.entries)
+
+    readonly property string store: String(Quickshell.env("HOME")) + "/.cache/quickshell/recent-apps"
+
+    // most-recent-first desktop ids, capped at 5
+    property var recentIds: []
+
+    // ids resolve to entries only once the desktop database has loaded,
+    // so both are passed in to keep the row in sync
+    readonly property var recents: root.resolveRecents(root.entries, root.recentIds)
+
+    FileView {
+        id: recentsFile
+        path: root.store
+        preload: true
+        printErrors: false
+
+        onLoaded: {
+            var stored = [];
+            try { stored = JSON.parse(this.text() || "[]"); } catch (e) { stored = []; }
+            if (!Array.isArray(stored)) stored = [];
+
+            // ids recorded before the file finished reading stay newest
+            root.recentIds = root.recentIds
+                .concat(stored.filter(function(id) { return root.recentIds.indexOf(id) < 0; }))
+                .slice(0, 5);
+        }
+    }
+
+    function resolveRecents(known, ids) {
+        var out = [];
+        for (var i = 0; i < ids.length && out.length < 5; i++) {
+            var e = DesktopEntries.byId(ids[i]);
+            if (e && !e.noDisplay) out.push(e);
+        }
+        return out;
+    }
+
+    function noteLaunched(entry) {
+        var id = entry ? entry.id : "";
+        if (!id) return;
+        root.recentIds = [id]
+            .concat(root.recentIds.filter(function(x) { return x !== id; }))
+            .slice(0, 5);
+        recentsFile.setText(JSON.stringify(root.recentIds));
+    }
 
     // match: >= 0 hit, -1 miss; substring > word boundary > subsequence, shorter names win ties.
     function match(needle, hay) {
@@ -79,6 +125,7 @@ Item {
     // ------------------------------------------------------------ launching
     function launch(entry) {
         if (!entry) return;
+        root.noteLaunched(entry);
         entry.execute();   // honours terminal / workingDirectory / actions
     }
 }
