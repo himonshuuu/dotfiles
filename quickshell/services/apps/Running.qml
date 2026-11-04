@@ -9,6 +9,9 @@ Item {
 
     property var list: []
     property var cache: ({})
+    // addresses Hyprland has reported closed. quickshell can keep a closed
+    // window's toplevel object around, which would render as a ghost tile.
+    property var dead: ({})
 
     Process {
         id: cacheReader
@@ -56,10 +59,44 @@ Item {
         return { tl: tl, cls: cls, activated: activated, icon: root.iconFor(cls) };
     }
 
+    // Hyprland's own lifecycle events are authoritative - openwindow also
+    // clears the mark, since addresses get reused between windows.
+    function markClosed(addr) {
+        if (!addr || root.dead[addr]) return;
+        const next = Object.assign({}, root.dead);
+        next[addr] = Date.now();
+        root.dead = next;
+    }
+
+    function markOpened(addr) {
+        if (!addr || !(addr in root.dead)) return;
+        const next = Object.assign({}, root.dead);
+        delete next[addr];
+        root.dead = next;
+    }
+
     function refresh() {
         Hyprland.refreshToplevels();
 
-        const next = Array.from(Hyprland.toplevels?.values ?? [])
+        const tls = Array.from(Hyprland.toplevels?.values ?? []);
+        const live = {};
+        for (const t of tls) live[String(t.address)] = true;
+        const now = Date.now();
+
+        // forget a mark once its window is gone for good, but keep it for a
+        // while first: a ghost can show up slightly after the close event
+        let drop = false;
+        for (const k in root.dead)
+            if (!live[k] && now - root.dead[k] > 10000) drop = true;
+        if (drop) {
+            const kept = {};
+            for (const k in root.dead)
+                if (live[k] || now - root.dead[k] <= 10000) kept[k] = root.dead[k];
+            root.dead = kept;
+        }
+
+        const next = tls
+            .filter(t => !(String(t.address) in root.dead))
             .sort((a, b) => (a.workspace?.id ?? 0) - (b.workspace?.id ?? 0))
             .map(t => root.entryFor(t));
 
@@ -82,6 +119,11 @@ Item {
     Connections {
         target: Hyprland
         function onRawEvent(ev) {
+            const data = String(ev.data ?? "");
+            const addr = data.split(",")[0];
+            if (ev.name === "closewindow") root.markClosed(addr);
+            else if (ev.name === "openwindow") root.markOpened(addr);
+
             if (["openwindow", "closewindow", "movewindowv2", "workspacev2", "activewindowv2",
                  "changeworkspace", "renameworkspace", "windowtitle"].includes(ev.name))
                 root.refresh();
