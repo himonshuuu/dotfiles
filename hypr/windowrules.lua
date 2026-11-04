@@ -30,3 +30,10 @@ hl.window_rule({
     size  = { 700, 500 },
     suppress_event = "maximize",
 })
+
+-- feh image viewer always floats
+hl.window_rule({
+    name  = "feh-float",
+    match = { initial_class = "^feh$" },
+    float = true,
+})
