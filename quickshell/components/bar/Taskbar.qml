@@ -72,7 +72,10 @@ Rectangle {
                                 anchors.centerIn: parent
                                 width: 18; height: 18
                                 source: parent.iconUrl
-                                asynchronous: true
+                        	fillMode: Image.PreserveAspectFit
+    				smooth: true
+    				mipmap: true
+    				asynchronous: true
                                 visible: source !== ""
                             }
                             Text {
